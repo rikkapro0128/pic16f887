@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
-                                                                                               Tue Mar 09 23:24:57 2021
+                                                                                               Thu Mar 11 00:05:38 2021
 
 Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1 
      1                           	processor	16F887
@@ -215,789 +215,394 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    201  018D                     	;# 
    202  0008                     _PORTD	set	8
    203  0007                     _PORTC	set	7
-   204  0087                     _TRISC	set	135
-   205  0088                     _TRISD	set	136
-   206  0189                     _ANSELH	set	393
-   207  0188                     _ANSEL	set	392
-   208                           
-   209                           	psect	cinit
-   210  07FC                     start_initialization:	
-   211                           ; #config settings
-   212                           
-   213  07FC                     __initialization:
-   214  07FC                     end_of_initialization:	
-   215                           ;End of C runtime variable initialization code
-   216                           
-   217  07FC                     __end_of__initialization:
-   218  07FC  0183               	clrf	3
-   219  07FD  120A  118A  2EB1   	ljmp	_main	;jump to C main() function
-   220                           
-   221                           	psect	cstackCOMMON
-   222  0070                     __pcstackCOMMON:
-   223  0070                     ?_declarePort:
-   224  0070                     ??_declarePort:	
-   225                           ; 1 bytes @ 0x0
-   226                           
-   227  0070                     ?_muoiSauLed:	
-   228                           ; 1 bytes @ 0x0
-   229                           
-   230  0070                     ??_muoiSauLed:	
-   231                           ; 1 bytes @ 0x0
-   232                           
-   233  0070                     ?_main:	
-   234                           ; 1 bytes @ 0x0
-   235                           
-   236                           
-   237                           ; 1 bytes @ 0x0
-   238  0070                     	ds	3
-   239  0073                     muoiSauLed@numberFlash:
-   240                           
-   241                           ; 2 bytes @ 0x3
-   242  0073                     	ds	2
-   243  0075                     muoiSauLed@numberRace:
-   244                           
-   245                           ; 2 bytes @ 0x5
-   246  0075                     	ds	2
-   247  0077                     muoiSauLed@numberCountUp:
-   248                           
-   249                           ; 2 bytes @ 0x7
-   250  0077                     	ds	2
-   251  0079                     muoiSauLed@index:
-   252                           
-   253                           ; 1 bytes @ 0x9
-   254  0079                     	ds	1
-   255  007A                     muoiSauLed@score:
-   256                           
-   257                           ; 1 bytes @ 0xA
-   258  007A                     	ds	1
-   259  007B                     muoiSauLed@hold:
-   260                           
-   261                           ; 1 bytes @ 0xB
-   262  007B                     	ds	1
-   263  007C                     ??_main:
-   264  007C                     main@count:	
-   265                           ; 1 bytes @ 0xC
-   266                           
-   267                           
-   268                           ; 2 bytes @ 0xC
-   269  007C                     	ds	2
-   270                           
-   271                           	psect	maintext
-   272  06B1                     __pmaintext:	
-   273 ;;
-   274 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-   275 ;;
-   276 ;; *************** function _main *****************
-   277 ;; Defined at:
-   278 ;;		line 46 in file "BAI_2_SANG_DAN_D7_D0.c"
-   279 ;; Parameters:    Size  Location     Type
-   280 ;;		None
-   281 ;; Auto vars:     Size  Location     Type
-   282 ;;  count           2   12[COMMON] unsigned int 
-   283 ;; Return value:  Size  Location     Type
-   284 ;;                  1    wreg      void 
-   285 ;; Registers used:
-   286 ;;		wreg, status,2, status,0, pclath, cstack
-   287 ;; Tracked objects:
-   288 ;;		On entry : B00/0
-   289 ;;		On exit  : 0/0
-   290 ;;		Unchanged: 0/0
-   291 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   292 ;;      Params:         0       0       0       0       0
-   293 ;;      Locals:         2       0       0       0       0
-   294 ;;      Temps:          0       0       0       0       0
-   295 ;;      Totals:         2       0       0       0       0
-   296 ;;Total ram usage:        2 bytes
-   297 ;; Hardware stack levels required when called: 1
-   298 ;; This function calls:
-   299 ;;		_declarePort
-   300 ;;		_muoiSauLed
-   301 ;; This function is called by:
-   302 ;;		Startup code after reset
-   303 ;; This function uses a non-reentrant model
-   304 ;;
-   305                           
-   306                           
-   307                           ;psect for function _main
-   308  06B1                     _main:
-   309  06B1                     l759:	
-   310                           ;incstack = 0
-   311                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
-   312                           
-   313                           
-   314                           ;BAI_2_SANG_DAN_D7_D0.c: 47:     declarePort();
-   315  06B1  120A  118A  26A4  120A  118A  	fcall	_declarePort
-   316  06B6                     l761:
-   317                           
-   318                           ;BAI_2_SANG_DAN_D7_D0.c: 48:     unsigned int count = 0;
-   319  06B6  01FC               	clrf	main@count
-   320  06B7  01FD               	clrf	main@count+1
-   321  06B8                     l763:
-   322                           
-   323                           ;BAI_2_SANG_DAN_D7_D0.c: 70:         if(count < 2) {
-   324  06B8  3000               	movlw	0
-   325  06B9  027D               	subwf	main@count+1,w
-   326  06BA  3002               	movlw	2
-   327  06BB  1903               	skipnz
-   328  06BC  027C               	subwf	main@count,w
-   329  06BD  1803               	skipnc
-   330  06BE  2EC0               	goto	u101
-   331  06BF  2EC1               	goto	u100
-   332  06C0                     u101:
-   333  06C0  2ECD               	goto	l769
-   334  06C1                     u100:
-   335  06C1                     l765:
+   204  0006                     _PORTB	set	6
+   205  0086                     _TRISB	set	134
+   206  0087                     _TRISC	set	135
+   207  0088                     _TRISD	set	136
+   208  0189                     _ANSELH	set	393
+   209  0188                     _ANSEL	set	392
+   210                           
+   211                           	psect	cinit
+   212  07FC                     start_initialization:	
+   213                           ; #config settings
+   214                           
+   215  07FC                     __initialization:
+   216  07FC                     end_of_initialization:	
+   217                           ;End of C runtime variable initialization code
+   218                           
+   219  07FC                     __end_of__initialization:
+   220  07FC  0183               	clrf	3
+   221  07FD  120A  118A  2F78   	ljmp	_main	;jump to C main() function
+   222                           
+   223                           	psect	cstackCOMMON
+   224  0070                     __pcstackCOMMON:
+   225  0070                     ?_declarePort:
+   226  0070                     ??_declarePort:	
+   227                           ; 1 bytes @ 0x0
+   228                           
+   229  0070                     ?_sauLedSangDuoi:	
+   230                           ; 1 bytes @ 0x0
+   231                           
+   232  0070                     ??_sauLedSangDuoi:	
+   233                           ; 1 bytes @ 0x0
+   234                           
+   235  0070                     ?_main:	
+   236                           ; 1 bytes @ 0x0
+   237                           
+   238                           
+   239                           ; 1 bytes @ 0x0
+   240  0070                     	ds	2
+   241  0072                     ??_main:
+   242                           
+   243                           	psect	maintext
+   244  0778                     __pmaintext:	
+   245                           ; 1 bytes @ 0x2
+   246 ;;
+   247 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   248 ;;
+   249 ;; *************** function _main *****************
+   250 ;; Defined at:
+   251 ;;		line 48 in file "Yatte_Miru.c"
+   252 ;; Parameters:    Size  Location     Type
+   253 ;;		None
+   254 ;; Auto vars:     Size  Location     Type
+   255 ;;  count           2    0        unsigned int 
+   256 ;; Return value:  Size  Location     Type
+   257 ;;                  1    wreg      void 
+   258 ;; Registers used:
+   259 ;;		wreg, status,2, status,0, pclath, cstack
+   260 ;; Tracked objects:
+   261 ;;		On entry : B00/0
+   262 ;;		On exit  : 0/0
+   263 ;;		Unchanged: 0/0
+   264 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   265 ;;      Params:         0       0       0       0       0
+   266 ;;      Locals:         0       0       0       0       0
+   267 ;;      Temps:          0       0       0       0       0
+   268 ;;      Totals:         0       0       0       0       0
+   269 ;;Total ram usage:        0 bytes
+   270 ;; Hardware stack levels required when called: 1
+   271 ;; This function calls:
+   272 ;;		_declarePort
+   273 ;;		_sauLedSangDuoi
+   274 ;; This function is called by:
+   275 ;;		Startup code after reset
+   276 ;; This function uses a non-reentrant model
+   277 ;;
+   278                           
+   279                           
+   280                           ;psect for function _main
+   281  0778                     _main:
+   282  0778                     l698:	
+   283                           ;incstack = 0
+   284                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   285                           
+   286                           
+   287                           ;Yatte_Miru.c: 49:     declarePort();
+   288  0778  120A  118A  2786  120A  118A  	fcall	_declarePort
+   289  077D                     l700:
+   290  077D                     l702:
+   291                           
+   292                           ;Yatte_Miru.c: 78:         sauLedSangDuoi();
+   293  077D  120A  118A  2795  120A  118A  	fcall	_sauLedSangDuoi
+   294  0782  2F7D               	goto	l702
+   295  0783  120A  118A  2800   	ljmp	start
+   296  0786                     __end_of_main:
+   297                           
+   298                           	psect	text1
+   299  0795                     __ptext1:	
+   300 ;; *************** function _sauLedSangDuoi *****************
+   301 ;; Defined at:
+   302 ;;		line 92 in file "Yatte_Miru.c"
+   303 ;; Parameters:    Size  Location     Type
+   304 ;;		None
+   305 ;; Auto vars:     Size  Location     Type
+   306 ;;		None
+   307 ;; Return value:  Size  Location     Type
+   308 ;;                  1    wreg      void 
+   309 ;; Registers used:
+   310 ;;		wreg
+   311 ;; Tracked objects:
+   312 ;;		On entry : 0/0
+   313 ;;		On exit  : 0/0
+   314 ;;		Unchanged: 0/0
+   315 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   316 ;;      Params:         0       0       0       0       0
+   317 ;;      Locals:         0       0       0       0       0
+   318 ;;      Temps:          2       0       0       0       0
+   319 ;;      Totals:         2       0       0       0       0
+   320 ;;Total ram usage:        2 bytes
+   321 ;; Hardware stack levels used: 1
+   322 ;; This function calls:
+   323 ;;		Nothing
+   324 ;; This function is called by:
+   325 ;;		_main
+   326 ;; This function uses a non-reentrant model
+   327 ;;
+   328                           
+   329                           
+   330                           ;psect for function _sauLedSangDuoi
+   331  0795                     _sauLedSangDuoi:
+   332  0795                     l696:	
+   333                           ;incstack = 0
+   334                           ; Regs used in _sauLedSangDuoi: [wreg]
+   335                           
    336                           
-   337                           ;BAI_2_SANG_DAN_D7_D0.c: 71:             muoiSauLed();
-   338  06C1  120A  118A  26D5  120A  118A  	fcall	_muoiSauLed
-   339  06C6                     l767:
-   340                           
-   341                           ;BAI_2_SANG_DAN_D7_D0.c: 72:             count++;
-   342  06C6  3001               	movlw	1
-   343  06C7  07FC               	addwf	main@count,f
-   344  06C8  1803               	skipnc
-   345  06C9  0AFD               	incf	main@count+1,f
-   346  06CA  3000               	movlw	0
-   347  06CB  07FD               	addwf	main@count+1,f
+   337                           ;Yatte_Miru.c: 93:     TRISB = 0b00100000;
+   338  0795  3020               	movlw	32
+   339  0796  1683               	bsf	3,5	;RP0=1, select bank1
+   340  0797  1303               	bcf	3,6	;RP1=0, select bank1
+   341  0798  0086               	movwf	6	;volatile
+   342                           
+   343                           ;Yatte_Miru.c: 94:     PORTB = 0b00001000;
+   344  0799  3008               	movlw	8
+   345  079A  1283               	bcf	3,5	;RP0=0, select bank0
+   346  079B  1303               	bcf	3,6	;RP1=0, select bank0
+   347  079C  0086               	movwf	6	;volatile
    348                           
-   349                           ;BAI_2_SANG_DAN_D7_D0.c: 73:         }else {
-   350  06CC  2EB8               	goto	l763
-   351  06CD                     l769:
-   352                           
-   353                           ;BAI_2_SANG_DAN_D7_D0.c: 74:             PORTC = 0xff;
-   354  06CD  30FF               	movlw	255
-   355  06CE  1283               	bcf	3,5	;RP0=0, select bank0
-   356  06CF  1303               	bcf	3,6	;RP1=0, select bank0
-   357  06D0  0087               	movwf	7	;volatile
-   358  06D1  2EB8               	goto	l763
-   359  06D2  120A  118A  2800   	ljmp	start
-   360  06D5                     __end_of_main:
-   361                           
-   362                           	psect	text1
-   363  06D5                     __ptext1:	
-   364 ;; *************** function _muoiSauLed *****************
-   365 ;; Defined at:
-   366 ;;		line 169 in file "BAI_2_SANG_DAN_D7_D0.c"
-   367 ;; Parameters:    Size  Location     Type
-   368 ;;		None
-   369 ;; Auto vars:     Size  Location     Type
-   370 ;;  hold            1   11[COMMON] unsigned char 
-   371 ;;  index           1    9[COMMON] unsigned char 
-   372 ;;  score           1   10[COMMON] unsigned char 
-   373 ;;  numberCountU    2    7[COMMON] unsigned int 
-   374 ;;  numberRace      2    5[COMMON] unsigned int 
-   375 ;;  numberFlash     2    3[COMMON] unsigned int 
-   376 ;; Return value:  Size  Location     Type
-   377 ;;                  1    wreg      void 
-   378 ;; Registers used:
-   379 ;;		wreg, status,2, status,0
-   380 ;; Tracked objects:
-   381 ;;		On entry : 0/0
-   382 ;;		On exit  : 0/0
-   383 ;;		Unchanged: 0/0
-   384 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   385 ;;      Params:         0       0       0       0       0
-   386 ;;      Locals:         9       0       0       0       0
-   387 ;;      Temps:          3       0       0       0       0
-   388 ;;      Totals:        12       0       0       0       0
-   389 ;;Total ram usage:       12 bytes
-   390 ;; Hardware stack levels used: 1
-   391 ;; This function calls:
-   392 ;;		Nothing
-   393 ;; This function is called by:
-   394 ;;		_main
-   395 ;; This function uses a non-reentrant model
-   396 ;;
-   397                           
-   398                           
-   399                           ;psect for function _muoiSauLed
-   400  06D5                     _muoiSauLed:
-   401  06D5                     l691:	
-   402                           ;incstack = 0
-   403                           ; Regs used in _muoiSauLed: [wreg+status,2+status,0]
-   404                           
-   405                           
-   406                           ;BAI_2_SANG_DAN_D7_D0.c: 170:     unsigned int numberFlash = 4, numberRace = 2, numberCo
-      +                          untUp = 3;
-   407  06D5  3004               	movlw	4
-   408  06D6  00F3               	movwf	muoiSauLed@numberFlash
-   409  06D7  3000               	movlw	0
-   410  06D8  00F4               	movwf	muoiSauLed@numberFlash+1
-   411  06D9  3002               	movlw	2
-   412  06DA  00F5               	movwf	muoiSauLed@numberRace
-   413  06DB  3000               	movlw	0
-   414  06DC  00F6               	movwf	muoiSauLed@numberRace+1
-   415  06DD  3003               	movlw	3
-   416  06DE  00F7               	movwf	muoiSauLed@numberCountUp
-   417  06DF  3000               	movlw	0
-   418  06E0  00F8               	movwf	muoiSauLed@numberCountUp+1
-   419                           
-   420                           ;BAI_2_SANG_DAN_D7_D0.c: 172:     while(numberFlash > 0) {
-   421  06E1  2F0A               	goto	l699
-   422  06E2                     l693:
-   423                           
-   424                           ;BAI_2_SANG_DAN_D7_D0.c: 173:         _delay((unsigned long)((300)*(4000000/4000.0)));
-   425  06E2  3002               	movlw	2
-   426  06E3  00F2               	movwf	??_muoiSauLed+2
-   427  06E4  3086               	movlw	134
-   428  06E5  00F1               	movwf	??_muoiSauLed+1
-   429  06E6  3099               	movlw	153
-   430  06E7  00F0               	movwf	??_muoiSauLed
-   431  06E8                     u257:
-   432  06E8  0BF0               	decfsz	??_muoiSauLed,f
-   433  06E9  2EE8               	goto	u257
-   434  06EA  0BF1               	decfsz	??_muoiSauLed+1,f
-   435  06EB  2EE8               	goto	u257
-   436  06EC  0BF2               	decfsz	??_muoiSauLed+2,f
-   437  06ED  2EE8               	goto	u257
+   349                           ;Yatte_Miru.c: 95:     _delay((unsigned long)((50)*(4000000/4000.0)));
+   350  079D  3041               	movlw	65
+   351  079E  00F1               	movwf	??_sauLedSangDuoi+1
+   352  079F  30EE               	movlw	238
+   353  07A0  00F0               	movwf	??_sauLedSangDuoi
+   354  07A1                     u247:
+   355  07A1  0BF0               	decfsz	??_sauLedSangDuoi,f
+   356  07A2  2FA1               	goto	u247
+   357  07A3  0BF1               	decfsz	??_sauLedSangDuoi+1,f
+   358  07A4  2FA1               	goto	u247
+   359  07A5  0000               	nop
+   360                           
+   361                           ;Yatte_Miru.c: 96:     TRISB = 0b00100000;
+   362  07A6  3020               	movlw	32
+   363  07A7  1683               	bsf	3,5	;RP0=1, select bank1
+   364  07A8  1303               	bcf	3,6	;RP1=0, select bank1
+   365  07A9  0086               	movwf	6	;volatile
+   366                           
+   367                           ;Yatte_Miru.c: 97:     PORTB = 0b00010000;
+   368  07AA  3010               	movlw	16
+   369  07AB  1283               	bcf	3,5	;RP0=0, select bank0
+   370  07AC  1303               	bcf	3,6	;RP1=0, select bank0
+   371  07AD  0086               	movwf	6	;volatile
+   372                           
+   373                           ;Yatte_Miru.c: 98:     _delay((unsigned long)((50)*(4000000/4000.0)));
+   374  07AE  3041               	movlw	65
+   375  07AF  00F1               	movwf	??_sauLedSangDuoi+1
+   376  07B0  30EE               	movlw	238
+   377  07B1  00F0               	movwf	??_sauLedSangDuoi
+   378  07B2                     u257:
+   379  07B2  0BF0               	decfsz	??_sauLedSangDuoi,f
+   380  07B3  2FB2               	goto	u257
+   381  07B4  0BF1               	decfsz	??_sauLedSangDuoi+1,f
+   382  07B5  2FB2               	goto	u257
+   383  07B6  0000               	nop
+   384                           
+   385                           ;Yatte_Miru.c: 99:     TRISB = 0b00001000;
+   386  07B7  3008               	movlw	8
+   387  07B8  1683               	bsf	3,5	;RP0=1, select bank1
+   388  07B9  1303               	bcf	3,6	;RP1=0, select bank1
+   389  07BA  0086               	movwf	6	;volatile
+   390                           
+   391                           ;Yatte_Miru.c: 100:     PORTB = 0b00010000;
+   392  07BB  3010               	movlw	16
+   393  07BC  1283               	bcf	3,5	;RP0=0, select bank0
+   394  07BD  1303               	bcf	3,6	;RP1=0, select bank0
+   395  07BE  0086               	movwf	6	;volatile
+   396                           
+   397                           ;Yatte_Miru.c: 101:     _delay((unsigned long)((50)*(4000000/4000.0)));
+   398  07BF  3041               	movlw	65
+   399  07C0  00F1               	movwf	??_sauLedSangDuoi+1
+   400  07C1  30EE               	movlw	238
+   401  07C2  00F0               	movwf	??_sauLedSangDuoi
+   402  07C3                     u267:
+   403  07C3  0BF0               	decfsz	??_sauLedSangDuoi,f
+   404  07C4  2FC3               	goto	u267
+   405  07C5  0BF1               	decfsz	??_sauLedSangDuoi+1,f
+   406  07C6  2FC3               	goto	u267
+   407  07C7  0000               	nop
+   408                           
+   409                           ;Yatte_Miru.c: 102:     TRISB = 0b00001000;
+   410  07C8  3008               	movlw	8
+   411  07C9  1683               	bsf	3,5	;RP0=1, select bank1
+   412  07CA  1303               	bcf	3,6	;RP1=0, select bank1
+   413  07CB  0086               	movwf	6	;volatile
+   414                           
+   415                           ;Yatte_Miru.c: 103:     PORTB = 0b00100000;
+   416  07CC  3020               	movlw	32
+   417  07CD  1283               	bcf	3,5	;RP0=0, select bank0
+   418  07CE  1303               	bcf	3,6	;RP1=0, select bank0
+   419  07CF  0086               	movwf	6	;volatile
+   420                           
+   421                           ;Yatte_Miru.c: 104:     _delay((unsigned long)((50)*(4000000/4000.0)));
+   422  07D0  3041               	movlw	65
+   423  07D1  00F1               	movwf	??_sauLedSangDuoi+1
+   424  07D2  30EE               	movlw	238
+   425  07D3  00F0               	movwf	??_sauLedSangDuoi
+   426  07D4                     u277:
+   427  07D4  0BF0               	decfsz	??_sauLedSangDuoi,f
+   428  07D5  2FD4               	goto	u277
+   429  07D6  0BF1               	decfsz	??_sauLedSangDuoi+1,f
+   430  07D7  2FD4               	goto	u277
+   431  07D8  0000               	nop
+   432                           
+   433                           ;Yatte_Miru.c: 105:     TRISB = 0b00010000;
+   434  07D9  3010               	movlw	16
+   435  07DA  1683               	bsf	3,5	;RP0=1, select bank1
+   436  07DB  1303               	bcf	3,6	;RP1=0, select bank1
+   437  07DC  0086               	movwf	6	;volatile
    438                           
-   439                           ;BAI_2_SANG_DAN_D7_D0.c: 174:         PORTC = 0xff;
-   440  06EE  30FF               	movlw	255
-   441  06EF  1283               	bcf	3,5	;RP0=0, select bank0
-   442  06F0  1303               	bcf	3,6	;RP1=0, select bank0
-   443  06F1  0087               	movwf	7	;volatile
+   439                           ;Yatte_Miru.c: 106:     PORTB = 0b00100000;
+   440  07DD  3020               	movlw	32
+   441  07DE  1283               	bcf	3,5	;RP0=0, select bank0
+   442  07DF  1303               	bcf	3,6	;RP1=0, select bank0
+   443  07E0  0086               	movwf	6	;volatile
    444                           
-   445                           ;BAI_2_SANG_DAN_D7_D0.c: 175:         PORTD = 0xff;
-   446  06F2  30FF               	movlw	255
-   447  06F3  0088               	movwf	8	;volatile
-   448                           
-   449                           ;BAI_2_SANG_DAN_D7_D0.c: 176:         _delay((unsigned long)((300)*(4000000/4000.0)));
-   450  06F4  3002               	movlw	2
-   451  06F5  00F2               	movwf	??_muoiSauLed+2
-   452  06F6  3086               	movlw	134
-   453  06F7  00F1               	movwf	??_muoiSauLed+1
-   454  06F8  3099               	movlw	153
-   455  06F9  00F0               	movwf	??_muoiSauLed
-   456  06FA                     u267:
-   457  06FA  0BF0               	decfsz	??_muoiSauLed,f
-   458  06FB  2EFA               	goto	u267
-   459  06FC  0BF1               	decfsz	??_muoiSauLed+1,f
-   460  06FD  2EFA               	goto	u267
-   461  06FE  0BF2               	decfsz	??_muoiSauLed+2,f
-   462  06FF  2EFA               	goto	u267
-   463  0700                     l695:
-   464                           
-   465                           ;BAI_2_SANG_DAN_D7_D0.c: 177:         PORTC = 0x00;
-   466  0700  1283               	bcf	3,5	;RP0=0, select bank0
-   467  0701  1303               	bcf	3,6	;RP1=0, select bank0
-   468  0702  0187               	clrf	7	;volatile
-   469  0703                     l697:
-   470                           
-   471                           ;BAI_2_SANG_DAN_D7_D0.c: 178:         PORTD = 0x00;
-   472  0703  0188               	clrf	8	;volatile
-   473                           
-   474                           ;BAI_2_SANG_DAN_D7_D0.c: 179:         numberFlash--;
-   475  0704  3001               	movlw	1
-   476  0705  02F3               	subwf	muoiSauLed@numberFlash,f
-   477  0706  3000               	movlw	0
-   478  0707  1C03               	skipc
-   479  0708  03F4               	decf	muoiSauLed@numberFlash+1,f
-   480  0709  02F4               	subwf	muoiSauLed@numberFlash+1,f
-   481  070A                     l699:
-   482                           
-   483                           ;BAI_2_SANG_DAN_D7_D0.c: 172:     while(numberFlash > 0) {
-   484  070A  0873               	movf	muoiSauLed@numberFlash,w
-   485  070B  0474               	iorwf	muoiSauLed@numberFlash+1,w
-   486  070C  1D03               	btfss	3,2
-   487  070D  2F0F               	goto	u11
-   488  070E  2F10               	goto	u10
-   489  070F                     u11:
-   490  070F  2EE2               	goto	l693
-   491  0710                     u10:
-   492  0710  2F7C               	goto	l725
-   493  0711                     l701:
-   494                           
-   495                           ;BAI_2_SANG_DAN_D7_D0.c: 183:         PORTD = 0;
-   496  0711  1283               	bcf	3,5	;RP0=0, select bank0
-   497  0712  1303               	bcf	3,6	;RP1=0, select bank0
-   498  0713  0188               	clrf	8	;volatile
-   499  0714                     l703:
-   500                           
-   501                           ;BAI_2_SANG_DAN_D7_D0.c: 184:         _delay((unsigned long)((300)*(4000000/4000.0)));
-   502  0714  3002               	movlw	2
-   503  0715  00F2               	movwf	??_muoiSauLed+2
-   504  0716  3086               	movlw	134
-   505  0717  00F1               	movwf	??_muoiSauLed+1
-   506  0718  3099               	movlw	153
-   507  0719  00F0               	movwf	??_muoiSauLed
-   508  071A                     u277:
-   509  071A  0BF0               	decfsz	??_muoiSauLed,f
-   510  071B  2F1A               	goto	u277
-   511  071C  0BF1               	decfsz	??_muoiSauLed+1,f
-   512  071D  2F1A               	goto	u277
-   513  071E  0BF2               	decfsz	??_muoiSauLed+2,f
-   514  071F  2F1A               	goto	u277
-   515  0720                     l705:
-   516                           
-   517                           ;BAI_2_SANG_DAN_D7_D0.c: 185:         unsigned char score = 0;
-   518  0720  01FA               	clrf	muoiSauLed@score
-   519                           
-   520                           ;BAI_2_SANG_DAN_D7_D0.c: 186:         while(score < 8) {
-   521  0721  2F42               	goto	l81
-   522  0722                     l707:
-   523                           
-   524                           ;BAI_2_SANG_DAN_D7_D0.c: 187:             PORTD = (0x80 >> score);
-   525  0722  0A7A               	incf	muoiSauLed@score,w
-   526  0723  00F0               	movwf	??_muoiSauLed
-   527  0724  3080               	movlw	128
-   528  0725  00F1               	movwf	??_muoiSauLed+1
-   529  0726  3000               	movlw	0
-   530  0727  00F2               	movwf	??_muoiSauLed+2
-   531  0728  2F2C               	goto	u24
-   532  0729                     u25:
-   533  0729  0D72               	rlf	??_muoiSauLed+2,w
-   534  072A  0CF2               	rrf	??_muoiSauLed+2,f
-   535  072B  0CF1               	rrf	??_muoiSauLed+1,f
-   536  072C                     u24:
-   537  072C  0BF0               	decfsz	??_muoiSauLed,f
-   538  072D  2F29               	goto	u25
-   539  072E  0871               	movf	??_muoiSauLed+1,w
-   540  072F  1283               	bcf	3,5	;RP0=0, select bank0
-   541  0730  1303               	bcf	3,6	;RP1=0, select bank0
-   542  0731  0088               	movwf	8	;volatile
-   543  0732                     l709:
+   445                           ;Yatte_Miru.c: 107:     _delay((unsigned long)((50)*(4000000/4000.0)));
+   446  07E1  3041               	movlw	65
+   447  07E2  00F1               	movwf	??_sauLedSangDuoi+1
+   448  07E3  30EE               	movlw	238
+   449  07E4  00F0               	movwf	??_sauLedSangDuoi
+   450  07E5                     u287:
+   451  07E5  0BF0               	decfsz	??_sauLedSangDuoi,f
+   452  07E6  2FE5               	goto	u287
+   453  07E7  0BF1               	decfsz	??_sauLedSangDuoi+1,f
+   454  07E8  2FE5               	goto	u287
+   455  07E9  0000               	nop
+   456                           
+   457                           ;Yatte_Miru.c: 108:     TRISB = 0b00010000;
+   458  07EA  3010               	movlw	16
+   459  07EB  1683               	bsf	3,5	;RP0=1, select bank1
+   460  07EC  1303               	bcf	3,6	;RP1=0, select bank1
+   461  07ED  0086               	movwf	6	;volatile
+   462                           
+   463                           ;Yatte_Miru.c: 109:     PORTB = 0b00001000;
+   464  07EE  3008               	movlw	8
+   465  07EF  1283               	bcf	3,5	;RP0=0, select bank0
+   466  07F0  1303               	bcf	3,6	;RP1=0, select bank0
+   467  07F1  0086               	movwf	6	;volatile
+   468                           
+   469                           ;Yatte_Miru.c: 110:     _delay((unsigned long)((50)*(4000000/4000.0)));
+   470  07F2  3041               	movlw	65
+   471  07F3  00F1               	movwf	??_sauLedSangDuoi+1
+   472  07F4  30EE               	movlw	238
+   473  07F5  00F0               	movwf	??_sauLedSangDuoi
+   474  07F6                     u297:
+   475  07F6  0BF0               	decfsz	??_sauLedSangDuoi,f
+   476  07F7  2FF6               	goto	u297
+   477  07F8  0BF1               	decfsz	??_sauLedSangDuoi+1,f
+   478  07F9  2FF6               	goto	u297
+   479  07FA  0000               	nop
+   480  07FB                     l36:
+   481  07FB  0008               	return
+   482  07FC                     __end_of_sauLedSangDuoi:
+   483                           
+   484                           	psect	text2
+   485  0786                     __ptext2:	
+   486 ;; *************** function _declarePort *****************
+   487 ;; Defined at:
+   488 ;;		line 82 in file "Yatte_Miru.c"
+   489 ;; Parameters:    Size  Location     Type
+   490 ;;		None
+   491 ;; Auto vars:     Size  Location     Type
+   492 ;;		None
+   493 ;; Return value:  Size  Location     Type
+   494 ;;                  1    wreg      void 
+   495 ;; Registers used:
+   496 ;;		status,2
+   497 ;; Tracked objects:
+   498 ;;		On entry : 0/0
+   499 ;;		On exit  : 0/0
+   500 ;;		Unchanged: 0/0
+   501 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   502 ;;      Params:         0       0       0       0       0
+   503 ;;      Locals:         0       0       0       0       0
+   504 ;;      Temps:          0       0       0       0       0
+   505 ;;      Totals:         0       0       0       0       0
+   506 ;;Total ram usage:        0 bytes
+   507 ;; Hardware stack levels used: 1
+   508 ;; This function calls:
+   509 ;;		Nothing
+   510 ;; This function is called by:
+   511 ;;		_main
+   512 ;; This function uses a non-reentrant model
+   513 ;;
+   514                           
+   515                           
+   516                           ;psect for function _declarePort
+   517  0786                     _declarePort:
+   518  0786                     l694:	
+   519                           ;incstack = 0
+   520                           ; Regs used in _declarePort: [status,2]
+   521                           
+   522                           
+   523                           ;Yatte_Miru.c: 83:     ANSEL = ANSELH = 0;
+   524  0786  1683               	bsf	3,5	;RP0=1, select bank3
+   525  0787  1703               	bsf	3,6	;RP1=1, select bank3
+   526  0788  0189               	clrf	9	;volatile
+   527  0789  0188               	clrf	8	;volatile
+   528                           
+   529                           ;Yatte_Miru.c: 84:     TRISD = 0;
+   530  078A  1683               	bsf	3,5	;RP0=1, select bank1
+   531  078B  1303               	bcf	3,6	;RP1=0, select bank1
+   532  078C  0188               	clrf	8	;volatile
+   533                           
+   534                           ;Yatte_Miru.c: 85:     TRISC = 0;
+   535  078D  0187               	clrf	7	;volatile
+   536                           
+   537                           ;Yatte_Miru.c: 86:     TRISB = 0;
+   538  078E  0186               	clrf	6	;volatile
+   539                           
+   540                           ;Yatte_Miru.c: 87:     PORTB = 0;
+   541  078F  1283               	bcf	3,5	;RP0=0, select bank0
+   542  0790  1303               	bcf	3,6	;RP1=0, select bank0
+   543  0791  0186               	clrf	6	;volatile
    544                           
-   545                           ;BAI_2_SANG_DAN_D7_D0.c: 188:             _delay((unsigned long)((300)*(4000000/4000.0))
-      +                          );
-   546  0732  3002               	movlw	2
-   547  0733  00F2               	movwf	??_muoiSauLed+2
-   548  0734  3086               	movlw	134
-   549  0735  00F1               	movwf	??_muoiSauLed+1
-   550  0736  3099               	movlw	153
-   551  0737  00F0               	movwf	??_muoiSauLed
-   552  0738                     u287:
-   553  0738  0BF0               	decfsz	??_muoiSauLed,f
-   554  0739  2F38               	goto	u287
-   555  073A  0BF1               	decfsz	??_muoiSauLed+1,f
-   556  073B  2F38               	goto	u287
-   557  073C  0BF2               	decfsz	??_muoiSauLed+2,f
-   558  073D  2F38               	goto	u287
-   559  073E                     l711:
-   560                           
-   561                           ;BAI_2_SANG_DAN_D7_D0.c: 189:             score++;
-   562  073E  3001               	movlw	1
-   563  073F  00F0               	movwf	??_muoiSauLed
-   564  0740  0870               	movf	??_muoiSauLed,w
-   565  0741  07FA               	addwf	muoiSauLed@score,f
-   566  0742                     l81:	
-   567                           ;BAI_2_SANG_DAN_D7_D0.c: 190:         }
-   568                           
-   569                           
-   570                           ;BAI_2_SANG_DAN_D7_D0.c: 186:         while(score < 8) {
-   571  0742  3008               	movlw	8
-   572  0743  027A               	subwf	muoiSauLed@score,w
-   573  0744  1C03               	skipc
-   574  0745  2F47               	goto	u31
-   575  0746  2F48               	goto	u30
-   576  0747                     u31:
-   577  0747  2F22               	goto	l707
-   578  0748                     u30:
-   579  0748                     l713:
-   580                           
-   581                           ;BAI_2_SANG_DAN_D7_D0.c: 191:         PORTD = 0;
-   582  0748  1283               	bcf	3,5	;RP0=0, select bank0
-   583  0749  1303               	bcf	3,6	;RP1=0, select bank0
-   584  074A  0188               	clrf	8	;volatile
-   585                           
-   586                           ;BAI_2_SANG_DAN_D7_D0.c: 192:         score = 0;
-   587  074B  01FA               	clrf	muoiSauLed@score
-   588                           
-   589                           ;BAI_2_SANG_DAN_D7_D0.c: 193:         while(score < 8) {
-   590  074C  2F6D               	goto	l84
-   591  074D                     l715:
-   592                           
-   593                           ;BAI_2_SANG_DAN_D7_D0.c: 194:             PORTC = (0x80 >> score);
-   594  074D  0A7A               	incf	muoiSauLed@score,w
-   595  074E  00F0               	movwf	??_muoiSauLed
-   596  074F  3080               	movlw	128
-   597  0750  00F1               	movwf	??_muoiSauLed+1
-   598  0751  3000               	movlw	0
-   599  0752  00F2               	movwf	??_muoiSauLed+2
-   600  0753  2F57               	goto	u44
-   601  0754                     u45:
-   602  0754  0D72               	rlf	??_muoiSauLed+2,w
-   603  0755  0CF2               	rrf	??_muoiSauLed+2,f
-   604  0756  0CF1               	rrf	??_muoiSauLed+1,f
-   605  0757                     u44:
-   606  0757  0BF0               	decfsz	??_muoiSauLed,f
-   607  0758  2F54               	goto	u45
-   608  0759  0871               	movf	??_muoiSauLed+1,w
-   609  075A  1283               	bcf	3,5	;RP0=0, select bank0
-   610  075B  1303               	bcf	3,6	;RP1=0, select bank0
-   611  075C  0087               	movwf	7	;volatile
-   612  075D                     l717:
-   613                           
-   614                           ;BAI_2_SANG_DAN_D7_D0.c: 195:             _delay((unsigned long)((300)*(4000000/4000.0))
-      +                          );
-   615  075D  3002               	movlw	2
-   616  075E  00F2               	movwf	??_muoiSauLed+2
-   617  075F  3086               	movlw	134
-   618  0760  00F1               	movwf	??_muoiSauLed+1
-   619  0761  3099               	movlw	153
-   620  0762  00F0               	movwf	??_muoiSauLed
-   621  0763                     u297:
-   622  0763  0BF0               	decfsz	??_muoiSauLed,f
-   623  0764  2F63               	goto	u297
-   624  0765  0BF1               	decfsz	??_muoiSauLed+1,f
-   625  0766  2F63               	goto	u297
-   626  0767  0BF2               	decfsz	??_muoiSauLed+2,f
-   627  0768  2F63               	goto	u297
-   628  0769                     l719:
-   629                           
-   630                           ;BAI_2_SANG_DAN_D7_D0.c: 196:             score++;
-   631  0769  3001               	movlw	1
-   632  076A  00F0               	movwf	??_muoiSauLed
-   633  076B  0870               	movf	??_muoiSauLed,w
-   634  076C  07FA               	addwf	muoiSauLed@score,f
-   635  076D                     l84:	
-   636                           ;BAI_2_SANG_DAN_D7_D0.c: 197:         }
-   637                           
-   638                           
-   639                           ;BAI_2_SANG_DAN_D7_D0.c: 193:         while(score < 8) {
-   640  076D  3008               	movlw	8
-   641  076E  027A               	subwf	muoiSauLed@score,w
-   642  076F  1C03               	skipc
-   643  0770  2F72               	goto	u51
-   644  0771  2F73               	goto	u50
-   645  0772                     u51:
-   646  0772  2F4D               	goto	l715
-   647  0773                     u50:
-   648  0773                     l721:
-   649                           
-   650                           ;BAI_2_SANG_DAN_D7_D0.c: 198:         PORTC = 0;
-   651  0773  1283               	bcf	3,5	;RP0=0, select bank0
-   652  0774  1303               	bcf	3,6	;RP1=0, select bank0
-   653  0775  0187               	clrf	7	;volatile
-   654  0776                     l723:
-   655                           
-   656                           ;BAI_2_SANG_DAN_D7_D0.c: 199:         numberRace--;
-   657  0776  3001               	movlw	1
-   658  0777  02F5               	subwf	muoiSauLed@numberRace,f
-   659  0778  3000               	movlw	0
-   660  0779  1C03               	skipc
-   661  077A  03F6               	decf	muoiSauLed@numberRace+1,f
-   662  077B  02F6               	subwf	muoiSauLed@numberRace+1,f
-   663  077C                     l725:
-   664                           
-   665                           ;BAI_2_SANG_DAN_D7_D0.c: 182:     while(numberRace > 0) {
-   666  077C  0875               	movf	muoiSauLed@numberRace,w
-   667  077D  0476               	iorwf	muoiSauLed@numberRace+1,w
-   668  077E  1D03               	btfss	3,2
-   669  077F  2F81               	goto	u61
-   670  0780  2F82               	goto	u60
-   671  0781                     u61:
-   672  0781  2F11               	goto	l701
-   673  0782                     u60:
-   674  0782  2FEF               	goto	l755
-   675  0783                     l727:
-   676                           
-   677                           ;BAI_2_SANG_DAN_D7_D0.c: 202:         unsigned char index = 0;
-   678  0783  01F9               	clrf	muoiSauLed@index
-   679  0784                     l729:
-   680                           
-   681                           ;BAI_2_SANG_DAN_D7_D0.c: 203:         unsigned char hold = 0x80;
-   682  0784  3080               	movlw	128
-   683  0785  00F0               	movwf	??_muoiSauLed
-   684  0786  0870               	movf	??_muoiSauLed,w
-   685  0787  00FB               	movwf	muoiSauLed@hold
-   686  0788                     l731:
-   687                           
-   688                           ;BAI_2_SANG_DAN_D7_D0.c: 204:         PORTD = 0;
-   689  0788  1283               	bcf	3,5	;RP0=0, select bank0
-   690  0789  1303               	bcf	3,6	;RP1=0, select bank0
-   691  078A  0188               	clrf	8	;volatile
-   692                           
-   693                           ;BAI_2_SANG_DAN_D7_D0.c: 205:         _delay((unsigned long)((300)*(4000000/4000.0)));
-   694  078B  3002               	movlw	2
-   695  078C  00F2               	movwf	??_muoiSauLed+2
-   696  078D  3086               	movlw	134
-   697  078E  00F1               	movwf	??_muoiSauLed+1
-   698  078F  3099               	movlw	153
-   699  0790  00F0               	movwf	??_muoiSauLed
-   700  0791                     u307:
-   701  0791  0BF0               	decfsz	??_muoiSauLed,f
-   702  0792  2F91               	goto	u307
-   703  0793  0BF1               	decfsz	??_muoiSauLed+1,f
-   704  0794  2F91               	goto	u307
-   705  0795  0BF2               	decfsz	??_muoiSauLed+2,f
-   706  0796  2F91               	goto	u307
-   707                           
-   708                           ;BAI_2_SANG_DAN_D7_D0.c: 206:         while(index < 8) {
-   709  0797  2FB4               	goto	l90
-   710  0798                     l733:
-   711                           
-   712                           ;BAI_2_SANG_DAN_D7_D0.c: 207:             PORTD = hold;
-   713  0798  087B               	movf	muoiSauLed@hold,w
-   714  0799  1283               	bcf	3,5	;RP0=0, select bank0
-   715  079A  1303               	bcf	3,6	;RP1=0, select bank0
-   716  079B  0088               	movwf	8	;volatile
-   717                           
-   718                           ;BAI_2_SANG_DAN_D7_D0.c: 208:             _delay((unsigned long)((300)*(4000000/4000.0))
-      +                          );
-   719  079C  3002               	movlw	2
-   720  079D  00F2               	movwf	??_muoiSauLed+2
-   721  079E  3086               	movlw	134
-   722  079F  00F1               	movwf	??_muoiSauLed+1
-   723  07A0  3099               	movlw	153
-   724  07A1  00F0               	movwf	??_muoiSauLed
-   725  07A2                     u317:
-   726  07A2  0BF0               	decfsz	??_muoiSauLed,f
-   727  07A3  2FA2               	goto	u317
-   728  07A4  0BF1               	decfsz	??_muoiSauLed+1,f
-   729  07A5  2FA2               	goto	u317
-   730  07A6  0BF2               	decfsz	??_muoiSauLed+2,f
-   731  07A7  2FA2               	goto	u317
-   732  07A8                     l735:
-   733                           
-   734                           ;BAI_2_SANG_DAN_D7_D0.c: 209:             hold = (hold >> 1) | hold;
-   735  07A8  087B               	movf	muoiSauLed@hold,w
-   736  07A9  00F0               	movwf	??_muoiSauLed
-   737  07AA  1003               	clrc
-   738  07AB  0C70               	rrf	??_muoiSauLed,w
-   739  07AC  047B               	iorwf	muoiSauLed@hold,w
-   740  07AD  00F1               	movwf	??_muoiSauLed+1
-   741  07AE  0871               	movf	??_muoiSauLed+1,w
-   742  07AF  00FB               	movwf	muoiSauLed@hold
-   743  07B0                     l737:
-   744                           
-   745                           ;BAI_2_SANG_DAN_D7_D0.c: 210:             index++;
-   746  07B0  3001               	movlw	1
-   747  07B1  00F0               	movwf	??_muoiSauLed
-   748  07B2  0870               	movf	??_muoiSauLed,w
-   749  07B3  07F9               	addwf	muoiSauLed@index,f
-   750  07B4                     l90:	
-   751                           ;BAI_2_SANG_DAN_D7_D0.c: 211:         }
-   752                           
-   753                           
-   754                           ;BAI_2_SANG_DAN_D7_D0.c: 206:         while(index < 8) {
-   755  07B4  3008               	movlw	8
-   756  07B5  0279               	subwf	muoiSauLed@index,w
-   757  07B6  1C03               	skipc
-   758  07B7  2FB9               	goto	u71
-   759  07B8  2FBA               	goto	u70
-   760  07B9                     u71:
-   761  07B9  2F98               	goto	l733
-   762  07BA                     u70:
-   763  07BA                     l739:
-   764                           
-   765                           ;BAI_2_SANG_DAN_D7_D0.c: 212:         index = 0;
-   766  07BA  01F9               	clrf	muoiSauLed@index
-   767  07BB                     l741:
-   768                           
-   769                           ;BAI_2_SANG_DAN_D7_D0.c: 213:         hold = 0x80;
-   770  07BB  3080               	movlw	128
-   771  07BC  00F0               	movwf	??_muoiSauLed
-   772  07BD  0870               	movf	??_muoiSauLed,w
-   773  07BE  00FB               	movwf	muoiSauLed@hold
-   774  07BF                     l743:
-   775                           
-   776                           ;BAI_2_SANG_DAN_D7_D0.c: 214:         PORTC = 0;
-   777  07BF  1283               	bcf	3,5	;RP0=0, select bank0
-   778  07C0  1303               	bcf	3,6	;RP1=0, select bank0
-   779  07C1  0187               	clrf	7	;volatile
-   780                           
-   781                           ;BAI_2_SANG_DAN_D7_D0.c: 215:         while(index < 8) {
-   782  07C2  2FDF               	goto	l93
-   783  07C3                     l745:
-   784                           
-   785                           ;BAI_2_SANG_DAN_D7_D0.c: 216:             PORTC = hold;
-   786  07C3  087B               	movf	muoiSauLed@hold,w
-   787  07C4  1283               	bcf	3,5	;RP0=0, select bank0
-   788  07C5  1303               	bcf	3,6	;RP1=0, select bank0
-   789  07C6  0087               	movwf	7	;volatile
-   790                           
-   791                           ;BAI_2_SANG_DAN_D7_D0.c: 217:             _delay((unsigned long)((300)*(4000000/4000.0))
-      +                          );
-   792  07C7  3002               	movlw	2
-   793  07C8  00F2               	movwf	??_muoiSauLed+2
-   794  07C9  3086               	movlw	134
-   795  07CA  00F1               	movwf	??_muoiSauLed+1
-   796  07CB  3099               	movlw	153
-   797  07CC  00F0               	movwf	??_muoiSauLed
-   798  07CD                     u327:
-   799  07CD  0BF0               	decfsz	??_muoiSauLed,f
-   800  07CE  2FCD               	goto	u327
-   801  07CF  0BF1               	decfsz	??_muoiSauLed+1,f
-   802  07D0  2FCD               	goto	u327
-   803  07D1  0BF2               	decfsz	??_muoiSauLed+2,f
-   804  07D2  2FCD               	goto	u327
-   805  07D3                     l747:
-   806                           
-   807                           ;BAI_2_SANG_DAN_D7_D0.c: 218:             hold = (hold >> 1) | hold;
-   808  07D3  087B               	movf	muoiSauLed@hold,w
-   809  07D4  00F0               	movwf	??_muoiSauLed
-   810  07D5  1003               	clrc
-   811  07D6  0C70               	rrf	??_muoiSauLed,w
-   812  07D7  047B               	iorwf	muoiSauLed@hold,w
-   813  07D8  00F1               	movwf	??_muoiSauLed+1
-   814  07D9  0871               	movf	??_muoiSauLed+1,w
-   815  07DA  00FB               	movwf	muoiSauLed@hold
-   816  07DB                     l749:
-   817                           
-   818                           ;BAI_2_SANG_DAN_D7_D0.c: 219:             index++;
-   819  07DB  3001               	movlw	1
-   820  07DC  00F0               	movwf	??_muoiSauLed
-   821  07DD  0870               	movf	??_muoiSauLed,w
-   822  07DE  07F9               	addwf	muoiSauLed@index,f
-   823  07DF                     l93:	
-   824                           ;BAI_2_SANG_DAN_D7_D0.c: 220:         }
-   825                           
-   826                           
-   827                           ;BAI_2_SANG_DAN_D7_D0.c: 215:         while(index < 8) {
-   828  07DF  3008               	movlw	8
-   829  07E0  0279               	subwf	muoiSauLed@index,w
-   830  07E1  1C03               	skipc
-   831  07E2  2FE4               	goto	u81
-   832  07E3  2FE5               	goto	u80
-   833  07E4                     u81:
-   834  07E4  2FC3               	goto	l745
-   835  07E5                     u80:
-   836  07E5                     l751:
-   837                           
-   838                           ;BAI_2_SANG_DAN_D7_D0.c: 221:         PORTC = 0;
-   839  07E5  1283               	bcf	3,5	;RP0=0, select bank0
-   840  07E6  1303               	bcf	3,6	;RP1=0, select bank0
-   841  07E7  0187               	clrf	7	;volatile
-   842                           
-   843                           ;BAI_2_SANG_DAN_D7_D0.c: 222:         PORTD = 0;
-   844  07E8  0188               	clrf	8	;volatile
-   845  07E9                     l753:
-   846                           
-   847                           ;BAI_2_SANG_DAN_D7_D0.c: 223:         numberCountUp--;
-   848  07E9  3001               	movlw	1
-   849  07EA  02F7               	subwf	muoiSauLed@numberCountUp,f
-   850  07EB  3000               	movlw	0
-   851  07EC  1C03               	skipc
-   852  07ED  03F8               	decf	muoiSauLed@numberCountUp+1,f
-   853  07EE  02F8               	subwf	muoiSauLed@numberCountUp+1,f
-   854  07EF                     l755:
-   855                           
-   856                           ;BAI_2_SANG_DAN_D7_D0.c: 201:     while(numberCountUp > 0) {
-   857  07EF  0877               	movf	muoiSauLed@numberCountUp,w
-   858  07F0  0478               	iorwf	muoiSauLed@numberCountUp+1,w
-   859  07F1  1D03               	btfss	3,2
-   860  07F2  2FF4               	goto	u91
-   861  07F3  2FF5               	goto	u90
-   862  07F4                     u91:
-   863  07F4  2F83               	goto	l727
-   864  07F5                     u90:
-   865  07F5                     l757:
-   866                           
-   867                           ;BAI_2_SANG_DAN_D7_D0.c: 225:     PORTC = 0xff;
-   868  07F5  30FF               	movlw	255
-   869  07F6  1283               	bcf	3,5	;RP0=0, select bank0
-   870  07F7  1303               	bcf	3,6	;RP1=0, select bank0
-   871  07F8  0087               	movwf	7	;volatile
-   872                           
-   873                           ;BAI_2_SANG_DAN_D7_D0.c: 226:     PORTD = 0xff;
-   874  07F9  30FF               	movlw	255
-   875  07FA  0088               	movwf	8	;volatile
-   876  07FB                     l97:
-   877  07FB  0008               	return
-   878  07FC                     __end_of_muoiSauLed:
-   879                           
-   880                           	psect	text2
-   881  06A4                     __ptext2:	
-   882 ;; *************** function _declarePort *****************
-   883 ;; Defined at:
-   884 ;;		line 79 in file "BAI_2_SANG_DAN_D7_D0.c"
-   885 ;; Parameters:    Size  Location     Type
-   886 ;;		None
-   887 ;; Auto vars:     Size  Location     Type
-   888 ;;		None
-   889 ;; Return value:  Size  Location     Type
-   890 ;;                  1    wreg      void 
-   891 ;; Registers used:
-   892 ;;		status,2
-   893 ;; Tracked objects:
-   894 ;;		On entry : 0/0
-   895 ;;		On exit  : 0/0
-   896 ;;		Unchanged: 0/0
-   897 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   898 ;;      Params:         0       0       0       0       0
-   899 ;;      Locals:         0       0       0       0       0
-   900 ;;      Temps:          0       0       0       0       0
-   901 ;;      Totals:         0       0       0       0       0
-   902 ;;Total ram usage:        0 bytes
-   903 ;; Hardware stack levels used: 1
-   904 ;; This function calls:
-   905 ;;		Nothing
-   906 ;; This function is called by:
-   907 ;;		_main
-   908 ;; This function uses a non-reentrant model
-   909 ;;
-   910                           
-   911                           
-   912                           ;psect for function _declarePort
-   913  06A4                     _declarePort:
-   914  06A4                     l689:	
-   915                           ;incstack = 0
-   916                           ; Regs used in _declarePort: [status,2]
-   917                           
-   918                           
-   919                           ;BAI_2_SANG_DAN_D7_D0.c: 80:     ANSEL = ANSELH = 0;
-   920  06A4  1683               	bsf	3,5	;RP0=1, select bank3
-   921  06A5  1703               	bsf	3,6	;RP1=1, select bank3
-   922  06A6  0189               	clrf	9	;volatile
-   923  06A7  0188               	clrf	8	;volatile
-   924                           
-   925                           ;BAI_2_SANG_DAN_D7_D0.c: 81:     TRISD = 0;
-   926  06A8  1683               	bsf	3,5	;RP0=1, select bank1
-   927  06A9  1303               	bcf	3,6	;RP1=0, select bank1
-   928  06AA  0188               	clrf	8	;volatile
-   929                           
-   930                           ;BAI_2_SANG_DAN_D7_D0.c: 82:     TRISC = 0;
-   931  06AB  0187               	clrf	7	;volatile
-   932                           
-   933                           ;BAI_2_SANG_DAN_D7_D0.c: 83:     PORTC = 0;
-   934  06AC  1283               	bcf	3,5	;RP0=0, select bank0
-   935  06AD  1303               	bcf	3,6	;RP1=0, select bank0
-   936  06AE  0187               	clrf	7	;volatile
-   937                           
-   938                           ;BAI_2_SANG_DAN_D7_D0.c: 84:     PORTD = 0;
-   939  06AF  0188               	clrf	8	;volatile
-   940  06B0                     l31:
-   941  06B0  0008               	return
-   942  06B1                     __end_of_declarePort:
-   943  007E                     btemp	set	126	;btemp
-   944  007E                     wtemp0	set	126
-   945                           
-   946                           	psect	config
-   947                           
-   948                           ;Config register CONFIG1 @ 0x2007
-   949                           ;	Oscillator Selection bits
-   950                           ;	FOSC = HS, HS oscillator: High-speed crystal/resonator on RA6/OSC2/CLKOUT and RA7/OSC1
+   545                           ;Yatte_Miru.c: 88:     PORTC = 0;
+   546  0792  0187               	clrf	7	;volatile
+   547                           
+   548                           ;Yatte_Miru.c: 89:     PORTD = 0;
+   549  0793  0188               	clrf	8	;volatile
+   550  0794                     l33:
+   551  0794  0008               	return
+   552  0795                     __end_of_declarePort:
+   553  007E                     btemp	set	126	;btemp
+   554  007E                     wtemp0	set	126
+   555                           
+   556                           	psect	config
+   557                           
+   558                           ;Config register CONFIG1 @ 0x2007
+   559                           ;	Oscillator Selection bits
+   560                           ;	FOSC = HS, HS oscillator: High-speed crystal/resonator on RA6/OSC2/CLKOUT and RA7/OSC1
       +                          /CLKIN
-   951                           ;	Watchdog Timer Enable bit
-   952                           ;	WDTE = OFF, WDT disabled and can be enabled by SWDTEN bit of the WDTCON register
-   953                           ;	Power-up Timer Enable bit
-   954                           ;	PWRTE = OFF, PWRT disabled
-   955                           ;	RE3/MCLR pin function select bit
-   956                           ;	MCLRE = ON, RE3/MCLR pin function is MCLR
-   957                           ;	Code Protection bit
-   958                           ;	CP = OFF, Program memory code protection is disabled
-   959                           ;	Data Code Protection bit
-   960                           ;	CPD = OFF, Data memory code protection is disabled
-   961                           ;	Brown Out Reset Selection bits
-   962                           ;	BOREN = OFF, BOR disabled
-   963                           ;	Internal External Switchover bit
-   964                           ;	IESO = OFF, Internal/External Switchover mode is disabled
-   965                           ;	Fail-Safe Clock Monitor Enabled bit
-   966                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
-   967                           ;	Low Voltage Programming Enable bit
-   968                           ;	LVP = OFF, RB3 pin has digital I/O, HV on MCLR must be used for programming
-   969                           ;	In-Circuit Debugger Mode bit
-   970                           ;	DEBUG = 0x1, unprogrammed default
-   971  2007                     	org	8199
-   972  2007  20F2               	dw	8434
-   973                           
-   974                           ;Config register CONFIG2 @ 0x2008
-   975                           ;	Brown-out Reset Selection bit
-   976                           ;	BOR4V = BOR40V, Brown-out Reset set to 4.0V
-   977                           ;	Flash Program Memory Self Write Enable bits
-   978                           ;	WRT = OFF, Write protection off
-   979  2008                     	org	8200
-   980  2008  3FFF               	dw	16383
+   561                           ;	Watchdog Timer Enable bit
+   562                           ;	WDTE = OFF, WDT disabled and can be enabled by SWDTEN bit of the WDTCON register
+   563                           ;	Power-up Timer Enable bit
+   564                           ;	PWRTE = OFF, PWRT disabled
+   565                           ;	RE3/MCLR pin function select bit
+   566                           ;	MCLRE = ON, RE3/MCLR pin function is MCLR
+   567                           ;	Code Protection bit
+   568                           ;	CP = OFF, Program memory code protection is disabled
+   569                           ;	Data Code Protection bit
+   570                           ;	CPD = OFF, Data memory code protection is disabled
+   571                           ;	Brown Out Reset Selection bits
+   572                           ;	BOREN = OFF, BOR disabled
+   573                           ;	Internal External Switchover bit
+   574                           ;	IESO = OFF, Internal/External Switchover mode is disabled
+   575                           ;	Fail-Safe Clock Monitor Enabled bit
+   576                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
+   577                           ;	Low Voltage Programming Enable bit
+   578                           ;	LVP = OFF, RB3 pin has digital I/O, HV on MCLR must be used for programming
+   579                           ;	In-Circuit Debugger Mode bit
+   580                           ;	DEBUG = 0x1, unprogrammed default
+   581  2007                     	org	8199
+   582  2007  20F2               	dw	8434
+   583                           
+   584                           ;Config register CONFIG2 @ 0x2008
+   585                           ;	Brown-out Reset Selection bit
+   586                           ;	BOR4V = BOR40V, Brown-out Reset set to 4.0V
+   587                           ;	Flash Program Memory Self Write Enable bits
+   588                           ;	WRT = OFF, Write protection off
+   589  2008                     	org	8200
+   590  2008  3FFF               	dw	16383
 
 Data Sizes:
     Strings     0
@@ -1009,7 +614,7 @@ Data Sizes:
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMMON           14     14      14
+    COMMON           14      2       2
     BANK0            80      0       0
     BANK1            80      0       0
     BANK3            96      0       0
@@ -1021,7 +626,7 @@ Pointer List with Targets:
 
 Critical Paths under _main in COMMON
 
-    _main->_muoiSauLed
+    _main->_sauLedSangDuoi
 
 Critical Paths under _main in BANK0
 
@@ -1044,13 +649,12 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 2     2      0     240
-                                             12 COMMON     2     2      0
+ (0) _main                                                 2     2      0       0
                         _declarePort
-                         _muoiSauLed
+                     _sauLedSangDuoi
  ---------------------------------------------------------------------------------
- (1) _muoiSauLed                                          12    12      0     225
-                                              0 COMMON    12    12      0
+ (1) _sauLedSangDuoi                                       2     2      0       0
+                                              0 COMMON     2     2      0
  ---------------------------------------------------------------------------------
  (1) _declarePort                                          0     0      0       0
  ---------------------------------------------------------------------------------
@@ -1061,7 +665,7 @@ Call Graph Tables:
 
  _main (ROOT)
    _declarePort
-   _muoiSauLed
+   _sauLedSangDuoi
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
@@ -1069,7 +673,7 @@ BITCOMMON            E      0       0       0        0.0%
 EEDATA             100      0       0       0        0.0%
 NULL                 0      0       0       0        0.0%
 CODE                 0      0       0       0        0.0%
-COMMON               E      E       E       1      100.0%
+COMMON               E      2       2       1       14.3%
 BITSFR0              0      0       0       1        0.0%
 SFR0                 0      0       0       1        0.0%
 BITSFR1              0      0       0       2        0.0%
@@ -1092,44 +696,22 @@ DATA                 0      0       0      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.32 build 20210201212658 
-Symbol Table                                                                                   Tue Mar 09 23:24:57 2021
+Symbol Table                                                                                   Thu Mar 11 00:05:38 2021
 
-                     l31 06B0                       l81 0742                       l90 07B4  
-                     l84 076D                       l93 07DF                       l97 07FB  
-                     u10 0710                       u11 070F                       u30 0748  
-                     u31 0747                       u24 072C                       u25 0729  
-                     u50 0773                       u51 0772                       u60 0782  
-                     u44 0757                       u61 0781                       u45 0754  
-                     u70 07BA                       u71 07B9                       u80 07E5  
-                     u81 07E4                       u90 07F5                       u91 07F4  
-                    l701 0711                      l711 073E                      l703 0714  
-                    l721 0773                      l713 0748                      l705 0720  
-                    l731 0788                      l723 0776                      l715 074D  
-                    l707 0722                      l741 07BB                      l733 0798  
-                    l717 075D                      l709 0732                      l725 077C  
-                    l751 07E5                      l743 07BF                      l735 07A8  
-                    l727 0783                      l719 0769                      l753 07E9  
-                    l745 07C3                      l737 07B0                      l729 0784  
-                    l761 06B6                      l747 07D3                      l739 07BA  
-                    l755 07EF                      l691 06D5                      l763 06B8  
-                    l757 07F5                      l749 07DB                      l693 06E2  
-                    l765 06C1                      l695 0700                      l767 06C6  
-                    l759 06B1                      l689 06A4                      l697 0703  
-                    l769 06CD                      l699 070A                      u100 06C1  
-                    u101 06C0                      u307 0791                      u317 07A2  
-                    u327 07CD                      u257 06E8                      u267 06FA  
-                    u277 071A                      u287 0738                      u297 0763  
-        muoiSauLed@index 0079          muoiSauLed@score 007A                     _main 06B1  
-                   btemp 007E                     start 0000                    ?_main 0070  
-                  _ANSEL 0188                    _PORTC 0007                    _PORTD 0008  
-                  _TRISC 0087                    _TRISD 0088     __size_of_declarePort 000D  
-  muoiSauLed@numberFlash 0073                    status 0003                    wtemp0 007E  
-        __initialization 07FC             __end_of_main 06D5                   ??_main 007C  
-                 _ANSELH 0189  __end_of__initialization 07FC           __pcstackCOMMON 0070  
-             __pmaintext 06B1                  __ptext1 06D5                  __ptext2 06A4  
-          ??_declarePort 0070     end_of_initialization 07FC  muoiSauLed@numberCountUp 0077  
-             _muoiSauLed 06D5      __end_of_declarePort 06B1           muoiSauLed@hold 007B  
-   muoiSauLed@numberRace 0075      start_initialization 07FC              ?_muoiSauLed 0070  
-            _declarePort 06A4                ___latbits 0002      __size_of_muoiSauLed 0127  
-              main@count 007C            __size_of_main 0024             ??_muoiSauLed 0070  
-           ?_declarePort 0070       __end_of_muoiSauLed 07FC  
+                     l33 0794                       l36 07FB                      l700 077D  
+                    l702 077D                      l694 0786                      l696 0795  
+                    l698 0778                      u247 07A1                      u257 07B2  
+                    u267 07C3                      u277 07D4                      u287 07E5  
+                    u297 07F6                     _main 0778                     btemp 007E  
+                   start 0000                    ?_main 0070                    _ANSEL 0188  
+                  _PORTB 0006                    _PORTC 0007                    _PORTD 0008  
+                  _TRISB 0086                    _TRISC 0087                    _TRISD 0088  
+   __size_of_declarePort 000F                    status 0003                    wtemp0 007E  
+        __initialization 07FC             __end_of_main 0786                   ??_main 0072  
+       ??_sauLedSangDuoi 0070                   _ANSELH 0189  __end_of__initialization 07FC  
+         __pcstackCOMMON 0070               __pmaintext 0778                  __ptext1 0795  
+                __ptext2 0786            ??_declarePort 0070     end_of_initialization 07FC  
+    __end_of_declarePort 0795      start_initialization 07FC  __size_of_sauLedSangDuoi 0067  
+            _declarePort 0786                ___latbits 0002           _sauLedSangDuoi 0795  
+ __end_of_sauLedSangDuoi 07FC            __size_of_main 000E             ?_declarePort 0070  
+        ?_sauLedSangDuoi 0070  

@@ -1,0 +1,992 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[p mainexit ]
+"41 Yatte_Miru.c
+[; ;Yatte_Miru.c: 41: void declarePort();
+[v _declarePort `(v ~T0 @X0 0 e? ]
+"46
+[; ;Yatte_Miru.c: 46: void sauLedSangDuoi();
+[v _sauLedSangDuoi `(v ~T0 @X0 0 e? ]
+"3387 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
+[v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
+"3449
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3449: extern volatile unsigned char ANSELH __attribute__((address(0x189)));
+[v _ANSELH `Vuc ~T0 @X0 0 e@393 ]
+"1602
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1602: extern volatile unsigned char TRISD __attribute__((address(0x088)));
+[v _TRISD `Vuc ~T0 @X0 0 e@136 ]
+"1540
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1540: extern volatile unsigned char TRISC __attribute__((address(0x087)));
+[v _TRISC `Vuc ~T0 @X0 0 e@135 ]
+"1478
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1478: extern volatile unsigned char TRISB __attribute__((address(0x086)));
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"228
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"290
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 290: extern volatile unsigned char PORTC __attribute__((address(0x007)));
+[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
+"352
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+[v F1256 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
+[v __delay `JF1256 ~T0 @X0 0 e ]
+[p i __delay ]
+"14 Yatte_Miru.c
+[p x FOSC  =  HS         ]
+"15
+[p x WDTE  =  OFF        ]
+"16
+[p x PWRTE  =  OFF       ]
+"17
+[p x MCLRE  =  ON        ]
+"18
+[p x CP  =  OFF          ]
+"19
+[p x CPD  =  OFF         ]
+"20
+[p x BOREN  =  OFF       ]
+"21
+[p x IESO  =  OFF        ]
+"22
+[p x FCMEN  =  OFF       ]
+"23
+[p x LVP  =  OFF         ]
+"26
+[p x BOR4V  =  BOR40V    ]
+"27
+[p x WRT  =  OFF         ]
+"54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"61
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 61: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"68
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 68: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"75
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 75: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"161
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 161: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"168
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 168: __asm("PORTA equ 05h");
+[; <" PORTA equ 05h ;# ">
+"230
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 230: __asm("PORTB equ 06h");
+[; <" PORTB equ 06h ;# ">
+"292
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 292: __asm("PORTC equ 07h");
+[; <" PORTC equ 07h ;# ">
+"354
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 354: __asm("PORTD equ 08h");
+[; <" PORTD equ 08h ;# ">
+"416
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 416: __asm("PORTE equ 09h");
+[; <" PORTE equ 09h ;# ">
+"454
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 454: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"461
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 461: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"539
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 539: __asm("PIR1 equ 0Ch");
+[; <" PIR1 equ 0Ch ;# ">
+"595
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 595: __asm("PIR2 equ 0Dh");
+[; <" PIR2 equ 0Dh ;# ">
+"652
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 652: __asm("TMR1 equ 0Eh");
+[; <" TMR1 equ 0Eh ;# ">
+"659
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 659: __asm("TMR1L equ 0Eh");
+[; <" TMR1L equ 0Eh ;# ">
+"666
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 666: __asm("TMR1H equ 0Fh");
+[; <" TMR1H equ 0Fh ;# ">
+"673
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 673: __asm("T1CON equ 010h");
+[; <" T1CON equ 010h ;# ">
+"767
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 767: __asm("TMR2 equ 011h");
+[; <" TMR2 equ 011h ;# ">
+"774
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 774: __asm("T2CON equ 012h");
+[; <" T2CON equ 012h ;# ">
+"845
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 845: __asm("SSPBUF equ 013h");
+[; <" SSPBUF equ 013h ;# ">
+"852
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 852: __asm("SSPCON equ 014h");
+[; <" SSPCON equ 014h ;# ">
+"922
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 922: __asm("CCPR1 equ 015h");
+[; <" CCPR1 equ 015h ;# ">
+"929
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 929: __asm("CCPR1L equ 015h");
+[; <" CCPR1L equ 015h ;# ">
+"936
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 936: __asm("CCPR1H equ 016h");
+[; <" CCPR1H equ 016h ;# ">
+"943
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 943: __asm("CCP1CON equ 017h");
+[; <" CCP1CON equ 017h ;# ">
+"1040
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1040: __asm("RCSTA equ 018h");
+[; <" RCSTA equ 018h ;# ">
+"1135
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1135: __asm("TXREG equ 019h");
+[; <" TXREG equ 019h ;# ">
+"1142
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1142: __asm("RCREG equ 01Ah");
+[; <" RCREG equ 01Ah ;# ">
+"1149
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1149: __asm("CCPR2 equ 01Bh");
+[; <" CCPR2 equ 01Bh ;# ">
+"1156
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1156: __asm("CCPR2L equ 01Bh");
+[; <" CCPR2L equ 01Bh ;# ">
+"1163
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1163: __asm("CCPR2H equ 01Ch");
+[; <" CCPR2H equ 01Ch ;# ">
+"1170
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1170: __asm("CCP2CON equ 01Dh");
+[; <" CCP2CON equ 01Dh ;# ">
+"1240
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1240: __asm("ADRESH equ 01Eh");
+[; <" ADRESH equ 01Eh ;# ">
+"1247
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1247: __asm("ADCON0 equ 01Fh");
+[; <" ADCON0 equ 01Fh ;# ">
+"1348
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1348: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"1418
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1418: __asm("TRISA equ 085h");
+[; <" TRISA equ 085h ;# ">
+"1480
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1480: __asm("TRISB equ 086h");
+[; <" TRISB equ 086h ;# ">
+"1542
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1542: __asm("TRISC equ 087h");
+[; <" TRISC equ 087h ;# ">
+"1604
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1604: __asm("TRISD equ 088h");
+[; <" TRISD equ 088h ;# ">
+"1666
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1666: __asm("TRISE equ 089h");
+[; <" TRISE equ 089h ;# ">
+"1704
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1704: __asm("PIE1 equ 08Ch");
+[; <" PIE1 equ 08Ch ;# ">
+"1760
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1760: __asm("PIE2 equ 08Dh");
+[; <" PIE2 equ 08Dh ;# ">
+"1817
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1817: __asm("PCON equ 08Eh");
+[; <" PCON equ 08Eh ;# ">
+"1864
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1864: __asm("OSCCON equ 08Fh");
+[; <" OSCCON equ 08Fh ;# ">
+"1929
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1929: __asm("OSCTUNE equ 090h");
+[; <" OSCTUNE equ 090h ;# ">
+"1981
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1981: __asm("SSPCON2 equ 091h");
+[; <" SSPCON2 equ 091h ;# ">
+"2043
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2043: __asm("PR2 equ 092h");
+[; <" PR2 equ 092h ;# ">
+"2050
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2050: __asm("SSPADD equ 093h");
+[; <" SSPADD equ 093h ;# ">
+"2057
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2057: __asm("SSPMSK equ 093h");
+[; <" SSPMSK equ 093h ;# ">
+"2062
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2062: __asm("MSK equ 093h");
+[; <" MSK equ 093h ;# ">
+"2179
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2179: __asm("SSPSTAT equ 094h");
+[; <" SSPSTAT equ 094h ;# ">
+"2348
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2348: __asm("WPUB equ 095h");
+[; <" WPUB equ 095h ;# ">
+"2418
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2418: __asm("IOCB equ 096h");
+[; <" IOCB equ 096h ;# ">
+"2488
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2488: __asm("VRCON equ 097h");
+[; <" VRCON equ 097h ;# ">
+"2558
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2558: __asm("TXSTA equ 098h");
+[; <" TXSTA equ 098h ;# ">
+"2644
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2644: __asm("SPBRG equ 099h");
+[; <" SPBRG equ 099h ;# ">
+"2706
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2706: __asm("SPBRGH equ 09Ah");
+[; <" SPBRGH equ 09Ah ;# ">
+"2776
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2776: __asm("PWM1CON equ 09Bh");
+[; <" PWM1CON equ 09Bh ;# ">
+"2846
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2846: __asm("ECCPAS equ 09Ch");
+[; <" ECCPAS equ 09Ch ;# ">
+"2928
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2928: __asm("PSTRCON equ 09Dh");
+[; <" PSTRCON equ 09Dh ;# ">
+"2972
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2972: __asm("ADRESL equ 09Eh");
+[; <" ADRESL equ 09Eh ;# ">
+"2979
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2979: __asm("ADCON1 equ 09Fh");
+[; <" ADCON1 equ 09Fh ;# ">
+"3013
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3013: __asm("WDTCON equ 0105h");
+[; <" WDTCON equ 0105h ;# ">
+"3066
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3066: __asm("CM1CON0 equ 0107h");
+[; <" CM1CON0 equ 0107h ;# ">
+"3131
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3131: __asm("CM2CON0 equ 0108h");
+[; <" CM2CON0 equ 0108h ;# ">
+"3196
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3196: __asm("CM2CON1 equ 0109h");
+[; <" CM2CON1 equ 0109h ;# ">
+"3247
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3247: __asm("EEDATA equ 010Ch");
+[; <" EEDATA equ 010Ch ;# ">
+"3252
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3252: __asm("EEDAT equ 010Ch");
+[; <" EEDAT equ 010Ch ;# ">
+"3259
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3259: __asm("EEADR equ 010Dh");
+[; <" EEADR equ 010Dh ;# ">
+"3266
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3266: __asm("EEDATH equ 010Eh");
+[; <" EEDATH equ 010Eh ;# ">
+"3273
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3273: __asm("EEADRH equ 010Fh");
+[; <" EEADRH equ 010Fh ;# ">
+"3280
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3280: __asm("SRCON equ 0185h");
+[; <" SRCON equ 0185h ;# ">
+"3337
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3337: __asm("BAUDCTL equ 0187h");
+[; <" BAUDCTL equ 0187h ;# ">
+"3389
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3389: __asm("ANSEL equ 0188h");
+[; <" ANSEL equ 0188h ;# ">
+"3451
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3451: __asm("ANSELH equ 0189h");
+[; <" ANSELH equ 0189h ;# ">
+"3501
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3501: __asm("EECON1 equ 018Ch");
+[; <" EECON1 equ 018Ch ;# ">
+"3546
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
+[; <" EECON2 equ 018Dh ;# ">
+[v $root$_main `(v ~T0 @X0 0 e ]
+"48 Yatte_Miru.c
+[; ;Yatte_Miru.c: 48: void main(void){
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"49
+[; ;Yatte_Miru.c: 49:     declarePort();
+[e ( _declarePort ..  ]
+"50
+[; ;Yatte_Miru.c: 50:     unsigned int count = 0;
+[v _count `ui ~T0 @X0 1 a ]
+[e = _count -> -> 0 `i `ui ]
+"51
+[; ;Yatte_Miru.c: 51:     while(1) {
+[e :U 140 ]
+{
+"78
+[; ;Yatte_Miru.c: 78:         sauLedSangDuoi();
+[e ( _sauLedSangDuoi ..  ]
+"79
+[; ;Yatte_Miru.c: 79:     }
+}
+[e :U 139 ]
+[e $U 140  ]
+[e :U 141 ]
+"80
+[; ;Yatte_Miru.c: 80: }
+[e :UE 138 ]
+}
+"82
+[; ;Yatte_Miru.c: 82: void declarePort() {
+[v _declarePort `(v ~T0 @X0 1 ef ]
+{
+[e :U _declarePort ]
+[f ]
+"83
+[; ;Yatte_Miru.c: 83:     ANSEL = ANSELH = 0;
+[e = _ANSEL = _ANSELH -> -> 0 `i `uc ]
+"84
+[; ;Yatte_Miru.c: 84:     TRISD = 0;
+[e = _TRISD -> -> 0 `i `uc ]
+"85
+[; ;Yatte_Miru.c: 85:     TRISC = 0;
+[e = _TRISC -> -> 0 `i `uc ]
+"86
+[; ;Yatte_Miru.c: 86:     TRISB = 0;
+[e = _TRISB -> -> 0 `i `uc ]
+"87
+[; ;Yatte_Miru.c: 87:     PORTB = 0;
+[e = _PORTB -> -> 0 `i `uc ]
+"88
+[; ;Yatte_Miru.c: 88:     PORTC = 0;
+[e = _PORTC -> -> 0 `i `uc ]
+"89
+[; ;Yatte_Miru.c: 89:     PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
+"90
+[; ;Yatte_Miru.c: 90: }
+[e :UE 142 ]
+}
+"92
+[; ;Yatte_Miru.c: 92: void sauLedSangDuoi() {
+[v _sauLedSangDuoi `(v ~T0 @X0 1 ef ]
+{
+[e :U _sauLedSangDuoi ]
+[f ]
+"93
+[; ;Yatte_Miru.c: 93:     TRISB = 0b00100000;
+[e = _TRISB -> -> 32 `i `uc ]
+"94
+[; ;Yatte_Miru.c: 94:     PORTB = 0b00001000;
+[e = _PORTB -> -> 8 `i `uc ]
+"95
+[; ;Yatte_Miru.c: 95:     _delay((unsigned long)((50)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"96
+[; ;Yatte_Miru.c: 96:     TRISB = 0b00100000;
+[e = _TRISB -> -> 32 `i `uc ]
+"97
+[; ;Yatte_Miru.c: 97:     PORTB = 0b00010000;
+[e = _PORTB -> -> 16 `i `uc ]
+"98
+[; ;Yatte_Miru.c: 98:     _delay((unsigned long)((50)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"99
+[; ;Yatte_Miru.c: 99:     TRISB = 0b00001000;
+[e = _TRISB -> -> 8 `i `uc ]
+"100
+[; ;Yatte_Miru.c: 100:     PORTB = 0b00010000;
+[e = _PORTB -> -> 16 `i `uc ]
+"101
+[; ;Yatte_Miru.c: 101:     _delay((unsigned long)((50)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"102
+[; ;Yatte_Miru.c: 102:     TRISB = 0b00001000;
+[e = _TRISB -> -> 8 `i `uc ]
+"103
+[; ;Yatte_Miru.c: 103:     PORTB = 0b00100000;
+[e = _PORTB -> -> 32 `i `uc ]
+"104
+[; ;Yatte_Miru.c: 104:     _delay((unsigned long)((50)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"105
+[; ;Yatte_Miru.c: 105:     TRISB = 0b00010000;
+[e = _TRISB -> -> 16 `i `uc ]
+"106
+[; ;Yatte_Miru.c: 106:     PORTB = 0b00100000;
+[e = _PORTB -> -> 32 `i `uc ]
+"107
+[; ;Yatte_Miru.c: 107:     _delay((unsigned long)((50)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"108
+[; ;Yatte_Miru.c: 108:     TRISB = 0b00010000;
+[e = _TRISB -> -> 16 `i `uc ]
+"109
+[; ;Yatte_Miru.c: 109:     PORTB = 0b00001000;
+[e = _PORTB -> -> 8 `i `uc ]
+"110
+[; ;Yatte_Miru.c: 110:     _delay((unsigned long)((50)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"111
+[; ;Yatte_Miru.c: 111: }
+[e :UE 143 ]
+}
+"113
+[; ;Yatte_Miru.c: 113: void sangDan() {
+[v _sangDan `(v ~T0 @X0 1 ef ]
+{
+[e :U _sangDan ]
+[f ]
+"114
+[; ;Yatte_Miru.c: 114:     int index = 0;
+[v _index `i ~T0 @X0 1 a ]
+[e = _index -> 0 `i ]
+"115
+[; ;Yatte_Miru.c: 115:     int hold = 0x80;
+[v _hold `i ~T0 @X0 1 a ]
+[e = _hold -> 128 `i ]
+"116
+[; ;Yatte_Miru.c: 116:     _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"117
+[; ;Yatte_Miru.c: 117:     while(index < 8) {
+[e $U 145  ]
+[e :U 146 ]
+{
+"118
+[; ;Yatte_Miru.c: 118:         PORTD = hold;
+[e = _PORTD -> _hold `uc ]
+"119
+[; ;Yatte_Miru.c: 119:         _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"120
+[; ;Yatte_Miru.c: 120:         hold = (hold >> 1) | hold;
+[e = _hold | >> _hold -> 1 `i _hold ]
+"121
+[; ;Yatte_Miru.c: 121:         index++;
+[e ++ _index -> 1 `i ]
+"122
+[; ;Yatte_Miru.c: 122:     }
+}
+[e :U 145 ]
+"117
+[; ;Yatte_Miru.c: 117:     while(index < 8) {
+[e $ < _index -> 8 `i 146  ]
+[e :U 147 ]
+"123
+[; ;Yatte_Miru.c: 123: }
+[e :UE 144 ]
+}
+"125
+[; ;Yatte_Miru.c: 125: void sangDon() {
+[v _sangDon `(v ~T0 @X0 1 ef ]
+{
+[e :U _sangDon ]
+[f ]
+"126
+[; ;Yatte_Miru.c: 126:     unsigned char sum = 0x00, i = 0, j, hold = 0x80;
+[v _sum `uc ~T0 @X0 1 a ]
+[e = _sum -> -> 0 `i `uc ]
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[v _j `uc ~T0 @X0 1 a ]
+[v _hold `uc ~T0 @X0 1 a ]
+[e = _hold -> -> 128 `i `uc ]
+"127
+[; ;Yatte_Miru.c: 127:     while(i < 8) {
+[e $U 149  ]
+[e :U 150 ]
+{
+"128
+[; ;Yatte_Miru.c: 128:         j = 0;
+[e = _j -> -> 0 `i `uc ]
+"129
+[; ;Yatte_Miru.c: 129:         while(j < (8 - i)) {
+[e $U 152  ]
+[e :U 153 ]
+{
+"130
+[; ;Yatte_Miru.c: 130:             PORTD = (hold >> j) | sum;
+[e = _PORTD -> | >> -> _hold `i -> _j `i -> _sum `i `uc ]
+"131
+[; ;Yatte_Miru.c: 131:             _delay((unsigned long)((400)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 400 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"132
+[; ;Yatte_Miru.c: 132:             j++;
+[e ++ _j -> -> 1 `i `uc ]
+"133
+[; ;Yatte_Miru.c: 133:         }
+}
+[e :U 152 ]
+"129
+[; ;Yatte_Miru.c: 129:         while(j < (8 - i)) {
+[e $ < -> _j `i - -> 8 `i -> _i `i 153  ]
+[e :U 154 ]
+"134
+[; ;Yatte_Miru.c: 134:         sum = PORTD;
+[e = _sum _PORTD ]
+"135
+[; ;Yatte_Miru.c: 135:         i++;
+[e ++ _i -> -> 1 `i `uc ]
+"136
+[; ;Yatte_Miru.c: 136:     }
+}
+[e :U 149 ]
+"127
+[; ;Yatte_Miru.c: 127:     while(i < 8) {
+[e $ < -> _i `i -> 8 `i 150  ]
+[e :U 151 ]
+"137
+[; ;Yatte_Miru.c: 137: }
+[e :UE 148 ]
+}
+"139
+[; ;Yatte_Miru.c: 139: void tamLedPortC() {
+[v _tamLedPortC `(v ~T0 @X0 1 ef ]
+{
+[e :U _tamLedPortC ]
+[f ]
+"140
+[; ;Yatte_Miru.c: 140:     unsigned int total = 0, numberFlash = 5, numberRace = 2, numberCountUp = 3, pressed = 2;
+[v _total `ui ~T0 @X0 1 a ]
+[e = _total -> -> 0 `i `ui ]
+[v _numberFlash `ui ~T0 @X0 1 a ]
+[e = _numberFlash -> -> 5 `i `ui ]
+[v _numberRace `ui ~T0 @X0 1 a ]
+[e = _numberRace -> -> 2 `i `ui ]
+[v _numberCountUp `ui ~T0 @X0 1 a ]
+[e = _numberCountUp -> -> 3 `i `ui ]
+[v _pressed `ui ~T0 @X0 1 a ]
+[e = _pressed -> -> 2 `i `ui ]
+"142
+[; ;Yatte_Miru.c: 142:     while(numberFlash > 0) {
+[e $U 156  ]
+[e :U 157 ]
+{
+"143
+[; ;Yatte_Miru.c: 143:          _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"144
+[; ;Yatte_Miru.c: 144:         PORTC = 0xff;
+[e = _PORTC -> -> 255 `i `uc ]
+"145
+[; ;Yatte_Miru.c: 145:         _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"146
+[; ;Yatte_Miru.c: 146:         PORTC = 0x00;
+[e = _PORTC -> -> 0 `i `uc ]
+"147
+[; ;Yatte_Miru.c: 147:         numberFlash--;
+[e -- _numberFlash -> -> 1 `i `ui ]
+"148
+[; ;Yatte_Miru.c: 148:     }
+}
+[e :U 156 ]
+"142
+[; ;Yatte_Miru.c: 142:     while(numberFlash > 0) {
+[e $ > _numberFlash -> -> 0 `i `ui 157  ]
+[e :U 158 ]
+"150
+[; ;Yatte_Miru.c: 150:     while(numberRace > 0) {
+[e $U 159  ]
+[e :U 160 ]
+{
+"151
+[; ;Yatte_Miru.c: 151:         PORTC = 0;
+[e = _PORTC -> -> 0 `i `uc ]
+"152
+[; ;Yatte_Miru.c: 152:         _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"153
+[; ;Yatte_Miru.c: 153:         unsigned char score = 0;
+[v _score `uc ~T0 @X0 1 a ]
+[e = _score -> -> 0 `i `uc ]
+"154
+[; ;Yatte_Miru.c: 154:         while(score < 8) {
+[e $U 162  ]
+[e :U 163 ]
+{
+"155
+[; ;Yatte_Miru.c: 155:             PORTC = (0x01 << score);
+[e = _PORTC -> << -> 1 `i -> _score `i `uc ]
+"156
+[; ;Yatte_Miru.c: 156:             _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"157
+[; ;Yatte_Miru.c: 157:             score++;
+[e ++ _score -> -> 1 `i `uc ]
+"158
+[; ;Yatte_Miru.c: 158:         }
+}
+[e :U 162 ]
+"154
+[; ;Yatte_Miru.c: 154:         while(score < 8) {
+[e $ < -> _score `i -> 8 `i 163  ]
+[e :U 164 ]
+"159
+[; ;Yatte_Miru.c: 159:         numberRace--;
+[e -- _numberRace -> -> 1 `i `ui ]
+"160
+[; ;Yatte_Miru.c: 160:     }
+}
+[e :U 159 ]
+"150
+[; ;Yatte_Miru.c: 150:     while(numberRace > 0) {
+[e $ > _numberRace -> -> 0 `i `ui 160  ]
+[e :U 161 ]
+"162
+[; ;Yatte_Miru.c: 162:     while(numberCountUp > 0) {
+[e $U 165  ]
+[e :U 166 ]
+{
+"163
+[; ;Yatte_Miru.c: 163:         unsigned char index = 0;
+[v _index `uc ~T0 @X0 1 a ]
+[e = _index -> -> 0 `i `uc ]
+"164
+[; ;Yatte_Miru.c: 164:         unsigned char hold = 0x80;
+[v _hold `uc ~T0 @X0 1 a ]
+[e = _hold -> -> 128 `i `uc ]
+"165
+[; ;Yatte_Miru.c: 165:         PORTC = 0;
+[e = _PORTC -> -> 0 `i `uc ]
+"166
+[; ;Yatte_Miru.c: 166:         _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"167
+[; ;Yatte_Miru.c: 167:         while(index < 8) {
+[e $U 168  ]
+[e :U 169 ]
+{
+"168
+[; ;Yatte_Miru.c: 168:             PORTC = hold;
+[e = _PORTC _hold ]
+"169
+[; ;Yatte_Miru.c: 169:             _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"170
+[; ;Yatte_Miru.c: 170:             hold = (hold >> 1) | hold;
+[e = _hold -> | >> -> _hold `i -> 1 `i -> _hold `i `uc ]
+"171
+[; ;Yatte_Miru.c: 171:             index++;
+[e ++ _index -> -> 1 `i `uc ]
+"172
+[; ;Yatte_Miru.c: 172:         }
+}
+[e :U 168 ]
+"167
+[; ;Yatte_Miru.c: 167:         while(index < 8) {
+[e $ < -> _index `i -> 8 `i 169  ]
+[e :U 170 ]
+"173
+[; ;Yatte_Miru.c: 173:         hold = 0x80;
+[e = _hold -> -> 128 `i `uc ]
+"174
+[; ;Yatte_Miru.c: 174:         numberCountUp--;
+[e -- _numberCountUp -> -> 1 `i `ui ]
+"175
+[; ;Yatte_Miru.c: 175:     }
+}
+[e :U 165 ]
+"162
+[; ;Yatte_Miru.c: 162:     while(numberCountUp > 0) {
+[e $ > _numberCountUp -> -> 0 `i `ui 166  ]
+[e :U 167 ]
+"177
+[; ;Yatte_Miru.c: 177:     while(pressed > 0) {
+[e $U 171  ]
+[e :U 172 ]
+{
+"178
+[; ;Yatte_Miru.c: 178:         PORTC = 0;
+[e = _PORTC -> -> 0 `i `uc ]
+"179
+[; ;Yatte_Miru.c: 179:         _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"180
+[; ;Yatte_Miru.c: 180:         unsigned char sum = 0x00, i = 0, j, hold = 0x80;
+[v _sum `uc ~T0 @X0 1 a ]
+[e = _sum -> -> 0 `i `uc ]
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[v _j `uc ~T0 @X0 1 a ]
+[v _hold `uc ~T0 @X0 1 a ]
+[e = _hold -> -> 128 `i `uc ]
+"181
+[; ;Yatte_Miru.c: 181:         while(i < 8) {
+[e $U 174  ]
+[e :U 175 ]
+{
+"182
+[; ;Yatte_Miru.c: 182:             j = 0;
+[e = _j -> -> 0 `i `uc ]
+"183
+[; ;Yatte_Miru.c: 183:             while(j < (8 - i)) {
+[e $U 177  ]
+[e :U 178 ]
+{
+"184
+[; ;Yatte_Miru.c: 184:                 PORTC = (hold >> j) | sum;
+[e = _PORTC -> | >> -> _hold `i -> _j `i -> _sum `i `uc ]
+"185
+[; ;Yatte_Miru.c: 185:                 _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"186
+[; ;Yatte_Miru.c: 186:                 j++;
+[e ++ _j -> -> 1 `i `uc ]
+"187
+[; ;Yatte_Miru.c: 187:             }
+}
+[e :U 177 ]
+"183
+[; ;Yatte_Miru.c: 183:             while(j < (8 - i)) {
+[e $ < -> _j `i - -> 8 `i -> _i `i 178  ]
+[e :U 179 ]
+"188
+[; ;Yatte_Miru.c: 188:             sum = PORTC;
+[e = _sum _PORTC ]
+"189
+[; ;Yatte_Miru.c: 189:             i++;
+[e ++ _i -> -> 1 `i `uc ]
+"190
+[; ;Yatte_Miru.c: 190:         }
+}
+[e :U 174 ]
+"181
+[; ;Yatte_Miru.c: 181:         while(i < 8) {
+[e $ < -> _i `i -> 8 `i 175  ]
+[e :U 176 ]
+"191
+[; ;Yatte_Miru.c: 191:         pressed--;
+[e -- _pressed -> -> 1 `i `ui ]
+"192
+[; ;Yatte_Miru.c: 192:     }
+}
+[e :U 171 ]
+"177
+[; ;Yatte_Miru.c: 177:     while(pressed > 0) {
+[e $ > _pressed -> -> 0 `i `ui 172  ]
+[e :U 173 ]
+"193
+[; ;Yatte_Miru.c: 193: }
+[e :UE 155 ]
+}
+"195
+[; ;Yatte_Miru.c: 195: void muoiSauLed() {
+[v _muoiSauLed `(v ~T0 @X0 1 ef ]
+{
+[e :U _muoiSauLed ]
+[f ]
+"196
+[; ;Yatte_Miru.c: 196:     unsigned int numberFlash = 4, numberRace = 2, numberCountUp = 3;
+[v _numberFlash `ui ~T0 @X0 1 a ]
+[e = _numberFlash -> -> 4 `i `ui ]
+[v _numberRace `ui ~T0 @X0 1 a ]
+[e = _numberRace -> -> 2 `i `ui ]
+[v _numberCountUp `ui ~T0 @X0 1 a ]
+[e = _numberCountUp -> -> 3 `i `ui ]
+"198
+[; ;Yatte_Miru.c: 198:     while(numberFlash > 0) {
+[e $U 181  ]
+[e :U 182 ]
+{
+"199
+[; ;Yatte_Miru.c: 199:         _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"200
+[; ;Yatte_Miru.c: 200:         PORTC = 0xff;
+[e = _PORTC -> -> 255 `i `uc ]
+"201
+[; ;Yatte_Miru.c: 201:         PORTD = 0xff;
+[e = _PORTD -> -> 255 `i `uc ]
+"202
+[; ;Yatte_Miru.c: 202:         _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"203
+[; ;Yatte_Miru.c: 203:         PORTC = 0x00;
+[e = _PORTC -> -> 0 `i `uc ]
+"204
+[; ;Yatte_Miru.c: 204:         PORTD = 0x00;
+[e = _PORTD -> -> 0 `i `uc ]
+"205
+[; ;Yatte_Miru.c: 205:         numberFlash--;
+[e -- _numberFlash -> -> 1 `i `ui ]
+"206
+[; ;Yatte_Miru.c: 206:     }
+}
+[e :U 181 ]
+"198
+[; ;Yatte_Miru.c: 198:     while(numberFlash > 0) {
+[e $ > _numberFlash -> -> 0 `i `ui 182  ]
+[e :U 183 ]
+"208
+[; ;Yatte_Miru.c: 208:     while(numberRace > 0) {
+[e $U 184  ]
+[e :U 185 ]
+{
+"209
+[; ;Yatte_Miru.c: 209:         PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
+"210
+[; ;Yatte_Miru.c: 210:         _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"211
+[; ;Yatte_Miru.c: 211:         unsigned char score = 0;
+[v _score `uc ~T0 @X0 1 a ]
+[e = _score -> -> 0 `i `uc ]
+"212
+[; ;Yatte_Miru.c: 212:         while(score < 8) {
+[e $U 187  ]
+[e :U 188 ]
+{
+"213
+[; ;Yatte_Miru.c: 213:             PORTD = (0x80 >> score);
+[e = _PORTD -> >> -> 128 `i -> _score `i `uc ]
+"214
+[; ;Yatte_Miru.c: 214:             _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"215
+[; ;Yatte_Miru.c: 215:             score++;
+[e ++ _score -> -> 1 `i `uc ]
+"216
+[; ;Yatte_Miru.c: 216:         }
+}
+[e :U 187 ]
+"212
+[; ;Yatte_Miru.c: 212:         while(score < 8) {
+[e $ < -> _score `i -> 8 `i 188  ]
+[e :U 189 ]
+"217
+[; ;Yatte_Miru.c: 217:         PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
+"218
+[; ;Yatte_Miru.c: 218:         score = 0;
+[e = _score -> -> 0 `i `uc ]
+"219
+[; ;Yatte_Miru.c: 219:         while(score < 8) {
+[e $U 190  ]
+[e :U 191 ]
+{
+"220
+[; ;Yatte_Miru.c: 220:             PORTC = (0x80 >> score);
+[e = _PORTC -> >> -> 128 `i -> _score `i `uc ]
+"221
+[; ;Yatte_Miru.c: 221:             _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"222
+[; ;Yatte_Miru.c: 222:             score++;
+[e ++ _score -> -> 1 `i `uc ]
+"223
+[; ;Yatte_Miru.c: 223:         }
+}
+[e :U 190 ]
+"219
+[; ;Yatte_Miru.c: 219:         while(score < 8) {
+[e $ < -> _score `i -> 8 `i 191  ]
+[e :U 192 ]
+"224
+[; ;Yatte_Miru.c: 224:         PORTC = 0;
+[e = _PORTC -> -> 0 `i `uc ]
+"225
+[; ;Yatte_Miru.c: 225:         numberRace--;
+[e -- _numberRace -> -> 1 `i `ui ]
+"226
+[; ;Yatte_Miru.c: 226:     }
+}
+[e :U 184 ]
+"208
+[; ;Yatte_Miru.c: 208:     while(numberRace > 0) {
+[e $ > _numberRace -> -> 0 `i `ui 185  ]
+[e :U 186 ]
+"227
+[; ;Yatte_Miru.c: 227:     while(numberCountUp > 0) {
+[e $U 193  ]
+[e :U 194 ]
+{
+"228
+[; ;Yatte_Miru.c: 228:         unsigned char index = 0;
+[v _index `uc ~T0 @X0 1 a ]
+[e = _index -> -> 0 `i `uc ]
+"229
+[; ;Yatte_Miru.c: 229:         unsigned char hold = 0x80;
+[v _hold `uc ~T0 @X0 1 a ]
+[e = _hold -> -> 128 `i `uc ]
+"230
+[; ;Yatte_Miru.c: 230:         PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
+"231
+[; ;Yatte_Miru.c: 231:         _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"232
+[; ;Yatte_Miru.c: 232:         while(index < 8) {
+[e $U 196  ]
+[e :U 197 ]
+{
+"233
+[; ;Yatte_Miru.c: 233:             PORTD = hold;
+[e = _PORTD _hold ]
+"234
+[; ;Yatte_Miru.c: 234:             _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"235
+[; ;Yatte_Miru.c: 235:             hold = (hold >> 1) | hold;
+[e = _hold -> | >> -> _hold `i -> 1 `i -> _hold `i `uc ]
+"236
+[; ;Yatte_Miru.c: 236:             index++;
+[e ++ _index -> -> 1 `i `uc ]
+"237
+[; ;Yatte_Miru.c: 237:         }
+}
+[e :U 196 ]
+"232
+[; ;Yatte_Miru.c: 232:         while(index < 8) {
+[e $ < -> _index `i -> 8 `i 197  ]
+[e :U 198 ]
+"238
+[; ;Yatte_Miru.c: 238:         index = 0;
+[e = _index -> -> 0 `i `uc ]
+"239
+[; ;Yatte_Miru.c: 239:         hold = 0x80;
+[e = _hold -> -> 128 `i `uc ]
+"240
+[; ;Yatte_Miru.c: 240:         PORTC = 0;
+[e = _PORTC -> -> 0 `i `uc ]
+"241
+[; ;Yatte_Miru.c: 241:         while(index < 8) {
+[e $U 199  ]
+[e :U 200 ]
+{
+"242
+[; ;Yatte_Miru.c: 242:             PORTC = hold;
+[e = _PORTC _hold ]
+"243
+[; ;Yatte_Miru.c: 243:             _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"244
+[; ;Yatte_Miru.c: 244:             hold = (hold >> 1) | hold;
+[e = _hold -> | >> -> _hold `i -> 1 `i -> _hold `i `uc ]
+"245
+[; ;Yatte_Miru.c: 245:             index++;
+[e ++ _index -> -> 1 `i `uc ]
+"246
+[; ;Yatte_Miru.c: 246:         }
+}
+[e :U 199 ]
+"241
+[; ;Yatte_Miru.c: 241:         while(index < 8) {
+[e $ < -> _index `i -> 8 `i 200  ]
+[e :U 201 ]
+"247
+[; ;Yatte_Miru.c: 247:         PORTC = 0;
+[e = _PORTC -> -> 0 `i `uc ]
+"248
+[; ;Yatte_Miru.c: 248:         PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
+"249
+[; ;Yatte_Miru.c: 249:         numberCountUp--;
+[e -- _numberCountUp -> -> 1 `i `ui ]
+"250
+[; ;Yatte_Miru.c: 250:     }
+}
+[e :U 193 ]
+"227
+[; ;Yatte_Miru.c: 227:     while(numberCountUp > 0) {
+[e $ > _numberCountUp -> -> 0 `i `ui 194  ]
+[e :U 195 ]
+"251
+[; ;Yatte_Miru.c: 251:     PORTC = 0xff;
+[e = _PORTC -> -> 255 `i `uc ]
+"252
+[; ;Yatte_Miru.c: 252:     PORTD = 0xff;
+[e = _PORTD -> -> 255 `i `uc ]
+"253
+[; ;Yatte_Miru.c: 253: }
+[e :UE 180 ]
+}

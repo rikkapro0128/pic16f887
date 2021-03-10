@@ -32,6 +32,7 @@
 #include <xc.h>
 
 #define _XTAL_FREQ 4000000
+#define delayBaiMot 50 // khai bao thoi gian delay cua sang dan
 #define delayBaiHai 300 // khai bao thoi gian delay cua sang dan
 #define delayBaiBa 400 // khai bao thoi gian delay cua sang don
 #define delayBaiBon 300 // khai bao thoi gian delay cua sang don
@@ -42,6 +43,7 @@ void sangDan();
 void sangDon();
 void tamLedPortC();
 void muoiSauLed();
+void sauLedSangDuoi();
 
 void main(void){
     declarePort();
@@ -67,12 +69,13 @@ void main(void){
         }
         */
         // bài 5
-        if(count < 2) {
-            muoiSauLed();
-            count++;
-        }else {
-            PORTC = 0xff;
-        }
+//        if(count < 2) {
+//            muoiSauLed();
+//            count++;
+//        }else {
+//            PORTC = 0xff;
+//        }
+        sauLedSangDuoi();
     }
 }
 
@@ -80,8 +83,31 @@ void declarePort() { // khai bao port
     ANSEL = ANSELH = 0;
     TRISD = 0;
     TRISC = 0;
+    TRISB = 0;
+    PORTB = 0;
     PORTC = 0;
     PORTD = 0;
+}
+
+void sauLedSangDuoi() {
+    TRISB = 0b00100000;
+    PORTB = 0b00001000; 
+    __delay_ms(delayBaiMot);
+    TRISB = 0b00100000;
+    PORTB = 0b00010000; 
+    __delay_ms(delayBaiMot);
+    TRISB = 0b00001000;
+    PORTB = 0b00010000;
+    __delay_ms(delayBaiMot);
+    TRISB = 0b00001000;
+    PORTB = 0b00100000; 
+    __delay_ms(delayBaiMot);
+    TRISB = 0b00010000;
+    PORTB = 0b00100000; 
+    __delay_ms(delayBaiMot);
+    TRISB = 0b00010000;
+    PORTB = 0b00001000; 
+    __delay_ms(delayBaiMot);
 }
 
 void sangDan() { // function sang dan
