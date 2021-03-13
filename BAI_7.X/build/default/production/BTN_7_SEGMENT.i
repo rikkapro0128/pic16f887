@@ -1,4 +1,4 @@
-# 1 "newmain.c"
+# 1 "BTN_7_SEGMENT.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "newmain.c" 2
-# 14 "newmain.c"
+# 1 "BTN_7_SEGMENT.c" 2
+# 14 "BTN_7_SEGMENT.c"
 #pragma config FOSC = HS
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -2508,14 +2508,15 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 33 "newmain.c" 2
+# 33 "BTN_7_SEGMENT.c" 2
+
 
 
 
 void declarePort();
-void flashLed(unsigned int times);
-void stateRace(unsigned int times);
-void stateCountUp(unsigned int times);
+void showWord(unsigned int times);
+unsigned int showNumberToThisNumber(unsigned int nonShow);
+void showNumber();
 
 void main(void){
     declarePort();
@@ -2524,58 +2525,68 @@ void main(void){
        if(!RB0)
        {
 
-          flashLed(4);
+          showWord(4);
        }else if(!RB1) {
 
-           stateRace(2);
+           showNumberToThisNumber(26);
        }else if(!RB2) {
-           stateCountUp(2);
+           showNumber();
        }
     }
 }
 
-void stateCountUp(unsigned int times) {
-    while(times--) {
-        unsigned int index = 8;
-        unsigned char hold = 0x00;
-        while(index--) {
-            hold = (hold >> 1) | 0x80;
-            PORTD = hold;
-            _delay((unsigned long)((300)*(4000000/4000.0)));
+void showNumber() {
+    unsigned char listNumber[10] = {0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90};
+    unsigned int i = 10, j = 10;
+    while(j--) {
+        PORTC = listNumber[j];
+        i = 10;
+        while(i--) {
+            PORTD = listNumber[i];
+            _delay((unsigned long)((50)*(4000000/4000.0)));
         }
-        PORTD = 0;
-        _delay((unsigned long)((300)*(4000000/4000.0)));
+    }
+    PORTD = PORTC = 0xff;
+}
+
+unsigned int showNumberToThisNumber(unsigned int nonShow) {
+    unsigned int dozen = nonShow / 10;
+    unsigned int unit = nonShow % 10;
+    unsigned char listNumber[10] = {0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90};
+    unsigned int i = 0, j = 0;
+    while(j < 10) {
+        PORTC = listNumber[j];
+        i = 0;
+        while(i < 10) {
+            PORTD = listNumber[i];
+            _delay((unsigned long)((50)*(4000000/4000.0)));
+            if(j == dozen && i == unit) {
+                PORTD = PORTC = 0xff;
+                return 1;
+            }
+            i++;
+        }
+        j++;
     }
 }
 
-void stateRace(unsigned int times) {
+void showWord(unsigned int times) {
+    unsigned char letterAUpCase = 0x08, letterBLowerCase = 0x03;
     while(times--) {
-        unsigned int index = 8;
-        unsigned char hold = 0x80;
-        while(index--) {
-            PORTD = hold;
-            _delay((unsigned long)((300)*(4000000/4000.0)));
-            hold = hold >> 1;
-        }
-        PORTD = 0;
-    }
-}
-
-void flashLed(unsigned int times) {
-    while(times--) {
-        PORTD = 0xff;
-        _delay((unsigned long)((300)*(4000000/4000.0)));
-        PORTD = 0x00;
-        _delay((unsigned long)((300)*(4000000/4000.0)));
+        PORTC = letterAUpCase;
+        PORTD = letterBLowerCase;
+        _delay((unsigned long)((1000 / 2)*(4000000/4000.0)));
+        PORTD = PORTC = 0xff;
+        _delay((unsigned long)((1000 / 2)*(4000000/4000.0)));
     }
 }
 
 void declarePort() {
     ANSEL = ANSELH = 0;
     TRISD = 0;
-    PORTD = 0;
+    PORTD = 0xff;
     TRISC = 0;
-    PORTC = 0;
+    PORTC = 0xff;
 
     TRISB0 = 1;
     TRISB1 = 1;

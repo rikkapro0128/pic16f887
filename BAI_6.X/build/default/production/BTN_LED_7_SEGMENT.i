@@ -1,4 +1,4 @@
-# 1 "newmain.c"
+# 1 "BTN_LED_7_SEGMENT.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,22 +6,9 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "newmain.c" 2
-# 14 "newmain.c"
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = ON
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
+# 1 "BTN_LED_7_SEGMENT.c" 2
 
 
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
 
 
 
@@ -2508,79 +2495,9 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 33 "newmain.c" 2
+# 9 "BTN_LED_7_SEGMENT.c" 2
 
 
-
-void declarePort();
-void flashLed(unsigned int times);
-void stateRace(unsigned int times);
-void stateCountUp(unsigned int times);
-
-void main(void){
-    declarePort();
-    while(1)
-    {
-       if(!RB0)
-       {
-
-          flashLed(4);
-       }else if(!RB1) {
-
-           stateRace(2);
-       }else if(!RB2) {
-           stateCountUp(2);
-       }
-    }
-}
-
-void stateCountUp(unsigned int times) {
-    while(times--) {
-        unsigned int index = 8;
-        unsigned char hold = 0x00;
-        while(index--) {
-            hold = (hold >> 1) | 0x80;
-            PORTD = hold;
-            _delay((unsigned long)((300)*(4000000/4000.0)));
-        }
-        PORTD = 0;
-        _delay((unsigned long)((300)*(4000000/4000.0)));
-    }
-}
-
-void stateRace(unsigned int times) {
-    while(times--) {
-        unsigned int index = 8;
-        unsigned char hold = 0x80;
-        while(index--) {
-            PORTD = hold;
-            _delay((unsigned long)((300)*(4000000/4000.0)));
-            hold = hold >> 1;
-        }
-        PORTD = 0;
-    }
-}
-
-void flashLed(unsigned int times) {
-    while(times--) {
-        PORTD = 0xff;
-        _delay((unsigned long)((300)*(4000000/4000.0)));
-        PORTD = 0x00;
-        _delay((unsigned long)((300)*(4000000/4000.0)));
-    }
-}
-
-void declarePort() {
-    ANSEL = ANSELH = 0;
-    TRISD = 0;
-    PORTD = 0;
-    TRISC = 0;
-    PORTC = 0;
-
-    TRISB0 = 1;
-    TRISB1 = 1;
-    TRISB2 = 1;
-
-    nRBPU = 0;
-    WPUB = 0x07;
+void main(void) {
+    return;
 }

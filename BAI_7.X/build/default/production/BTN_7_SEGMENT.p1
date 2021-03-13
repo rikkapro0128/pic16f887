@@ -1,27 +1,30 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"36 newmain.c
-[; ;newmain.c: 36: void declarePort();
+"37 BTN_7_SEGMENT.c
+[; ;BTN_7_SEGMENT.c: 37: void declarePort();
 [v _declarePort `(v ~T0 @X0 0 e? ]
 "4103 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4103: extern volatile __bit RB0 __attribute__((address(0x30)));
 [v _RB0 `Vb ~T0 @X0 0 e@48 ]
-"37 newmain.c
-[; ;newmain.c: 37: void flashLed(unsigned int times);
-[v _flashLed `(v ~T0 @X0 0 ef1`ui ]
+"38 BTN_7_SEGMENT.c
+[; ;BTN_7_SEGMENT.c: 38: void showWord(unsigned int times);
+[v _showWord `(v ~T0 @X0 0 ef1`ui ]
 "4106 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4106: extern volatile __bit RB1 __attribute__((address(0x31)));
 [v _RB1 `Vb ~T0 @X0 0 e@49 ]
-"38 newmain.c
-[; ;newmain.c: 38: void stateRace(unsigned int times);
-[v _stateRace `(v ~T0 @X0 0 ef1`ui ]
+"39 BTN_7_SEGMENT.c
+[; ;BTN_7_SEGMENT.c: 39: unsigned int showNumberToThisNumber(unsigned int nonShow);
+[v _showNumberToThisNumber `(ui ~T0 @X0 0 ef1`ui ]
 "4109 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4109: extern volatile __bit RB2 __attribute__((address(0x32)));
 [v _RB2 `Vb ~T0 @X0 0 e@50 ]
-"39 newmain.c
-[; ;newmain.c: 39: void stateCountUp(unsigned int times);
-[v _stateCountUp `(v ~T0 @X0 0 ef1`ui ]
-"352 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+"40 BTN_7_SEGMENT.c
+[; ;BTN_7_SEGMENT.c: 40: void showNumber();
+[v _showNumber `(v ~T0 @X0 0 e? ]
+"290 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 290: extern volatile unsigned char PORTC __attribute__((address(0x007)));
+[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
+"352
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
 [v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 [v F1256 `(v ~T0 @X0 1 tf1`ul ]
@@ -40,9 +43,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1540
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1540: extern volatile unsigned char TRISC __attribute__((address(0x087)));
 [v _TRISC `Vuc ~T0 @X0 0 e@135 ]
-"290
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 290: extern volatile unsigned char PORTC __attribute__((address(0x007)));
-[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
 "4424
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4424: extern volatile __bit TRISB0 __attribute__((address(0x430)));
 [v _TRISB0 `Vb ~T0 @X0 0 e@1072 ]
@@ -58,7 +58,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2346
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2346: extern volatile unsigned char WPUB __attribute__((address(0x095)));
 [v _WPUB `Vuc ~T0 @X0 0 e@149 ]
-"14 newmain.c
+"14 BTN_7_SEGMENT.c
 [p x FOSC  =  HS         ]
 "15
 [p x WDTE  =  OFF        ]
@@ -317,256 +317,327 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
-"41 newmain.c
-[; ;newmain.c: 41: void main(void){
+"42 BTN_7_SEGMENT.c
+[; ;BTN_7_SEGMENT.c: 42: void main(void){
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"42
-[; ;newmain.c: 42:     declarePort();
-[e ( _declarePort ..  ]
 "43
-[; ;newmain.c: 43:     while(1)
-[e :U 140 ]
+[; ;BTN_7_SEGMENT.c: 43:     declarePort();
+[e ( _declarePort ..  ]
 "44
-[; ;newmain.c: 44:     {
-{
+[; ;BTN_7_SEGMENT.c: 44:     while(1)
+[e :U 140 ]
 "45
-[; ;newmain.c: 45:        if(!RB0)
-[e $ ! ! _RB0 142  ]
-"46
-[; ;newmain.c: 46:        {
+[; ;BTN_7_SEGMENT.c: 45:     {
 {
-"48
-[; ;newmain.c: 48:           flashLed(4);
-[e ( _flashLed (1 -> -> 4 `i `ui ]
+"46
+[; ;BTN_7_SEGMENT.c: 46:        if(!RB0)
+[e $ ! ! _RB0 142  ]
+"47
+[; ;BTN_7_SEGMENT.c: 47:        {
+{
 "49
-[; ;newmain.c: 49:        }else if(!RB1) {
+[; ;BTN_7_SEGMENT.c: 49:           showWord(4);
+[e ( _showWord (1 -> -> 4 `i `ui ]
+"50
+[; ;BTN_7_SEGMENT.c: 50:        }else if(!RB1) {
 }
 [e $U 143  ]
 [e :U 142 ]
 [e $ ! ! _RB1 144  ]
 {
-"51
-[; ;newmain.c: 51:            stateRace(2);
-[e ( _stateRace (1 -> -> 2 `i `ui ]
 "52
-[; ;newmain.c: 52:        }else if(!RB2) {
+[; ;BTN_7_SEGMENT.c: 52:            showNumberToThisNumber(26);
+[e ( _showNumberToThisNumber (1 -> -> 26 `i `ui ]
+"53
+[; ;BTN_7_SEGMENT.c: 53:        }else if(!RB2) {
 }
 [e $U 145  ]
 [e :U 144 ]
 [e $ ! ! _RB2 146  ]
 {
-"53
-[; ;newmain.c: 53:            stateCountUp(2);
-[e ( _stateCountUp (1 -> -> 2 `i `ui ]
 "54
-[; ;newmain.c: 54:        }
+[; ;BTN_7_SEGMENT.c: 54:            showNumber();
+[e ( _showNumber ..  ]
+"55
+[; ;BTN_7_SEGMENT.c: 55:        }
 }
 [e :U 146 ]
 [e :U 145 ]
 [e :U 143 ]
-"55
-[; ;newmain.c: 55:     }
+"56
+[; ;BTN_7_SEGMENT.c: 56:     }
 }
 [e :U 139 ]
 [e $U 140  ]
 [e :U 141 ]
-"56
-[; ;newmain.c: 56: }
+"57
+[; ;BTN_7_SEGMENT.c: 57: }
 [e :UE 138 ]
 }
-"58
-[; ;newmain.c: 58: void stateCountUp(unsigned int times) {
-[v _stateCountUp `(v ~T0 @X0 1 ef1`ui ]
-{
-[e :U _stateCountUp ]
-[v _times `ui ~T0 @X0 1 r1 ]
-[f ]
 "59
-[; ;newmain.c: 59:     while(times--) {
+[; ;BTN_7_SEGMENT.c: 59: void showNumber() {
+[v _showNumber `(v ~T0 @X0 1 ef ]
+{
+[e :U _showNumber ]
+[f ]
+[v F1272 `uc ~T0 @X0 -> 10 `i s ]
+[i F1272
+:U ..
+"60
+[; ;BTN_7_SEGMENT.c: 60:     unsigned char listNumber[10] = {0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90};
+-> -> 192 `i `uc
+-> -> 249 `i `uc
+-> -> 164 `i `uc
+-> -> 176 `i `uc
+-> -> 153 `i `uc
+-> -> 146 `i `uc
+-> -> 130 `i `uc
+-> -> 248 `i `uc
+-> -> 128 `i `uc
+-> -> 144 `i `uc
+..
+]
+[v _listNumber `uc ~T0 @X0 -> 10 `i a ]
+[e = _listNumber F1272 ]
+"61
+[; ;BTN_7_SEGMENT.c: 61:     unsigned int i = 10, j = 10;
+[v _i `ui ~T0 @X0 1 a ]
+[e = _i -> -> 10 `i `ui ]
+[v _j `ui ~T0 @X0 1 a ]
+[e = _j -> -> 10 `i `ui ]
+"62
+[; ;BTN_7_SEGMENT.c: 62:     while(j--) {
 [e $U 148  ]
 [e :U 149 ]
 {
-"60
-[; ;newmain.c: 60:         unsigned int index = 8;
-[v _index `ui ~T0 @X0 1 a ]
-[e = _index -> -> 8 `i `ui ]
-"61
-[; ;newmain.c: 61:         unsigned char hold = 0x00;
-[v _hold `uc ~T0 @X0 1 a ]
-[e = _hold -> -> 0 `i `uc ]
-"62
-[; ;newmain.c: 62:         while(index--) {
+"63
+[; ;BTN_7_SEGMENT.c: 63:         PORTC = listNumber[j];
+[e = _PORTC *U + &U _listNumber * -> _j `ux -> -> # *U &U _listNumber `ui `ux ]
+"64
+[; ;BTN_7_SEGMENT.c: 64:         i = 10;
+[e = _i -> -> 10 `i `ui ]
+"65
+[; ;BTN_7_SEGMENT.c: 65:         while(i--) {
 [e $U 151  ]
 [e :U 152 ]
 {
-"63
-[; ;newmain.c: 63:             hold = (hold >> 1) | 0x80;
-[e = _hold -> | >> -> _hold `i -> 1 `i -> 128 `i `uc ]
-"64
-[; ;newmain.c: 64:             PORTD = hold;
-[e = _PORTD _hold ]
-"65
-[; ;newmain.c: 65:             _delay((unsigned long)((300)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "66
-[; ;newmain.c: 66:         }
+[; ;BTN_7_SEGMENT.c: 66:             PORTD = listNumber[i];
+[e = _PORTD *U + &U _listNumber * -> _i `ux -> -> # *U &U _listNumber `ui `ux ]
+"67
+[; ;BTN_7_SEGMENT.c: 67:             _delay((unsigned long)((50)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"68
+[; ;BTN_7_SEGMENT.c: 68:         }
 }
 [e :U 151 ]
-"62
-[; ;newmain.c: 62:         while(index--) {
-[e $ != -- _index -> -> 1 `i `ui -> -> 0 `i `ui 152  ]
+"65
+[; ;BTN_7_SEGMENT.c: 65:         while(i--) {
+[e $ != -- _i -> -> 1 `i `ui -> -> 0 `i `ui 152  ]
 [e :U 153 ]
-"67
-[; ;newmain.c: 67:         PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
-"68
-[; ;newmain.c: 68:         _delay((unsigned long)((300)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "69
-[; ;newmain.c: 69:     }
+[; ;BTN_7_SEGMENT.c: 69:     }
 }
 [e :U 148 ]
-"59
-[; ;newmain.c: 59:     while(times--) {
-[e $ != -- _times -> -> 1 `i `ui -> -> 0 `i `ui 149  ]
+"62
+[; ;BTN_7_SEGMENT.c: 62:     while(j--) {
+[e $ != -- _j -> -> 1 `i `ui -> -> 0 `i `ui 149  ]
 [e :U 150 ]
 "70
-[; ;newmain.c: 70: }
+[; ;BTN_7_SEGMENT.c: 70:     PORTD = PORTC = 0xff;
+[e = _PORTD = _PORTC -> -> 255 `i `uc ]
+"71
+[; ;BTN_7_SEGMENT.c: 71: }
 [e :UE 147 ]
 }
-"72
-[; ;newmain.c: 72: void stateRace(unsigned int times) {
-[v _stateRace `(v ~T0 @X0 1 ef1`ui ]
-{
-[e :U _stateRace ]
-[v _times `ui ~T0 @X0 1 r1 ]
-[f ]
 "73
-[; ;newmain.c: 73:     while(times--) {
+[; ;BTN_7_SEGMENT.c: 73: unsigned int showNumberToThisNumber(unsigned int nonShow) {
+[v _showNumberToThisNumber `(ui ~T0 @X0 1 ef1`ui ]
+{
+[e :U _showNumberToThisNumber ]
+[v _nonShow `ui ~T0 @X0 1 r1 ]
+[f ]
+"74
+[; ;BTN_7_SEGMENT.c: 74:     unsigned int dozen = nonShow / 10;
+[v _dozen `ui ~T0 @X0 1 a ]
+[e = _dozen / _nonShow -> -> 10 `i `ui ]
+"75
+[; ;BTN_7_SEGMENT.c: 75:     unsigned int unit = nonShow % 10;
+[v _unit `ui ~T0 @X0 1 a ]
+[e = _unit % _nonShow -> -> 10 `i `ui ]
+[v F1280 `uc ~T0 @X0 -> 10 `i s ]
+[i F1280
+:U ..
+"76
+[; ;BTN_7_SEGMENT.c: 76:     unsigned char listNumber[10] = {0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90};
+-> -> 192 `i `uc
+-> -> 249 `i `uc
+-> -> 164 `i `uc
+-> -> 176 `i `uc
+-> -> 153 `i `uc
+-> -> 146 `i `uc
+-> -> 130 `i `uc
+-> -> 248 `i `uc
+-> -> 128 `i `uc
+-> -> 144 `i `uc
+..
+]
+[v _listNumber `uc ~T0 @X0 -> 10 `i a ]
+[e = _listNumber F1280 ]
+"77
+[; ;BTN_7_SEGMENT.c: 77:     unsigned int i = 0, j = 0;
+[v _i `ui ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `ui ]
+[v _j `ui ~T0 @X0 1 a ]
+[e = _j -> -> 0 `i `ui ]
+"78
+[; ;BTN_7_SEGMENT.c: 78:     while(j < 10) {
 [e $U 155  ]
 [e :U 156 ]
 {
-"74
-[; ;newmain.c: 74:         unsigned int index = 8;
-[v _index `ui ~T0 @X0 1 a ]
-[e = _index -> -> 8 `i `ui ]
-"75
-[; ;newmain.c: 75:         unsigned char hold = 0x80;
-[v _hold `uc ~T0 @X0 1 a ]
-[e = _hold -> -> 128 `i `uc ]
-"76
-[; ;newmain.c: 76:         while(index--) {
+"79
+[; ;BTN_7_SEGMENT.c: 79:         PORTC = listNumber[j];
+[e = _PORTC *U + &U _listNumber * -> _j `ux -> -> # *U &U _listNumber `ui `ux ]
+"80
+[; ;BTN_7_SEGMENT.c: 80:         i = 0;
+[e = _i -> -> 0 `i `ui ]
+"81
+[; ;BTN_7_SEGMENT.c: 81:         while(i < 10) {
 [e $U 158  ]
 [e :U 159 ]
 {
-"77
-[; ;newmain.c: 77:             PORTD = hold;
-[e = _PORTD _hold ]
-"78
-[; ;newmain.c: 78:             _delay((unsigned long)((300)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"79
-[; ;newmain.c: 79:             hold = hold >> 1;
-[e = _hold -> >> -> _hold `i -> 1 `i `uc ]
-"80
-[; ;newmain.c: 80:         }
+"82
+[; ;BTN_7_SEGMENT.c: 82:             PORTD = listNumber[i];
+[e = _PORTD *U + &U _listNumber * -> _i `ux -> -> # *U &U _listNumber `ui `ux ]
+"83
+[; ;BTN_7_SEGMENT.c: 83:             _delay((unsigned long)((50)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"84
+[; ;BTN_7_SEGMENT.c: 84:             if(j == dozen && i == unit) {
+[e $ ! && == _j _dozen == _i _unit 161  ]
+{
+"85
+[; ;BTN_7_SEGMENT.c: 85:                 PORTD = PORTC = 0xff;
+[e = _PORTD = _PORTC -> -> 255 `i `uc ]
+"86
+[; ;BTN_7_SEGMENT.c: 86:                 return 1;
+[e ) -> -> 1 `i `ui ]
+[e $UE 154  ]
+"87
+[; ;BTN_7_SEGMENT.c: 87:             }
+}
+[e :U 161 ]
+"88
+[; ;BTN_7_SEGMENT.c: 88:             i++;
+[e ++ _i -> -> 1 `i `ui ]
+"89
+[; ;BTN_7_SEGMENT.c: 89:         }
 }
 [e :U 158 ]
-"76
-[; ;newmain.c: 76:         while(index--) {
-[e $ != -- _index -> -> 1 `i `ui -> -> 0 `i `ui 159  ]
-[e :U 160 ]
 "81
-[; ;newmain.c: 81:         PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
-"82
-[; ;newmain.c: 82:     }
+[; ;BTN_7_SEGMENT.c: 81:         while(i < 10) {
+[e $ < _i -> -> 10 `i `ui 159  ]
+[e :U 160 ]
+"90
+[; ;BTN_7_SEGMENT.c: 90:         j++;
+[e ++ _j -> -> 1 `i `ui ]
+"91
+[; ;BTN_7_SEGMENT.c: 91:     }
 }
 [e :U 155 ]
-"73
-[; ;newmain.c: 73:     while(times--) {
-[e $ != -- _times -> -> 1 `i `ui -> -> 0 `i `ui 156  ]
+"78
+[; ;BTN_7_SEGMENT.c: 78:     while(j < 10) {
+[e $ < _j -> -> 10 `i `ui 156  ]
 [e :U 157 ]
-"83
-[; ;newmain.c: 83: }
+"92
+[; ;BTN_7_SEGMENT.c: 92: }
 [e :UE 154 ]
 }
-"85
-[; ;newmain.c: 85: void flashLed(unsigned int times) {
-[v _flashLed `(v ~T0 @X0 1 ef1`ui ]
+"94
+[; ;BTN_7_SEGMENT.c: 94: void showWord(unsigned int times) {
+[v _showWord `(v ~T0 @X0 1 ef1`ui ]
 {
-[e :U _flashLed ]
+[e :U _showWord ]
 [v _times `ui ~T0 @X0 1 r1 ]
 [f ]
-"86
-[; ;newmain.c: 86:     while(times--) {
-[e $U 162  ]
-[e :U 163 ]
-{
-"87
-[; ;newmain.c: 87:         PORTD = 0xff;
-[e = _PORTD -> -> 255 `i `uc ]
-"88
-[; ;newmain.c: 88:         _delay((unsigned long)((300)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"89
-[; ;newmain.c: 89:         PORTD = 0x00;
-[e = _PORTD -> -> 0 `i `uc ]
-"90
-[; ;newmain.c: 90:         _delay((unsigned long)((300)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"91
-[; ;newmain.c: 91:     }
-}
-[e :U 162 ]
-"86
-[; ;newmain.c: 86:     while(times--) {
-[e $ != -- _times -> -> 1 `i `ui -> -> 0 `i `ui 163  ]
+"95
+[; ;BTN_7_SEGMENT.c: 95:     unsigned char letterAUpCase = 0x08, letterBLowerCase = 0x03;
+[v _letterAUpCase `uc ~T0 @X0 1 a ]
+[e = _letterAUpCase -> -> 8 `i `uc ]
+[v _letterBLowerCase `uc ~T0 @X0 1 a ]
+[e = _letterBLowerCase -> -> 3 `i `uc ]
+"96
+[; ;BTN_7_SEGMENT.c: 96:     while(times--) {
+[e $U 163  ]
 [e :U 164 ]
-"92
-[; ;newmain.c: 92: }
-[e :UE 161 ]
+{
+"97
+[; ;BTN_7_SEGMENT.c: 97:         PORTC = letterAUpCase;
+[e = _PORTC _letterAUpCase ]
+"98
+[; ;BTN_7_SEGMENT.c: 98:         PORTD = letterBLowerCase;
+[e = _PORTD _letterBLowerCase ]
+"99
+[; ;BTN_7_SEGMENT.c: 99:         _delay((unsigned long)((1000 / 2)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> / -> 1000 `i -> 2 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"100
+[; ;BTN_7_SEGMENT.c: 100:         PORTD = PORTC = 0xff;
+[e = _PORTD = _PORTC -> -> 255 `i `uc ]
+"101
+[; ;BTN_7_SEGMENT.c: 101:         _delay((unsigned long)((1000 / 2)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> / -> 1000 `i -> 2 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"102
+[; ;BTN_7_SEGMENT.c: 102:     }
 }
-"94
-[; ;newmain.c: 94: void declarePort() {
+[e :U 163 ]
+"96
+[; ;BTN_7_SEGMENT.c: 96:     while(times--) {
+[e $ != -- _times -> -> 1 `i `ui -> -> 0 `i `ui 164  ]
+[e :U 165 ]
+"103
+[; ;BTN_7_SEGMENT.c: 103: }
+[e :UE 162 ]
+}
+"105
+[; ;BTN_7_SEGMENT.c: 105: void declarePort() {
 [v _declarePort `(v ~T0 @X0 1 ef ]
 {
 [e :U _declarePort ]
 [f ]
-"95
-[; ;newmain.c: 95:     ANSEL = ANSELH = 0;
-[e = _ANSEL = _ANSELH -> -> 0 `i `uc ]
-"96
-[; ;newmain.c: 96:     TRISD = 0;
-[e = _TRISD -> -> 0 `i `uc ]
-"97
-[; ;newmain.c: 97:     PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
-"98
-[; ;newmain.c: 98:     TRISC = 0;
-[e = _TRISC -> -> 0 `i `uc ]
-"99
-[; ;newmain.c: 99:     PORTC = 0;
-[e = _PORTC -> -> 0 `i `uc ]
-"101
-[; ;newmain.c: 101:     TRISB0 = 1;
-[e = _TRISB0 -> -> 1 `i `b ]
-"102
-[; ;newmain.c: 102:     TRISB1 = 1;
-[e = _TRISB1 -> -> 1 `i `b ]
-"103
-[; ;newmain.c: 103:     TRISB2 = 1;
-[e = _TRISB2 -> -> 1 `i `b ]
-"105
-[; ;newmain.c: 105:     nRBPU = 0;
-[e = _nRBPU -> -> 0 `i `b ]
 "106
-[; ;newmain.c: 106:     WPUB = 0x07;
-[e = _WPUB -> -> 7 `i `uc ]
+[; ;BTN_7_SEGMENT.c: 106:     ANSEL = ANSELH = 0;
+[e = _ANSEL = _ANSELH -> -> 0 `i `uc ]
 "107
-[; ;newmain.c: 107: }
-[e :UE 165 ]
+[; ;BTN_7_SEGMENT.c: 107:     TRISD = 0;
+[e = _TRISD -> -> 0 `i `uc ]
+"108
+[; ;BTN_7_SEGMENT.c: 108:     PORTD = 0xff;
+[e = _PORTD -> -> 255 `i `uc ]
+"109
+[; ;BTN_7_SEGMENT.c: 109:     TRISC = 0;
+[e = _TRISC -> -> 0 `i `uc ]
+"110
+[; ;BTN_7_SEGMENT.c: 110:     PORTC = 0xff;
+[e = _PORTC -> -> 255 `i `uc ]
+"112
+[; ;BTN_7_SEGMENT.c: 112:     TRISB0 = 1;
+[e = _TRISB0 -> -> 1 `i `b ]
+"113
+[; ;BTN_7_SEGMENT.c: 113:     TRISB1 = 1;
+[e = _TRISB1 -> -> 1 `i `b ]
+"114
+[; ;BTN_7_SEGMENT.c: 114:     TRISB2 = 1;
+[e = _TRISB2 -> -> 1 `i `b ]
+"116
+[; ;BTN_7_SEGMENT.c: 116:     nRBPU = 0;
+[e = _nRBPU -> -> 0 `i `b ]
+"117
+[; ;BTN_7_SEGMENT.c: 117:     WPUB = 0x07;
+[e = _WPUB -> -> 7 `i `uc ]
+"118
+[; ;BTN_7_SEGMENT.c: 118: }
+[e :UE 166 ]
 }

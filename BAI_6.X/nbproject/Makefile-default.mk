@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=newmain.c
+SOURCEFILES_QUOTED_IF_SPACED=BTN_SINGLE_LED.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/newmain.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/newmain.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/BTN_SINGLE_LED.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/BTN_SINGLE_LED.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/newmain.p1
+OBJECTFILES=${OBJECTDIR}/BTN_SINGLE_LED.p1
 
 # Source Files
-SOURCEFILES=newmain.c
+SOURCEFILES=BTN_SINGLE_LED.c
 
 
 
@@ -94,22 +94,22 @@ MP_PROCESSOR_OPTION=16F887
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/newmain.p1: newmain.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/BTN_SINGLE_LED.p1: BTN_SINGLE_LED.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/newmain.p1.d 
-	@${RM} ${OBJECTDIR}/newmain.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/newmain.p1 newmain.c 
-	@-${MV} ${OBJECTDIR}/newmain.d ${OBJECTDIR}/newmain.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/newmain.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/BTN_SINGLE_LED.p1.d 
+	@${RM} ${OBJECTDIR}/BTN_SINGLE_LED.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/BTN_SINGLE_LED.p1 BTN_SINGLE_LED.c 
+	@-${MV} ${OBJECTDIR}/BTN_SINGLE_LED.d ${OBJECTDIR}/BTN_SINGLE_LED.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/BTN_SINGLE_LED.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
-${OBJECTDIR}/newmain.p1: newmain.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/BTN_SINGLE_LED.p1: BTN_SINGLE_LED.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/newmain.p1.d 
-	@${RM} ${OBJECTDIR}/newmain.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/newmain.p1 newmain.c 
-	@-${MV} ${OBJECTDIR}/newmain.d ${OBJECTDIR}/newmain.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/newmain.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/BTN_SINGLE_LED.p1.d 
+	@${RM} ${OBJECTDIR}/BTN_SINGLE_LED.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/BTN_SINGLE_LED.p1 BTN_SINGLE_LED.c 
+	@-${MV} ${OBJECTDIR}/BTN_SINGLE_LED.d ${OBJECTDIR}/BTN_SINGLE_LED.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/BTN_SINGLE_LED.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

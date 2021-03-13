@@ -1,4 +1,4 @@
-# 1 "newmain.c"
+# 1 "BTN_SINGLE_LED.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "newmain.c" 2
-# 14 "newmain.c"
+# 1 "BTN_SINGLE_LED.c" 2
+# 14 "BTN_SINGLE_LED.c"
 #pragma config FOSC = HS
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -2508,7 +2508,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 33 "newmain.c" 2
+# 33 "BTN_SINGLE_LED.c" 2
 
 
 

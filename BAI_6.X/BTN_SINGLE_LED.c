@@ -31,9 +31,12 @@
 
 #define _XTAL_FREQ 4000000
 #include <xc.h>
-#define timeTest 50 // khai bao thoi gian delay cua sang don
+#define timeTest 300 // declare time delay 
 
 void declarePort();
+void flashLed(unsigned int times);
+void stateRace(unsigned int times);
+void stateCountUp(unsigned int times);
 
 void main(void){
     declarePort();
@@ -42,29 +45,63 @@ void main(void){
        if(!RB0)
        {
           // do something
-           unsigned int numberFlash = 4;
-           while(numberFlash--) {
-               PORTD = 0xff;
-               __delay_ms(timeTest);
-               PORTD = 0x00;
-               __delay_ms(timeTest);
-           }
+          flashLed(4);
        }else if(!RB1) { 
           // do something
-           
+           stateRace(2);
+       }else if(!RB2) {
+           stateCountUp(2);
        }
     }
 }
 
-void declarePort() { // khai bao port
+void stateCountUp(unsigned int times) {
+    while(times--) {
+        unsigned int index = 8;
+        unsigned char hold = 0x00;
+        while(index--) {
+            hold = (hold >> 1) | 0x80;
+            PORTD = hold;
+            __delay_ms(timeTest);
+        }
+        PORTD = 0;
+        __delay_ms(timeTest);
+    }
+}
+
+void stateRace(unsigned int times) {
+    while(times--) {
+        unsigned int index = 8;
+        unsigned char hold = 0x80;
+        while(index--) {
+            PORTD = hold;
+            __delay_ms(timeTest);
+            hold = hold >> 1;
+        }
+        PORTD = 0;
+    }
+}
+
+void flashLed(unsigned int times) {
+    while(times--) {
+        PORTD = 0xff;
+        __delay_ms(timeTest);
+        PORTD = 0x00;
+        __delay_ms(timeTest);
+    }
+}
+
+void declarePort() { // declare port
     ANSEL = ANSELH = 0;
     TRISD = 0;
     PORTD = 0;
     TRISC = 0;
     PORTC = 0;
+    // declare Pin RB0 - RB2 is input
     TRISB0 = 1;
     TRISB1 = 1;
     TRISB2 = 1;
-    nRBPU = 0;
-    WPUB = 0x07;
+    // declare resistance pull-up
+    nRBPU = 0; // set permit all PORTB have resistance pull-up
+    WPUB = 0x07; // set only pin RB0 - RB2 have resistance pull-up
 }
