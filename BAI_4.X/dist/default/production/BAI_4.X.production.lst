@@ -1,0 +1,1139 @@
+
+
+Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
+                                                                                               Sat Mar 13 15:03:16 2021
+
+Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1 
+     1                           	processor	16F887
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     5                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     6                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+     7                           	psect	maintext,global,class=CODE,split=1,delta=2
+     8                           	psect	text1,local,class=CODE,merge=1,delta=2
+     9                           	psect	text2,local,class=CODE,merge=1,delta=2
+    10                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    11                           	dabs	1,0x7E,2
+    12  0000                     
+    13                           ; Version 2.20
+    14                           ; Generated 12/02/2020 GMT
+    15                           ; 
+    16                           ; Copyright © 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    17                           ; All rights reserved.
+    18                           ; 
+    19                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    20                           ; 
+    21                           ; Redistribution and use in source and binary forms, with or without modification, are
+    22                           ; permitted provided that the following conditions are met:
+    23                           ; 
+    24                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    25                           ;        conditions and the following disclaimer.
+    26                           ; 
+    27                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    28                           ;        of conditions and the following disclaimer in the documentation and/or other
+    29                           ;        materials provided with the distribution.
+    30                           ; 
+    31                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    32                           ;        software without specific prior written permission.
+    33                           ; 
+    34                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    35                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    36                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    37                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    38                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    39                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    40                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    41                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    42                           ; 
+    43                           ; 
+    44                           ; Code-generator required, PIC16F887 Definitions
+    45                           ; 
+    46                           ; SFR Addresses
+    47  0000                     	;# 
+    48  0001                     	;# 
+    49  0002                     	;# 
+    50  0003                     	;# 
+    51  0004                     	;# 
+    52  0005                     	;# 
+    53  0006                     	;# 
+    54  0007                     	;# 
+    55  0008                     	;# 
+    56  0009                     	;# 
+    57  000A                     	;# 
+    58  000B                     	;# 
+    59  000C                     	;# 
+    60  000D                     	;# 
+    61  000E                     	;# 
+    62  000E                     	;# 
+    63  000F                     	;# 
+    64  0010                     	;# 
+    65  0011                     	;# 
+    66  0012                     	;# 
+    67  0013                     	;# 
+    68  0014                     	;# 
+    69  0015                     	;# 
+    70  0015                     	;# 
+    71  0016                     	;# 
+    72  0017                     	;# 
+    73  0018                     	;# 
+    74  0019                     	;# 
+    75  001A                     	;# 
+    76  001B                     	;# 
+    77  001B                     	;# 
+    78  001C                     	;# 
+    79  001D                     	;# 
+    80  001E                     	;# 
+    81  001F                     	;# 
+    82  0081                     	;# 
+    83  0085                     	;# 
+    84  0086                     	;# 
+    85  0087                     	;# 
+    86  0088                     	;# 
+    87  0089                     	;# 
+    88  008C                     	;# 
+    89  008D                     	;# 
+    90  008E                     	;# 
+    91  008F                     	;# 
+    92  0090                     	;# 
+    93  0091                     	;# 
+    94  0092                     	;# 
+    95  0093                     	;# 
+    96  0093                     	;# 
+    97  0093                     	;# 
+    98  0094                     	;# 
+    99  0095                     	;# 
+   100  0096                     	;# 
+   101  0097                     	;# 
+   102  0098                     	;# 
+   103  0099                     	;# 
+   104  009A                     	;# 
+   105  009B                     	;# 
+   106  009C                     	;# 
+   107  009D                     	;# 
+   108  009E                     	;# 
+   109  009F                     	;# 
+   110  0105                     	;# 
+   111  0107                     	;# 
+   112  0108                     	;# 
+   113  0109                     	;# 
+   114  010C                     	;# 
+   115  010C                     	;# 
+   116  010D                     	;# 
+   117  010E                     	;# 
+   118  010F                     	;# 
+   119  0185                     	;# 
+   120  0187                     	;# 
+   121  0188                     	;# 
+   122  0189                     	;# 
+   123  018C                     	;# 
+   124  018D                     	;# 
+   125  0000                     	;# 
+   126  0001                     	;# 
+   127  0002                     	;# 
+   128  0003                     	;# 
+   129  0004                     	;# 
+   130  0005                     	;# 
+   131  0006                     	;# 
+   132  0007                     	;# 
+   133  0008                     	;# 
+   134  0009                     	;# 
+   135  000A                     	;# 
+   136  000B                     	;# 
+   137  000C                     	;# 
+   138  000D                     	;# 
+   139  000E                     	;# 
+   140  000E                     	;# 
+   141  000F                     	;# 
+   142  0010                     	;# 
+   143  0011                     	;# 
+   144  0012                     	;# 
+   145  0013                     	;# 
+   146  0014                     	;# 
+   147  0015                     	;# 
+   148  0015                     	;# 
+   149  0016                     	;# 
+   150  0017                     	;# 
+   151  0018                     	;# 
+   152  0019                     	;# 
+   153  001A                     	;# 
+   154  001B                     	;# 
+   155  001B                     	;# 
+   156  001C                     	;# 
+   157  001D                     	;# 
+   158  001E                     	;# 
+   159  001F                     	;# 
+   160  0081                     	;# 
+   161  0085                     	;# 
+   162  0086                     	;# 
+   163  0087                     	;# 
+   164  0088                     	;# 
+   165  0089                     	;# 
+   166  008C                     	;# 
+   167  008D                     	;# 
+   168  008E                     	;# 
+   169  008F                     	;# 
+   170  0090                     	;# 
+   171  0091                     	;# 
+   172  0092                     	;# 
+   173  0093                     	;# 
+   174  0093                     	;# 
+   175  0093                     	;# 
+   176  0094                     	;# 
+   177  0095                     	;# 
+   178  0096                     	;# 
+   179  0097                     	;# 
+   180  0098                     	;# 
+   181  0099                     	;# 
+   182  009A                     	;# 
+   183  009B                     	;# 
+   184  009C                     	;# 
+   185  009D                     	;# 
+   186  009E                     	;# 
+   187  009F                     	;# 
+   188  0105                     	;# 
+   189  0107                     	;# 
+   190  0108                     	;# 
+   191  0109                     	;# 
+   192  010C                     	;# 
+   193  010C                     	;# 
+   194  010D                     	;# 
+   195  010E                     	;# 
+   196  010F                     	;# 
+   197  0185                     	;# 
+   198  0187                     	;# 
+   199  0188                     	;# 
+   200  0189                     	;# 
+   201  018C                     	;# 
+   202  018D                     	;# 
+   203  0008                     _PORTD	set	8
+   204  0006                     _PORTB	set	6
+   205  0007                     _PORTC	set	7
+   206  0086                     _TRISB	set	134
+   207  0087                     _TRISC	set	135
+   208  0088                     _TRISD	set	136
+   209  0189                     _ANSELH	set	393
+   210  0188                     _ANSEL	set	392
+   211                           
+   212                           	psect	cinit
+   213  07FC                     start_initialization:	
+   214                           ; #config settings
+   215                           
+   216  07FC                     __initialization:
+   217  07FC                     end_of_initialization:	
+   218                           ;End of C runtime variable initialization code
+   219                           
+   220  07FC                     __end_of__initialization:
+   221  07FC  0183               	clrf	3
+   222  07FD  120A  118A  2EC5   	ljmp	_main	;jump to C main() function
+   223                           
+   224                           	psect	cstackCOMMON
+   225  0070                     __pcstackCOMMON:
+   226  0070                     ?_declarePort:
+   227  0070                     ??_declarePort:	
+   228                           ; 1 bytes @ 0x0
+   229                           
+   230  0070                     ?_tamLedPortC:	
+   231                           ; 1 bytes @ 0x0
+   232                           
+   233  0070                     ??_tamLedPortC:	
+   234                           ; 1 bytes @ 0x0
+   235                           
+   236  0070                     ?_main:	
+   237                           ; 1 bytes @ 0x0
+   238                           
+   239                           
+   240                           ; 1 bytes @ 0x0
+   241  0070                     	ds	2
+   242  0072                     ??_main:
+   243  0072                     main@count:	
+   244                           ; 1 bytes @ 0x2
+   245                           
+   246                           
+   247                           ; 2 bytes @ 0x2
+   248  0072                     	ds	2
+   249                           
+   250                           	psect	cstackBANK0
+   251  0020                     __pcstackBANK0:
+   252  0020                     tamLedPortC@numberFlash:
+   253                           
+   254                           ; 2 bytes @ 0x0
+   255  0020                     	ds	2
+   256  0022                     tamLedPortC@numberRace:
+   257                           
+   258                           ; 2 bytes @ 0x2
+   259  0022                     	ds	2
+   260  0024                     tamLedPortC@numberCountUp:
+   261                           
+   262                           ; 2 bytes @ 0x4
+   263  0024                     	ds	2
+   264  0026                     tamLedPortC@pressed:
+   265                           
+   266                           ; 2 bytes @ 0x6
+   267  0026                     	ds	2
+   268  0028                     tamLedPortC@hold_62:
+   269                           
+   270                           ; 1 bytes @ 0x8
+   271  0028                     	ds	1
+   272  0029                     tamLedPortC@index:
+   273                           
+   274                           ; 1 bytes @ 0x9
+   275  0029                     	ds	1
+   276  002A                     tamLedPortC@sum:
+   277                           
+   278                           ; 1 bytes @ 0xA
+   279  002A                     	ds	1
+   280  002B                     tamLedPortC@score:
+   281                           
+   282                           ; 1 bytes @ 0xB
+   283  002B                     	ds	1
+   284  002C                     tamLedPortC@i:
+   285                           
+   286                           ; 1 bytes @ 0xC
+   287  002C                     	ds	1
+   288  002D                     tamLedPortC@j:
+   289                           
+   290                           ; 1 bytes @ 0xD
+   291  002D                     	ds	1
+   292  002E                     tamLedPortC@hold:
+   293                           
+   294                           ; 1 bytes @ 0xE
+   295  002E                     	ds	1
+   296                           
+   297                           	psect	maintext
+   298  06C5                     __pmaintext:	
+   299 ;;
+   300 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   301 ;;
+   302 ;; *************** function _main *****************
+   303 ;; Defined at:
+   304 ;;		line 39 in file "BAI_4.c"
+   305 ;; Parameters:    Size  Location     Type
+   306 ;;		None
+   307 ;; Auto vars:     Size  Location     Type
+   308 ;;  count           2    2[COMMON] unsigned int 
+   309 ;; Return value:  Size  Location     Type
+   310 ;;                  1    wreg      void 
+   311 ;; Registers used:
+   312 ;;		wreg, status,2, status,0, pclath, cstack
+   313 ;; Tracked objects:
+   314 ;;		On entry : B00/0
+   315 ;;		On exit  : 0/0
+   316 ;;		Unchanged: 0/0
+   317 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   318 ;;      Params:         0       0       0       0       0
+   319 ;;      Locals:         2       0       0       0       0
+   320 ;;      Temps:          0       0       0       0       0
+   321 ;;      Totals:         2       0       0       0       0
+   322 ;;Total ram usage:        2 bytes
+   323 ;; Hardware stack levels required when called: 1
+   324 ;; This function calls:
+   325 ;;		_declarePort
+   326 ;;		_tamLedPortC
+   327 ;; This function is called by:
+   328 ;;		Startup code after reset
+   329 ;; This function uses a non-reentrant model
+   330 ;;
+   331                           
+   332                           
+   333                           ;psect for function _main
+   334  06C5                     _main:
+   335  06C5                     l828:	
+   336                           ;incstack = 0
+   337                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   338                           
+   339                           
+   340                           ;BAI_4.c: 40:     declarePort();
+   341  06C5  120A  118A  26B6  120A  118A  	fcall	_declarePort
+   342  06CA                     l830:
+   343                           
+   344                           ;BAI_4.c: 41:     unsigned int count = 0;
+   345  06CA  01F2               	clrf	main@count
+   346  06CB  01F3               	clrf	main@count+1
+   347  06CC                     l832:
+   348                           
+   349                           ;BAI_4.c: 43:     {;BAI_4.c: 44:         if(count < 2) {
+   350  06CC  3000               	movlw	0
+   351  06CD  0273               	subwf	main@count+1,w
+   352  06CE  3002               	movlw	2
+   353  06CF  1903               	skipnz
+   354  06D0  0272               	subwf	main@count,w
+   355  06D1  1803               	skipnc
+   356  06D2  2ED4               	goto	u221
+   357  06D3  2ED5               	goto	u220
+   358  06D4                     u221:
+   359  06D4  2EE1               	goto	l838
+   360  06D5                     u220:
+   361  06D5                     l834:
+   362                           
+   363                           ;BAI_4.c: 45:             tamLedPortC();
+   364  06D5  120A  118A  26E9  120A  118A  	fcall	_tamLedPortC
+   365  06DA                     l836:
+   366                           
+   367                           ;BAI_4.c: 46:             count++;
+   368  06DA  3001               	movlw	1
+   369  06DB  07F2               	addwf	main@count,f
+   370  06DC  1803               	skipnc
+   371  06DD  0AF3               	incf	main@count+1,f
+   372  06DE  3000               	movlw	0
+   373  06DF  07F3               	addwf	main@count+1,f
+   374                           
+   375                           ;BAI_4.c: 47:         }else {
+   376  06E0  2ECC               	goto	l832
+   377  06E1                     l838:
+   378                           
+   379                           ;BAI_4.c: 48:             PORTC = 0xff;
+   380  06E1  30FF               	movlw	255
+   381  06E2  1283               	bcf	3,5	;RP0=0, select bank0
+   382  06E3  1303               	bcf	3,6	;RP1=0, select bank0
+   383  06E4  0087               	movwf	7	;volatile
+   384  06E5  2ECC               	goto	l832
+   385  06E6  120A  118A  2800   	ljmp	start
+   386  06E9                     __end_of_main:
+   387                           
+   388                           	psect	text1
+   389  06E9                     __ptext1:	
+   390 ;; *************** function _tamLedPortC *****************
+   391 ;; Defined at:
+   392 ;;		line 53 in file "BAI_4.c"
+   393 ;; Parameters:    Size  Location     Type
+   394 ;;		None
+   395 ;; Auto vars:     Size  Location     Type
+   396 ;;  j               1   13[BANK0 ] unsigned char 
+   397 ;;  i               1   12[BANK0 ] unsigned char 
+   398 ;;  sum             1   10[BANK0 ] unsigned char 
+   399 ;;  hold            1    8[BANK0 ] unsigned char 
+   400 ;;  hold            1   14[BANK0 ] unsigned char 
+   401 ;;  index           1    9[BANK0 ] unsigned char 
+   402 ;;  score           1   11[BANK0 ] unsigned char 
+   403 ;;  pressed         2    6[BANK0 ] unsigned int 
+   404 ;;  numberCountU    2    4[BANK0 ] unsigned int 
+   405 ;;  numberRace      2    2[BANK0 ] unsigned int 
+   406 ;;  numberFlash     2    0[BANK0 ] unsigned int 
+   407 ;;  total           2    0        unsigned int 
+   408 ;; Return value:  Size  Location     Type
+   409 ;;                  1    wreg      void 
+   410 ;; Registers used:
+   411 ;;		wreg, status,2, status,0
+   412 ;; Tracked objects:
+   413 ;;		On entry : 0/0
+   414 ;;		On exit  : 0/0
+   415 ;;		Unchanged: 0/0
+   416 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   417 ;;      Params:         0       0       0       0       0
+   418 ;;      Locals:         0      15       0       0       0
+   419 ;;      Temps:          2       0       0       0       0
+   420 ;;      Totals:         2      15       0       0       0
+   421 ;;Total ram usage:       17 bytes
+   422 ;; Hardware stack levels used: 1
+   423 ;; This function calls:
+   424 ;;		Nothing
+   425 ;; This function is called by:
+   426 ;;		_main
+   427 ;; This function uses a non-reentrant model
+   428 ;;
+   429                           
+   430                           
+   431                           ;psect for function _tamLedPortC
+   432  06E9                     _tamLedPortC:
+   433  06E9                     l748:	
+   434                           ;incstack = 0
+   435                           ; Regs used in _tamLedPortC: [wreg+status,2+status,0]
+   436                           
+   437  06E9                     l750:
+   438  06E9  3005               	movlw	5
+   439  06EA  1283               	bcf	3,5	;RP0=0, select bank0
+   440  06EB  1303               	bcf	3,6	;RP1=0, select bank0
+   441  06EC  00A0               	movwf	tamLedPortC@numberFlash
+   442  06ED  3000               	movlw	0
+   443  06EE  00A1               	movwf	tamLedPortC@numberFlash+1
+   444  06EF                     l752:
+   445  06EF  3002               	movlw	2
+   446  06F0  00A2               	movwf	tamLedPortC@numberRace
+   447  06F1  3000               	movlw	0
+   448  06F2  00A3               	movwf	tamLedPortC@numberRace+1
+   449  06F3                     l754:
+   450  06F3  3003               	movlw	3
+   451  06F4  00A4               	movwf	tamLedPortC@numberCountUp
+   452  06F5  3000               	movlw	0
+   453  06F6  00A5               	movwf	tamLedPortC@numberCountUp+1
+   454  06F7                     l756:
+   455  06F7  3002               	movlw	2
+   456  06F8  00A6               	movwf	tamLedPortC@pressed
+   457  06F9  3000               	movlw	0
+   458  06FA  00A7               	movwf	tamLedPortC@pressed+1
+   459                           
+   460                           ;BAI_4.c: 56:     while(numberFlash > 0) {
+   461  06FB  2F1B               	goto	l764
+   462  06FC                     l758:
+   463                           
+   464                           ;BAI_4.c: 57:          _delay((unsigned long)((50)*(4000000/4000.0)));
+   465  06FC  3041               	movlw	65
+   466  06FD  00F1               	movwf	??_tamLedPortC+1
+   467  06FE  30EE               	movlw	238
+   468  06FF  00F0               	movwf	??_tamLedPortC
+   469  0700                     u237:
+   470  0700  0BF0               	decfsz	??_tamLedPortC,f
+   471  0701  2F00               	goto	u237
+   472  0702  0BF1               	decfsz	??_tamLedPortC+1,f
+   473  0703  2F00               	goto	u237
+   474  0704  0000               	nop
+   475                           
+   476                           ;BAI_4.c: 58:         PORTC = 0xff;
+   477  0705  30FF               	movlw	255
+   478  0706  1283               	bcf	3,5	;RP0=0, select bank0
+   479  0707  1303               	bcf	3,6	;RP1=0, select bank0
+   480  0708  0087               	movwf	7	;volatile
+   481                           
+   482                           ;BAI_4.c: 59:         _delay((unsigned long)((50)*(4000000/4000.0)));
+   483  0709  3041               	movlw	65
+   484  070A  00F1               	movwf	??_tamLedPortC+1
+   485  070B  30EE               	movlw	238
+   486  070C  00F0               	movwf	??_tamLedPortC
+   487  070D                     u247:
+   488  070D  0BF0               	decfsz	??_tamLedPortC,f
+   489  070E  2F0D               	goto	u247
+   490  070F  0BF1               	decfsz	??_tamLedPortC+1,f
+   491  0710  2F0D               	goto	u247
+   492  0711  0000               	nop
+   493  0712                     l760:
+   494                           
+   495                           ;BAI_4.c: 60:         PORTC = 0x00;
+   496  0712  1283               	bcf	3,5	;RP0=0, select bank0
+   497  0713  1303               	bcf	3,6	;RP1=0, select bank0
+   498  0714  0187               	clrf	7	;volatile
+   499  0715                     l762:
+   500                           
+   501                           ;BAI_4.c: 61:         numberFlash--;
+   502  0715  3001               	movlw	1
+   503  0716  02A0               	subwf	tamLedPortC@numberFlash,f
+   504  0717  3000               	movlw	0
+   505  0718  1C03               	skipc
+   506  0719  03A1               	decf	tamLedPortC@numberFlash+1,f
+   507  071A  02A1               	subwf	tamLedPortC@numberFlash+1,f
+   508  071B                     l764:
+   509                           
+   510                           ;BAI_4.c: 56:     while(numberFlash > 0) {
+   511  071B  0820               	movf	tamLedPortC@numberFlash,w
+   512  071C  0421               	iorwf	tamLedPortC@numberFlash+1,w
+   513  071D  1D03               	btfss	3,2
+   514  071E  2F20               	goto	u121
+   515  071F  2F21               	goto	u120
+   516  0720                     u121:
+   517  0720  2EFC               	goto	l758
+   518  0721                     u120:
+   519  0721  2F56               	goto	l780
+   520  0722                     l766:
+   521                           
+   522                           ;BAI_4.c: 65:         PORTC = 0;
+   523  0722  0187               	clrf	7	;volatile
+   524  0723                     l768:
+   525                           
+   526                           ;BAI_4.c: 66:         _delay((unsigned long)((50)*(4000000/4000.0)));
+   527  0723  3041               	movlw	65
+   528  0724  00F1               	movwf	??_tamLedPortC+1
+   529  0725  30EE               	movlw	238
+   530  0726  00F0               	movwf	??_tamLedPortC
+   531  0727                     u257:
+   532  0727  0BF0               	decfsz	??_tamLedPortC,f
+   533  0728  2F27               	goto	u257
+   534  0729  0BF1               	decfsz	??_tamLedPortC+1,f
+   535  072A  2F27               	goto	u257
+   536  072B  0000               	nop
+   537  072C                     l770:
+   538                           
+   539                           ;BAI_4.c: 67:         unsigned char score = 0;
+   540  072C  1283               	bcf	3,5	;RP0=0, select bank0
+   541  072D  1303               	bcf	3,6	;RP1=0, select bank0
+   542  072E  01AB               	clrf	tamLedPortC@score
+   543                           
+   544                           ;BAI_4.c: 68:         while(score < 8) {
+   545  072F  2F4A               	goto	l40
+   546  0730                     l772:
+   547                           
+   548                           ;BAI_4.c: 69:             PORTC = (0x01 << score);
+   549  0730  3001               	movlw	1
+   550  0731  00F0               	movwf	??_tamLedPortC
+   551  0732  0A2B               	incf	tamLedPortC@score,w
+   552  0733  2F36               	goto	u134
+   553  0734                     u135:
+   554  0734  1003               	clrc
+   555  0735  0DF0               	rlf	??_tamLedPortC,f
+   556  0736                     u134:
+   557  0736  3EFF               	addlw	-1
+   558  0737  1D03               	skipz
+   559  0738  2F34               	goto	u135
+   560  0739  0870               	movf	??_tamLedPortC,w
+   561  073A  0087               	movwf	7	;volatile
+   562  073B                     l774:
+   563                           
+   564                           ;BAI_4.c: 70:             _delay((unsigned long)((50)*(4000000/4000.0)));
+   565  073B  3041               	movlw	65
+   566  073C  00F1               	movwf	??_tamLedPortC+1
+   567  073D  30EE               	movlw	238
+   568  073E  00F0               	movwf	??_tamLedPortC
+   569  073F                     u267:
+   570  073F  0BF0               	decfsz	??_tamLedPortC,f
+   571  0740  2F3F               	goto	u267
+   572  0741  0BF1               	decfsz	??_tamLedPortC+1,f
+   573  0742  2F3F               	goto	u267
+   574  0743  0000               	nop
+   575  0744                     l776:
+   576                           
+   577                           ;BAI_4.c: 71:             score++;
+   578  0744  3001               	movlw	1
+   579  0745  00F0               	movwf	??_tamLedPortC
+   580  0746  0870               	movf	??_tamLedPortC,w
+   581  0747  1283               	bcf	3,5	;RP0=0, select bank0
+   582  0748  1303               	bcf	3,6	;RP1=0, select bank0
+   583  0749  07AB               	addwf	tamLedPortC@score,f
+   584  074A                     l40:	
+   585                           ;BAI_4.c: 72:         }
+   586                           
+   587                           
+   588                           ;BAI_4.c: 68:         while(score < 8) {
+   589  074A  3008               	movlw	8
+   590  074B  022B               	subwf	tamLedPortC@score,w
+   591  074C  1C03               	skipc
+   592  074D  2F4F               	goto	u141
+   593  074E  2F50               	goto	u140
+   594  074F                     u141:
+   595  074F  2F30               	goto	l772
+   596  0750                     u140:
+   597  0750                     l778:
+   598                           
+   599                           ;BAI_4.c: 73:         numberRace--;
+   600  0750  3001               	movlw	1
+   601  0751  02A2               	subwf	tamLedPortC@numberRace,f
+   602  0752  3000               	movlw	0
+   603  0753  1C03               	skipc
+   604  0754  03A3               	decf	tamLedPortC@numberRace+1,f
+   605  0755  02A3               	subwf	tamLedPortC@numberRace+1,f
+   606  0756                     l780:
+   607                           
+   608                           ;BAI_4.c: 64:     while(numberRace > 0) {
+   609  0756  0822               	movf	tamLedPortC@numberRace,w
+   610  0757  0423               	iorwf	tamLedPortC@numberRace+1,w
+   611  0758  1D03               	btfss	3,2
+   612  0759  2F5B               	goto	u151
+   613  075A  2F5C               	goto	u150
+   614  075B                     u151:
+   615  075B  2F22               	goto	l766
+   616  075C                     u150:
+   617  075C  2F94               	goto	l796
+   618  075D                     l782:
+   619                           
+   620                           ;BAI_4.c: 77:         unsigned char index = 0;
+   621  075D  01A9               	clrf	tamLedPortC@index
+   622  075E                     l784:
+   623                           
+   624                           ;BAI_4.c: 78:         unsigned char hold = 0x80;
+   625  075E  3080               	movlw	128
+   626  075F  00F0               	movwf	??_tamLedPortC
+   627  0760  0870               	movf	??_tamLedPortC,w
+   628  0761  00AE               	movwf	tamLedPortC@hold
+   629  0762                     l786:
+   630                           
+   631                           ;BAI_4.c: 79:         PORTC = 0;
+   632  0762  0187               	clrf	7	;volatile
+   633                           
+   634                           ;BAI_4.c: 80:         _delay((unsigned long)((50)*(4000000/4000.0)));
+   635  0763  3041               	movlw	65
+   636  0764  00F1               	movwf	??_tamLedPortC+1
+   637  0765  30EE               	movlw	238
+   638  0766  00F0               	movwf	??_tamLedPortC
+   639  0767                     u277:
+   640  0767  0BF0               	decfsz	??_tamLedPortC,f
+   641  0768  2F67               	goto	u277
+   642  0769  0BF1               	decfsz	??_tamLedPortC+1,f
+   643  076A  2F67               	goto	u277
+   644  076B  0000               	nop
+   645                           
+   646                           ;BAI_4.c: 81:         while(index < 8) {
+   647  076C  2F86               	goto	l46
+   648  076D                     l788:
+   649                           
+   650                           ;BAI_4.c: 82:             PORTC = hold;
+   651  076D  082E               	movf	tamLedPortC@hold,w
+   652  076E  0087               	movwf	7	;volatile
+   653                           
+   654                           ;BAI_4.c: 83:             _delay((unsigned long)((50)*(4000000/4000.0)));
+   655  076F  3041               	movlw	65
+   656  0770  00F1               	movwf	??_tamLedPortC+1
+   657  0771  30EE               	movlw	238
+   658  0772  00F0               	movwf	??_tamLedPortC
+   659  0773                     u287:
+   660  0773  0BF0               	decfsz	??_tamLedPortC,f
+   661  0774  2F73               	goto	u287
+   662  0775  0BF1               	decfsz	??_tamLedPortC+1,f
+   663  0776  2F73               	goto	u287
+   664  0777  0000               	nop
+   665  0778                     l790:
+   666                           
+   667                           ;BAI_4.c: 84:             hold = (hold >> 1) | hold;
+   668  0778  1283               	bcf	3,5	;RP0=0, select bank0
+   669  0779  1303               	bcf	3,6	;RP1=0, select bank0
+   670  077A  082E               	movf	tamLedPortC@hold,w
+   671  077B  00F0               	movwf	??_tamLedPortC
+   672  077C  1003               	clrc
+   673  077D  0C70               	rrf	??_tamLedPortC,w
+   674  077E  042E               	iorwf	tamLedPortC@hold,w
+   675  077F  00F1               	movwf	??_tamLedPortC+1
+   676  0780  0871               	movf	??_tamLedPortC+1,w
+   677  0781  00AE               	movwf	tamLedPortC@hold
+   678  0782                     l792:
+   679                           
+   680                           ;BAI_4.c: 85:             index++;
+   681  0782  3001               	movlw	1
+   682  0783  00F0               	movwf	??_tamLedPortC
+   683  0784  0870               	movf	??_tamLedPortC,w
+   684  0785  07A9               	addwf	tamLedPortC@index,f
+   685  0786                     l46:	
+   686                           ;BAI_4.c: 86:         }
+   687                           
+   688                           
+   689                           ;BAI_4.c: 81:         while(index < 8) {
+   690  0786  3008               	movlw	8
+   691  0787  1283               	bcf	3,5	;RP0=0, select bank0
+   692  0788  1303               	bcf	3,6	;RP1=0, select bank0
+   693  0789  0229               	subwf	tamLedPortC@index,w
+   694  078A  1C03               	skipc
+   695  078B  2F8D               	goto	u161
+   696  078C  2F8E               	goto	u160
+   697  078D                     u161:
+   698  078D  2F6D               	goto	l788
+   699  078E                     u160:
+   700  078E                     l794:
+   701                           
+   702                           ;BAI_4.c: 88:         numberCountUp--;
+   703  078E  3001               	movlw	1
+   704  078F  02A4               	subwf	tamLedPortC@numberCountUp,f
+   705  0790  3000               	movlw	0
+   706  0791  1C03               	skipc
+   707  0792  03A5               	decf	tamLedPortC@numberCountUp+1,f
+   708  0793  02A5               	subwf	tamLedPortC@numberCountUp+1,f
+   709  0794                     l796:
+   710                           
+   711                           ;BAI_4.c: 76:     while(numberCountUp > 0) {
+   712  0794  0824               	movf	tamLedPortC@numberCountUp,w
+   713  0795  0425               	iorwf	tamLedPortC@numberCountUp+1,w
+   714  0796  1D03               	btfss	3,2
+   715  0797  2F99               	goto	u171
+   716  0798  2F9A               	goto	u170
+   717  0799                     u171:
+   718  0799  2F5D               	goto	l782
+   719  079A                     u170:
+   720  079A  2FF5               	goto	l826
+   721  079B                     l798:
+   722                           
+   723                           ;BAI_4.c: 92:         PORTC = 0;
+   724  079B  0187               	clrf	7	;volatile
+   725  079C                     l800:
+   726                           
+   727                           ;BAI_4.c: 93:         _delay((unsigned long)((50)*(4000000/4000.0)));
+   728  079C  3041               	movlw	65
+   729  079D  00F1               	movwf	??_tamLedPortC+1
+   730  079E  30EE               	movlw	238
+   731  079F  00F0               	movwf	??_tamLedPortC
+   732  07A0                     u297:
+   733  07A0  0BF0               	decfsz	??_tamLedPortC,f
+   734  07A1  2FA0               	goto	u297
+   735  07A2  0BF1               	decfsz	??_tamLedPortC+1,f
+   736  07A3  2FA0               	goto	u297
+   737  07A4  0000               	nop
+   738  07A5                     l802:
+   739                           
+   740                           ;BAI_4.c: 94:         unsigned char sum = 0x00, i = 0, j, hold = 0x80;
+   741  07A5  1283               	bcf	3,5	;RP0=0, select bank0
+   742  07A6  1303               	bcf	3,6	;RP1=0, select bank0
+   743  07A7  01AA               	clrf	tamLedPortC@sum
+   744  07A8                     l804:
+   745  07A8  01AC               	clrf	tamLedPortC@i
+   746  07A9                     l806:
+   747  07A9  3080               	movlw	128
+   748  07AA  00F0               	movwf	??_tamLedPortC
+   749  07AB  0870               	movf	??_tamLedPortC,w
+   750  07AC  00A8               	movwf	tamLedPortC@hold_62
+   751                           
+   752                           ;BAI_4.c: 95:         while(i < 8) {
+   753  07AD  2FE9               	goto	l822
+   754  07AE                     l808:
+   755                           
+   756                           ;BAI_4.c: 96:             j = 0;
+   757  07AE  01AD               	clrf	tamLedPortC@j
+   758                           
+   759                           ;BAI_4.c: 97:             while(j < (8 - i)) {
+   760  07AF  2FCD               	goto	l816
+   761  07B0                     l810:
+   762                           
+   763                           ;BAI_4.c: 98:                 PORTC = (hold >> j) | sum;
+   764  07B0  1283               	bcf	3,5	;RP0=0, select bank0
+   765  07B1  1303               	bcf	3,6	;RP1=0, select bank0
+   766  07B2  0828               	movf	tamLedPortC@hold_62,w
+   767  07B3  00F0               	movwf	??_tamLedPortC
+   768  07B4  0A2D               	incf	tamLedPortC@j,w
+   769  07B5  2FB8               	goto	u184
+   770  07B6                     u185:
+   771  07B6  1003               	clrc
+   772  07B7  0CF0               	rrf	??_tamLedPortC,f
+   773  07B8                     u184:
+   774  07B8  3EFF               	addlw	-1
+   775  07B9  1D03               	skipz
+   776  07BA  2FB6               	goto	u185
+   777  07BB  0870               	movf	??_tamLedPortC,w
+   778  07BC  042A               	iorwf	tamLedPortC@sum,w
+   779  07BD  0087               	movwf	7	;volatile
+   780  07BE                     l812:
+   781                           
+   782                           ;BAI_4.c: 99:                 _delay((unsigned long)((50)*(4000000/4000.0)));
+   783  07BE  3041               	movlw	65
+   784  07BF  00F1               	movwf	??_tamLedPortC+1
+   785  07C0  30EE               	movlw	238
+   786  07C1  00F0               	movwf	??_tamLedPortC
+   787  07C2                     u307:
+   788  07C2  0BF0               	decfsz	??_tamLedPortC,f
+   789  07C3  2FC2               	goto	u307
+   790  07C4  0BF1               	decfsz	??_tamLedPortC+1,f
+   791  07C5  2FC2               	goto	u307
+   792  07C6  0000               	nop
+   793  07C7                     l814:
+   794                           
+   795                           ;BAI_4.c: 100:                 j++;
+   796  07C7  3001               	movlw	1
+   797  07C8  00F0               	movwf	??_tamLedPortC
+   798  07C9  0870               	movf	??_tamLedPortC,w
+   799  07CA  1283               	bcf	3,5	;RP0=0, select bank0
+   800  07CB  1303               	bcf	3,6	;RP1=0, select bank0
+   801  07CC  07AD               	addwf	tamLedPortC@j,f
+   802  07CD                     l816:
+   803                           
+   804                           ;BAI_4.c: 97:             while(j < (8 - i)) {
+   805  07CD  3000               	movlw	0
+   806  07CE  00F1               	movwf	??_tamLedPortC+1
+   807  07CF  082C               	movf	tamLedPortC@i,w
+   808  07D0  3C08               	sublw	8
+   809  07D1  00F0               	movwf	??_tamLedPortC
+   810  07D2  1C03               	skipc
+   811  07D3  03F1               	decf	??_tamLedPortC+1,f
+   812  07D4  0871               	movf	??_tamLedPortC+1,w
+   813  07D5  3A80               	xorlw	128
+   814  07D6  3C80               	sublw	128
+   815  07D7  1D03               	skipz
+   816  07D8  2FDB               	goto	u195
+   817  07D9  0870               	movf	??_tamLedPortC,w
+   818  07DA  022D               	subwf	tamLedPortC@j,w
+   819  07DB                     u195:
+   820  07DB  1C03               	skipc
+   821  07DC  2FDE               	goto	u191
+   822  07DD  2FDF               	goto	u190
+   823  07DE                     u191:
+   824  07DE  2FB0               	goto	l810
+   825  07DF                     u190:
+   826  07DF                     l818:
+   827                           
+   828                           ;BAI_4.c: 102:             sum = PORTC;
+   829  07DF  1283               	bcf	3,5	;RP0=0, select bank0
+   830  07E0  1303               	bcf	3,6	;RP1=0, select bank0
+   831  07E1  0807               	movf	7,w	;volatile
+   832  07E2  00F0               	movwf	??_tamLedPortC
+   833  07E3  0870               	movf	??_tamLedPortC,w
+   834  07E4  00AA               	movwf	tamLedPortC@sum
+   835  07E5                     l820:
+   836                           
+   837                           ;BAI_4.c: 103:             i++;
+   838  07E5  3001               	movlw	1
+   839  07E6  00F0               	movwf	??_tamLedPortC
+   840  07E7  0870               	movf	??_tamLedPortC,w
+   841  07E8  07AC               	addwf	tamLedPortC@i,f
+   842  07E9                     l822:
+   843                           
+   844                           ;BAI_4.c: 95:         while(i < 8) {
+   845  07E9  3008               	movlw	8
+   846  07EA  022C               	subwf	tamLedPortC@i,w
+   847  07EB  1C03               	skipc
+   848  07EC  2FEE               	goto	u201
+   849  07ED  2FEF               	goto	u200
+   850  07EE                     u201:
+   851  07EE  2FAE               	goto	l808
+   852  07EF                     u200:
+   853  07EF                     l824:
+   854                           
+   855                           ;BAI_4.c: 105:         pressed--;
+   856  07EF  3001               	movlw	1
+   857  07F0  02A6               	subwf	tamLedPortC@pressed,f
+   858  07F1  3000               	movlw	0
+   859  07F2  1C03               	skipc
+   860  07F3  03A7               	decf	tamLedPortC@pressed+1,f
+   861  07F4  02A7               	subwf	tamLedPortC@pressed+1,f
+   862  07F5                     l826:
+   863                           
+   864                           ;BAI_4.c: 91:     while(pressed > 0) {
+   865  07F5  0826               	movf	tamLedPortC@pressed,w
+   866  07F6  0427               	iorwf	tamLedPortC@pressed+1,w
+   867  07F7  1D03               	btfss	3,2
+   868  07F8  2FFA               	goto	u211
+   869  07F9  2FFB               	goto	u210
+   870  07FA                     u211:
+   871  07FA  2F9B               	goto	l798
+   872  07FB                     u210:
+   873  07FB                     l59:
+   874  07FB  0008               	return
+   875  07FC                     __end_of_tamLedPortC:
+   876                           
+   877                           	psect	text2
+   878  06B6                     __ptext2:	
+   879 ;; *************** function _declarePort *****************
+   880 ;; Defined at:
+   881 ;;		line 109 in file "BAI_4.c"
+   882 ;; Parameters:    Size  Location     Type
+   883 ;;		None
+   884 ;; Auto vars:     Size  Location     Type
+   885 ;;		None
+   886 ;; Return value:  Size  Location     Type
+   887 ;;                  1    wreg      void 
+   888 ;; Registers used:
+   889 ;;		status,2
+   890 ;; Tracked objects:
+   891 ;;		On entry : 0/0
+   892 ;;		On exit  : 0/0
+   893 ;;		Unchanged: 0/0
+   894 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   895 ;;      Params:         0       0       0       0       0
+   896 ;;      Locals:         0       0       0       0       0
+   897 ;;      Temps:          0       0       0       0       0
+   898 ;;      Totals:         0       0       0       0       0
+   899 ;;Total ram usage:        0 bytes
+   900 ;; Hardware stack levels used: 1
+   901 ;; This function calls:
+   902 ;;		Nothing
+   903 ;; This function is called by:
+   904 ;;		_main
+   905 ;; This function uses a non-reentrant model
+   906 ;;
+   907                           
+   908                           
+   909                           ;psect for function _declarePort
+   910  06B6                     _declarePort:
+   911  06B6                     l654:	
+   912                           ;incstack = 0
+   913                           ; Regs used in _declarePort: [status,2]
+   914                           
+   915                           
+   916                           ;BAI_4.c: 110:     ANSEL = ANSELH = 0;
+   917  06B6  1683               	bsf	3,5	;RP0=1, select bank3
+   918  06B7  1703               	bsf	3,6	;RP1=1, select bank3
+   919  06B8  0189               	clrf	9	;volatile
+   920  06B9  0188               	clrf	8	;volatile
+   921                           
+   922                           ;BAI_4.c: 111:     TRISD = 0;
+   923  06BA  1683               	bsf	3,5	;RP0=1, select bank1
+   924  06BB  1303               	bcf	3,6	;RP1=0, select bank1
+   925  06BC  0188               	clrf	8	;volatile
+   926                           
+   927                           ;BAI_4.c: 112:     TRISC = 0;
+   928  06BD  0187               	clrf	7	;volatile
+   929                           
+   930                           ;BAI_4.c: 113:     TRISB = 0;
+   931  06BE  0186               	clrf	6	;volatile
+   932                           
+   933                           ;BAI_4.c: 114:     PORTB = 0;
+   934  06BF  1283               	bcf	3,5	;RP0=0, select bank0
+   935  06C0  1303               	bcf	3,6	;RP1=0, select bank0
+   936  06C1  0186               	clrf	6	;volatile
+   937                           
+   938                           ;BAI_4.c: 115:     PORTC = 0;
+   939  06C2  0187               	clrf	7	;volatile
+   940                           
+   941                           ;BAI_4.c: 116:     PORTD = 0;
+   942  06C3  0188               	clrf	8	;volatile
+   943  06C4                     l62:
+   944  06C4  0008               	return
+   945  06C5                     __end_of_declarePort:
+   946  007E                     btemp	set	126	;btemp
+   947  007E                     wtemp0	set	126
+   948                           
+   949                           	psect	config
+   950                           
+   951                           ;Config register CONFIG1 @ 0x2007
+   952                           ;	Oscillator Selection bits
+   953                           ;	FOSC = HS, HS oscillator: High-speed crystal/resonator on RA6/OSC2/CLKOUT and RA7/OSC1
+      +                          /CLKIN
+   954                           ;	Watchdog Timer Enable bit
+   955                           ;	WDTE = OFF, WDT disabled and can be enabled by SWDTEN bit of the WDTCON register
+   956                           ;	Power-up Timer Enable bit
+   957                           ;	PWRTE = OFF, PWRT disabled
+   958                           ;	RE3/MCLR pin function select bit
+   959                           ;	MCLRE = ON, RE3/MCLR pin function is MCLR
+   960                           ;	Code Protection bit
+   961                           ;	CP = OFF, Program memory code protection is disabled
+   962                           ;	Data Code Protection bit
+   963                           ;	CPD = OFF, Data memory code protection is disabled
+   964                           ;	Brown Out Reset Selection bits
+   965                           ;	BOREN = OFF, BOR disabled
+   966                           ;	Internal External Switchover bit
+   967                           ;	IESO = OFF, Internal/External Switchover mode is disabled
+   968                           ;	Fail-Safe Clock Monitor Enabled bit
+   969                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
+   970                           ;	Low Voltage Programming Enable bit
+   971                           ;	LVP = OFF, RB3 pin has digital I/O, HV on MCLR must be used for programming
+   972                           ;	In-Circuit Debugger Mode bit
+   973                           ;	DEBUG = 0x1, unprogrammed default
+   974  2007                     	org	8199
+   975  2007  20F2               	dw	8434
+   976                           
+   977                           ;Config register CONFIG2 @ 0x2008
+   978                           ;	Brown-out Reset Selection bit
+   979                           ;	BOR4V = BOR40V, Brown-out Reset set to 4.0V
+   980                           ;	Flash Program Memory Self Write Enable bits
+   981                           ;	WRT = OFF, Write protection off
+   982  2008                     	org	8200
+   983  2008  3FFF               	dw	16383
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14      4       4
+    BANK0            80     15      15
+    BANK1            80      0       0
+    BANK3            96      0       0
+    BANK2            96      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    _main->_tamLedPortC
+
+Critical Paths under _main in BANK0
+
+    _main->_tamLedPortC
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 2     2      0     399
+                                              2 COMMON     2     2      0
+                        _declarePort
+                        _tamLedPortC
+ ---------------------------------------------------------------------------------
+ (1) _tamLedPortC                                         19    19      0     375
+                                              0 COMMON     2     2      0
+                                              0 BANK0     15    15      0
+ ---------------------------------------------------------------------------------
+ (1) _declarePort                                          0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _declarePort
+   _tamLedPortC
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            E      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMMON               E      4       4       1       28.6%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+ABS                  0      0       0       3        0.0%
+BITBANK0            50      0       0       4        0.0%
+BITSFR3              0      0       0       4        0.0%
+SFR3                 0      0       0       4        0.0%
+BANK0               50      F       F       5       18.8%
+BITSFR2              0      0       0       5        0.0%
+SFR2                 0      0       0       5        0.0%
+BITBANK1            50      0       0       6        0.0%
+BANK1               50      0       0       7        0.0%
+BITBANK3            60      0       0       8        0.0%
+BANK3               60      0       0       9        0.0%
+BITBANK2            60      0       0      10        0.0%
+BANK2               60      0       0      11        0.0%
+DATA                 0      0       0      12        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.32 build 20210201212658 
+Symbol Table                                                                                   Sat Mar 13 15:03:16 2021
+
+                      l40 074A                        l62 06C4                        l46 0786  
+                      l59 07FB                       l800 079C                       l810 07B0  
+                     l802 07A5                       l820 07E5                       l812 07BE  
+                     l804 07A8                       l654 06B6                       l814 07C7  
+                     l822 07E9                       l806 07A9                       l750 06E9  
+                     l830 06CA                       l824 07EF                       l816 07CD  
+                     l808 07AE                       l760 0712                       l752 06EF  
+                     l832 06CC                       l818 07DF                       l826 07F5  
+                     l770 072C                       l762 0715                       l754 06F3  
+                     l834 06D5                       l772 0730                       l780 0756  
+                     l764 071B                       l756 06F7                       l748 06E9  
+                     l836 06DA                       l828 06C5                       l790 0778  
+                     l782 075D                       l774 073B                       l766 0722  
+                     l758 06FC                       l838 06E1                       l792 0782  
+                     l784 075E                       l776 0744                       l768 0723  
+                     l794 078E                       l786 0762                       l778 0750  
+                     l788 076D                       l796 0794                       l798 079B  
+                     u200 07EF                       u120 0721                       u201 07EE  
+                     u121 0720                       u210 07FB                       u211 07FA  
+                     u140 0750                       u220 06D5                       u141 074F  
+                     u221 06D4                       u150 075C                       u134 0736  
+                     u151 075B                       u135 0734                       u160 078E  
+                     u161 078D                       u170 079A                       u307 07C2  
+                     u171 0799                       u237 0700                       u190 07DF  
+                     u191 07DE                       u247 070D                       u184 07B8  
+                     u185 07B6                       u257 0727                       u195 07DB  
+                     u267 073F                       u277 0767                       u287 0773  
+                     u297 07A0                      _main 06C5                      btemp 007E  
+                    start 0000                     ?_main 0070                     _ANSEL 0188  
+                   _PORTB 0006                     _PORTC 0007                     _PORTD 0008  
+                   _TRISB 0086                     _TRISC 0087                     _TRISD 0088  
+            ?_tamLedPortC 0070      __size_of_declarePort 000F                     status 0003  
+                   wtemp0 007E           __initialization 07FC              __end_of_main 06E9  
+                  ??_main 0072                    _ANSELH 0189   __end_of__initialization 07FC  
+          __pcstackCOMMON 0070      __size_of_tamLedPortC 0113                __pmaintext 06C5  
+                 __ptext1 06E9                   __ptext2 06B6             ??_declarePort 0070  
+        tamLedPortC@index 0029          tamLedPortC@score 002B      end_of_initialization 07FC  
+            tamLedPortC@i 002C              tamLedPortC@j 002D       __end_of_declarePort 06C5  
+     start_initialization 07FC               _declarePort 06B6             ??_tamLedPortC 0070  
+               ___latbits 0002             __pcstackBANK0 0020  tamLedPortC@numberCountUp 0024  
+     __end_of_tamLedPortC 07FC           tamLedPortC@hold 002E        tamLedPortC@hold_62 0028  
+      tamLedPortC@pressed 0026                 main@count 0072               _tamLedPortC 06E9  
+           __size_of_main 0024            tamLedPortC@sum 002A              ?_declarePort 0070  
+  tamLedPortC@numberFlash 0020     tamLedPortC@numberRace 0022  
