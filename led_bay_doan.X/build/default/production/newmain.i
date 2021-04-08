@@ -2514,19 +2514,35 @@ extern __bank0 __bit __timeout;
 
 void declarePort();
 
+
 void main(void){
     declarePort();
     unsigned char listNumber[10] = {0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90};
-    unsigned int i = 0, j = 0;
-    while(j < 10) {
-        PORTD = listNumber[j];
-        i = 0;
-        while(i < 10) {
-            PORTC = listNumber[i];
-            _delay((unsigned long)((50)*(4000000/4000.0)));
-            i++;
+    unsigned char testLed = 0;
+    unsigned int numberLed7Segment = 4, hours = 0, minutes = 0, seconds = 0, hold = 0x08, dozen, unit;
+    unsigned int i;
+    while(1) {
+
+        if(seconds == 60) {
+            seconds = 0;
         }
-        j++;
+
+            if(seconds >= 10) {
+                dozen = seconds / 10;
+                unit = seconds % 10;
+            }else {
+                dozen = seconds;
+                unit = 0;
+            }
+            PORTD = 0x08;
+            PORTC = listNumber[unit];
+            _delay((unsigned long)((5)*(4000000/4000.0)));
+            PORTD = PORTD >> 1;
+            PORTC = listNumber[dozen];
+            _delay((unsigned long)((5)*(4000000/4000.0)));
+
+        _delay((unsigned long)((50)*(4000000/4000.0)));
+        seconds += 1;
     }
 }
 
@@ -2535,5 +2551,5 @@ void declarePort() {
     TRISD = 0;
     TRISC = 0;
     PORTC = 0;
-    PORTD = 0;
+    PORTD = 0xff;
 }

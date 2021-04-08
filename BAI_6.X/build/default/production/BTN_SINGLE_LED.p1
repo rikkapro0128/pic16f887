@@ -12,23 +12,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4106 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4106: extern volatile __bit RB1 __attribute__((address(0x31)));
 [v _RB1 `Vb ~T0 @X0 0 e@49 ]
-"38 BTN_SINGLE_LED.c
-[; ;BTN_SINGLE_LED.c: 38: void stateRace(unsigned int times);
-[v _stateRace `(v ~T0 @X0 0 ef1`ui ]
-"4109 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4109: extern volatile __bit RB2 __attribute__((address(0x32)));
-[v _RB2 `Vb ~T0 @X0 0 e@50 ]
-"39 BTN_SINGLE_LED.c
-[; ;BTN_SINGLE_LED.c: 39: void stateCountUp(unsigned int times);
-[v _stateCountUp `(v ~T0 @X0 0 ef1`ui ]
-"352 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 [v F1256 `(v ~T0 @X0 1 tf1`ul ]
 "92 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
 [v __delay `JF1256 ~T0 @X0 0 e ]
 [p i __delay ]
-"3387 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+"40 BTN_SINGLE_LED.c
+[; ;BTN_SINGLE_LED.c: 40: void flashPu(unsigned int n);
+[v _flashPu `(v ~T0 @X0 0 ef1`ui ]
+"4109 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4109: extern volatile __bit RB2 __attribute__((address(0x32)));
+[v _RB2 `Vb ~T0 @X0 0 e@50 ]
+"41 BTN_SINGLE_LED.c
+[; ;BTN_SINGLE_LED.c: 41: unsigned int countThirdty(unsigned int n);
+[v _countThirdty `(ui ~T0 @X0 0 ef1`ui ]
+"290 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 290: extern volatile unsigned char PORTC __attribute__((address(0x007)));
+[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
+"352
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+"3387
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
 [v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
 "3449
@@ -40,9 +43,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1540
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1540: extern volatile unsigned char TRISC __attribute__((address(0x087)));
 [v _TRISC `Vuc ~T0 @X0 0 e@135 ]
-"290
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 290: extern volatile unsigned char PORTC __attribute__((address(0x007)));
-[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
 "4424
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4424: extern volatile __bit TRISB0 __attribute__((address(0x430)));
 [v _TRISB0 `Vb ~T0 @X0 0 e@1072 ]
@@ -317,256 +317,434 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
-"41 BTN_SINGLE_LED.c
-[; ;BTN_SINGLE_LED.c: 41: void main(void){
+"43 BTN_SINGLE_LED.c
+[; ;BTN_SINGLE_LED.c: 43: void main(void){
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"42
-[; ;BTN_SINGLE_LED.c: 42:     declarePort();
-[e ( _declarePort ..  ]
-"43
-[; ;BTN_SINGLE_LED.c: 43:     while(1)
-[e :U 140 ]
 "44
-[; ;BTN_SINGLE_LED.c: 44:     {
-{
+[; ;BTN_SINGLE_LED.c: 44:     declarePort();
+[e ( _declarePort ..  ]
 "45
-[; ;BTN_SINGLE_LED.c: 45:        if(!RB0)
-[e $ ! ! _RB0 142  ]
+[; ;BTN_SINGLE_LED.c: 45:     while(1)
+[e :U 140 ]
 "46
-[; ;BTN_SINGLE_LED.c: 46:        {
+[; ;BTN_SINGLE_LED.c: 46:     {
 {
+"47
+[; ;BTN_SINGLE_LED.c: 47:        if(!RB0)
+[e $ ! ! _RB0 142  ]
 "48
-[; ;BTN_SINGLE_LED.c: 48:           flashLed(4);
+[; ;BTN_SINGLE_LED.c: 48:        {
+{
+"50
+[; ;BTN_SINGLE_LED.c: 50:           flashLed(4);
 [e ( _flashLed (1 -> -> 4 `i `ui ]
-"49
-[; ;BTN_SINGLE_LED.c: 49:        }else if(!RB1) {
+"51
+[; ;BTN_SINGLE_LED.c: 51:        }else if(!RB1) {
 }
 [e $U 143  ]
 [e :U 142 ]
 [e $ ! ! _RB1 144  ]
 {
-"51
-[; ;BTN_SINGLE_LED.c: 51:            stateRace(2);
-[e ( _stateRace (1 -> -> 2 `i `ui ]
-"52
-[; ;BTN_SINGLE_LED.c: 52:        }else if(!RB2) {
-}
-[e $U 145  ]
-[e :U 144 ]
-[e $ ! ! _RB2 146  ]
-{
 "53
-[; ;BTN_SINGLE_LED.c: 53:            stateCountUp(2);
-[e ( _stateCountUp (1 -> -> 2 `i `ui ]
+[; ;BTN_SINGLE_LED.c: 53:            _delay((unsigned long)((10)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "54
-[; ;BTN_SINGLE_LED.c: 54:        }
-}
-[e :U 146 ]
-[e :U 145 ]
-[e :U 143 ]
+[; ;BTN_SINGLE_LED.c: 54:            if(RB1) {
+[e $ ! _RB1 145  ]
+{
 "55
-[; ;BTN_SINGLE_LED.c: 55:     }
+[; ;BTN_SINGLE_LED.c: 55:            flashPu(2);
+[e ( _flashPu (1 -> -> 2 `i `ui ]
+"57
+[; ;BTN_SINGLE_LED.c: 57:            }
+}
+[e :U 145 ]
+"60
+[; ;BTN_SINGLE_LED.c: 60:        }else if(!RB2) {
+}
+[e $U 146  ]
+[e :U 144 ]
+[e $ ! ! _RB2 147  ]
+{
+"61
+[; ;BTN_SINGLE_LED.c: 61:            _delay((unsigned long)((10)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"62
+[; ;BTN_SINGLE_LED.c: 62:            if(RB2) {
+[e $ ! _RB2 148  ]
+{
+"63
+[; ;BTN_SINGLE_LED.c: 63:            countThirdty(2);
+[e ( _countThirdty (1 -> -> 2 `i `ui ]
+"65
+[; ;BTN_SINGLE_LED.c: 65:            }
+}
+[e :U 148 ]
+"67
+[; ;BTN_SINGLE_LED.c: 67:        }
+}
+[e :U 147 ]
+[e :U 146 ]
+[e :U 143 ]
+"68
+[; ;BTN_SINGLE_LED.c: 68:     }
 }
 [e :U 139 ]
 [e $U 140  ]
 [e :U 141 ]
-"56
-[; ;BTN_SINGLE_LED.c: 56: }
+"69
+[; ;BTN_SINGLE_LED.c: 69: }
 [e :UE 138 ]
 }
-"58
-[; ;BTN_SINGLE_LED.c: 58: void stateCountUp(unsigned int times) {
+"71
+[; ;BTN_SINGLE_LED.c: 71: unsigned int countThirdty(unsigned int n) {
+[v _countThirdty `(ui ~T0 @X0 1 ef1`ui ]
+{
+[e :U _countThirdty ]
+[v _n `ui ~T0 @X0 1 r1 ]
+[f ]
+"72
+[; ;BTN_SINGLE_LED.c: 72:     unsigned int i = 0, j = 0;
+[v _i `ui ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `ui ]
+[v _j `ui ~T0 @X0 1 a ]
+[e = _j -> -> 0 `i `ui ]
+[v F1280 `uc ~T0 @X0 -> 10 `i s ]
+[i F1280
+:U ..
+"73
+[; ;BTN_SINGLE_LED.c: 73:     unsigned char listNumber[10] = {0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90};
+-> -> 192 `i `uc
+-> -> 249 `i `uc
+-> -> 164 `i `uc
+-> -> 176 `i `uc
+-> -> 153 `i `uc
+-> -> 146 `i `uc
+-> -> 130 `i `uc
+-> -> 248 `i `uc
+-> -> 128 `i `uc
+-> -> 144 `i `uc
+..
+]
+[v _listNumber `uc ~T0 @X0 -> 10 `i a ]
+[e = _listNumber F1280 ]
+"74
+[; ;BTN_SINGLE_LED.c: 74:     while(n--) {
+[e $U 150  ]
+[e :U 151 ]
+{
+"75
+[; ;BTN_SINGLE_LED.c: 75:         while(i < 10) {
+[e $U 153  ]
+[e :U 154 ]
+{
+"76
+[; ;BTN_SINGLE_LED.c: 76:         PORTC = listNumber[i];
+[e = _PORTC *U + &U _listNumber * -> _i `ux -> -> # *U &U _listNumber `ui `ux ]
+"77
+[; ;BTN_SINGLE_LED.c: 77:             while(j < 10) {
+[e $U 156  ]
+[e :U 157 ]
+{
+"78
+[; ;BTN_SINGLE_LED.c: 78:                 PORTD = listNumber[j];
+[e = _PORTD *U + &U _listNumber * -> _j `ux -> -> # *U &U _listNumber `ui `ux ]
+"79
+[; ;BTN_SINGLE_LED.c: 79:                 _delay((unsigned long)((50)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"80
+[; ;BTN_SINGLE_LED.c: 80:                 if(i == 3 && j == 0 && n == 0) {
+[e $ ! && && == _i -> -> 3 `i `ui == _j -> -> 0 `i `ui == _n -> -> 0 `i `ui 159  ]
+{
+"81
+[; ;BTN_SINGLE_LED.c: 81:                     PORTD = 0xff;
+[e = _PORTD -> -> 255 `i `uc ]
+"82
+[; ;BTN_SINGLE_LED.c: 82:                     PORTC = 0xff;
+[e = _PORTC -> -> 255 `i `uc ]
+"83
+[; ;BTN_SINGLE_LED.c: 83:                     return 1;
+[e ) -> -> 1 `i `ui ]
+[e $UE 149  ]
+"84
+[; ;BTN_SINGLE_LED.c: 84:                 }
+}
+[e :U 159 ]
+"85
+[; ;BTN_SINGLE_LED.c: 85:         j++;
+[e ++ _j -> -> 1 `i `ui ]
+"86
+[; ;BTN_SINGLE_LED.c: 86:             }
+}
+[e :U 156 ]
+"77
+[; ;BTN_SINGLE_LED.c: 77:             while(j < 10) {
+[e $ < _j -> -> 10 `i `ui 157  ]
+[e :U 158 ]
+"87
+[; ;BTN_SINGLE_LED.c: 87:         i++;
+[e ++ _i -> -> 1 `i `ui ]
+"88
+[; ;BTN_SINGLE_LED.c: 88:         j=0;
+[e = _j -> -> 0 `i `ui ]
+"89
+[; ;BTN_SINGLE_LED.c: 89:         }
+}
+[e :U 153 ]
+"75
+[; ;BTN_SINGLE_LED.c: 75:         while(i < 10) {
+[e $ < _i -> -> 10 `i `ui 154  ]
+[e :U 155 ]
+"90
+[; ;BTN_SINGLE_LED.c: 90:         i = j = 0;
+[e = _i = _j -> -> 0 `i `ui ]
+"91
+[; ;BTN_SINGLE_LED.c: 91:     }
+}
+[e :U 150 ]
+"74
+[; ;BTN_SINGLE_LED.c: 74:     while(n--) {
+[e $ != -- _n -> -> 1 `i `ui -> -> 0 `i `ui 151  ]
+[e :U 152 ]
+"92
+[; ;BTN_SINGLE_LED.c: 92: }
+[e :UE 149 ]
+}
+"94
+[; ;BTN_SINGLE_LED.c: 94: void flashPu(unsigned int n) {
+[v _flashPu `(v ~T0 @X0 1 ef1`ui ]
+{
+[e :U _flashPu ]
+[v _n `ui ~T0 @X0 1 r1 ]
+[f ]
+"95
+[; ;BTN_SINGLE_LED.c: 95:     while(n--) {
+[e $U 161  ]
+[e :U 162 ]
+{
+"96
+[; ;BTN_SINGLE_LED.c: 96:         PORTC = 0x0C;
+[e = _PORTC -> -> 12 `i `uc ]
+"97
+[; ;BTN_SINGLE_LED.c: 97:         PORTD = 0x41;
+[e = _PORTD -> -> 65 `i `uc ]
+"98
+[; ;BTN_SINGLE_LED.c: 98:         _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"99
+[; ;BTN_SINGLE_LED.c: 99:         PORTD = 0xff;
+[e = _PORTD -> -> 255 `i `uc ]
+"100
+[; ;BTN_SINGLE_LED.c: 100:         PORTC = 0xff;
+[e = _PORTC -> -> 255 `i `uc ]
+"101
+[; ;BTN_SINGLE_LED.c: 101:         _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"102
+[; ;BTN_SINGLE_LED.c: 102:     }
+}
+[e :U 161 ]
+"95
+[; ;BTN_SINGLE_LED.c: 95:     while(n--) {
+[e $ != -- _n -> -> 1 `i `ui -> -> 0 `i `ui 162  ]
+[e :U 163 ]
+"103
+[; ;BTN_SINGLE_LED.c: 103: }
+[e :UE 160 ]
+}
+"105
+[; ;BTN_SINGLE_LED.c: 105: void stateCountUp(unsigned int times) {
 [v _stateCountUp `(v ~T0 @X0 1 ef1`ui ]
 {
 [e :U _stateCountUp ]
 [v _times `ui ~T0 @X0 1 r1 ]
 [f ]
-"59
-[; ;BTN_SINGLE_LED.c: 59:     while(times--) {
-[e $U 148  ]
-[e :U 149 ]
+"106
+[; ;BTN_SINGLE_LED.c: 106:     while(times--) {
+[e $U 165  ]
+[e :U 166 ]
 {
-"60
-[; ;BTN_SINGLE_LED.c: 60:         unsigned int index = 8;
+"107
+[; ;BTN_SINGLE_LED.c: 107:         unsigned int index = 8;
 [v _index `ui ~T0 @X0 1 a ]
 [e = _index -> -> 8 `i `ui ]
-"61
-[; ;BTN_SINGLE_LED.c: 61:         unsigned char hold = 0x00;
+"108
+[; ;BTN_SINGLE_LED.c: 108:         unsigned char hold = 0x00;
 [v _hold `uc ~T0 @X0 1 a ]
 [e = _hold -> -> 0 `i `uc ]
-"62
-[; ;BTN_SINGLE_LED.c: 62:         while(index--) {
-[e $U 151  ]
-[e :U 152 ]
+"109
+[; ;BTN_SINGLE_LED.c: 109:         while(index--) {
+[e $U 168  ]
+[e :U 169 ]
 {
-"63
-[; ;BTN_SINGLE_LED.c: 63:             hold = (hold >> 1) | 0x80;
+"110
+[; ;BTN_SINGLE_LED.c: 110:             hold = (hold >> 1) | 0x80;
 [e = _hold -> | >> -> _hold `i -> 1 `i -> 128 `i `uc ]
-"64
-[; ;BTN_SINGLE_LED.c: 64:             PORTD = hold;
+"111
+[; ;BTN_SINGLE_LED.c: 111:             PORTD = hold;
 [e = _PORTD _hold ]
-"65
-[; ;BTN_SINGLE_LED.c: 65:             _delay((unsigned long)((300)*(4000000/4000.0)));
+"112
+[; ;BTN_SINGLE_LED.c: 112:             _delay((unsigned long)((300)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"66
-[; ;BTN_SINGLE_LED.c: 66:         }
+"113
+[; ;BTN_SINGLE_LED.c: 113:         }
 }
-[e :U 151 ]
-"62
-[; ;BTN_SINGLE_LED.c: 62:         while(index--) {
-[e $ != -- _index -> -> 1 `i `ui -> -> 0 `i `ui 152  ]
-[e :U 153 ]
-"67
-[; ;BTN_SINGLE_LED.c: 67:         PORTD = 0;
+[e :U 168 ]
+"109
+[; ;BTN_SINGLE_LED.c: 109:         while(index--) {
+[e $ != -- _index -> -> 1 `i `ui -> -> 0 `i `ui 169  ]
+[e :U 170 ]
+"114
+[; ;BTN_SINGLE_LED.c: 114:         PORTD = 0;
 [e = _PORTD -> -> 0 `i `uc ]
-"68
-[; ;BTN_SINGLE_LED.c: 68:         _delay((unsigned long)((300)*(4000000/4000.0)));
+"115
+[; ;BTN_SINGLE_LED.c: 115:         _delay((unsigned long)((300)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"69
-[; ;BTN_SINGLE_LED.c: 69:     }
+"116
+[; ;BTN_SINGLE_LED.c: 116:     }
 }
-[e :U 148 ]
-"59
-[; ;BTN_SINGLE_LED.c: 59:     while(times--) {
-[e $ != -- _times -> -> 1 `i `ui -> -> 0 `i `ui 149  ]
-[e :U 150 ]
-"70
-[; ;BTN_SINGLE_LED.c: 70: }
-[e :UE 147 ]
+[e :U 165 ]
+"106
+[; ;BTN_SINGLE_LED.c: 106:     while(times--) {
+[e $ != -- _times -> -> 1 `i `ui -> -> 0 `i `ui 166  ]
+[e :U 167 ]
+"117
+[; ;BTN_SINGLE_LED.c: 117: }
+[e :UE 164 ]
 }
-"72
-[; ;BTN_SINGLE_LED.c: 72: void stateRace(unsigned int times) {
+"119
+[; ;BTN_SINGLE_LED.c: 119: void stateRace(unsigned int times) {
 [v _stateRace `(v ~T0 @X0 1 ef1`ui ]
 {
 [e :U _stateRace ]
 [v _times `ui ~T0 @X0 1 r1 ]
 [f ]
-"73
-[; ;BTN_SINGLE_LED.c: 73:     while(times--) {
-[e $U 155  ]
-[e :U 156 ]
+"120
+[; ;BTN_SINGLE_LED.c: 120:     while(times--) {
+[e $U 172  ]
+[e :U 173 ]
 {
-"74
-[; ;BTN_SINGLE_LED.c: 74:         unsigned int index = 8;
+"121
+[; ;BTN_SINGLE_LED.c: 121:         unsigned int index = 8;
 [v _index `ui ~T0 @X0 1 a ]
 [e = _index -> -> 8 `i `ui ]
-"75
-[; ;BTN_SINGLE_LED.c: 75:         unsigned char hold = 0x80;
+"122
+[; ;BTN_SINGLE_LED.c: 122:         unsigned char hold = 0x80;
 [v _hold `uc ~T0 @X0 1 a ]
 [e = _hold -> -> 128 `i `uc ]
-"76
-[; ;BTN_SINGLE_LED.c: 76:         while(index--) {
-[e $U 158  ]
-[e :U 159 ]
+"123
+[; ;BTN_SINGLE_LED.c: 123:         while(index--) {
+[e $U 175  ]
+[e :U 176 ]
 {
-"77
-[; ;BTN_SINGLE_LED.c: 77:             PORTD = hold;
+"124
+[; ;BTN_SINGLE_LED.c: 124:             PORTD = hold;
 [e = _PORTD _hold ]
-"78
-[; ;BTN_SINGLE_LED.c: 78:             _delay((unsigned long)((300)*(4000000/4000.0)));
+"125
+[; ;BTN_SINGLE_LED.c: 125:             _delay((unsigned long)((300)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"79
-[; ;BTN_SINGLE_LED.c: 79:             hold = hold >> 1;
+"126
+[; ;BTN_SINGLE_LED.c: 126:             hold = hold >> 1;
 [e = _hold -> >> -> _hold `i -> 1 `i `uc ]
-"80
-[; ;BTN_SINGLE_LED.c: 80:         }
+"127
+[; ;BTN_SINGLE_LED.c: 127:         }
 }
-[e :U 158 ]
-"76
-[; ;BTN_SINGLE_LED.c: 76:         while(index--) {
-[e $ != -- _index -> -> 1 `i `ui -> -> 0 `i `ui 159  ]
-[e :U 160 ]
-"81
-[; ;BTN_SINGLE_LED.c: 81:         PORTD = 0;
+[e :U 175 ]
+"123
+[; ;BTN_SINGLE_LED.c: 123:         while(index--) {
+[e $ != -- _index -> -> 1 `i `ui -> -> 0 `i `ui 176  ]
+[e :U 177 ]
+"128
+[; ;BTN_SINGLE_LED.c: 128:         PORTD = 0;
 [e = _PORTD -> -> 0 `i `uc ]
-"82
-[; ;BTN_SINGLE_LED.c: 82:     }
+"129
+[; ;BTN_SINGLE_LED.c: 129:     }
 }
-[e :U 155 ]
-"73
-[; ;BTN_SINGLE_LED.c: 73:     while(times--) {
-[e $ != -- _times -> -> 1 `i `ui -> -> 0 `i `ui 156  ]
-[e :U 157 ]
-"83
-[; ;BTN_SINGLE_LED.c: 83: }
-[e :UE 154 ]
+[e :U 172 ]
+"120
+[; ;BTN_SINGLE_LED.c: 120:     while(times--) {
+[e $ != -- _times -> -> 1 `i `ui -> -> 0 `i `ui 173  ]
+[e :U 174 ]
+"130
+[; ;BTN_SINGLE_LED.c: 130: }
+[e :UE 171 ]
 }
-"85
-[; ;BTN_SINGLE_LED.c: 85: void flashLed(unsigned int times) {
+"132
+[; ;BTN_SINGLE_LED.c: 132: void flashLed(unsigned int times) {
 [v _flashLed `(v ~T0 @X0 1 ef1`ui ]
 {
 [e :U _flashLed ]
 [v _times `ui ~T0 @X0 1 r1 ]
 [f ]
-"86
-[; ;BTN_SINGLE_LED.c: 86:     while(times--) {
-[e $U 162  ]
-[e :U 163 ]
+"133
+[; ;BTN_SINGLE_LED.c: 133:     while(times--) {
+[e $U 179  ]
+[e :U 180 ]
 {
-"87
-[; ;BTN_SINGLE_LED.c: 87:         PORTD = 0xff;
+"134
+[; ;BTN_SINGLE_LED.c: 134:         PORTD = 0xff;
 [e = _PORTD -> -> 255 `i `uc ]
-"88
-[; ;BTN_SINGLE_LED.c: 88:         _delay((unsigned long)((300)*(4000000/4000.0)));
+"135
+[; ;BTN_SINGLE_LED.c: 135:         _delay((unsigned long)((300)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"89
-[; ;BTN_SINGLE_LED.c: 89:         PORTD = 0x00;
+"136
+[; ;BTN_SINGLE_LED.c: 136:         PORTD = 0x00;
 [e = _PORTD -> -> 0 `i `uc ]
-"90
-[; ;BTN_SINGLE_LED.c: 90:         _delay((unsigned long)((300)*(4000000/4000.0)));
+"137
+[; ;BTN_SINGLE_LED.c: 137:         _delay((unsigned long)((300)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"91
-[; ;BTN_SINGLE_LED.c: 91:     }
+"138
+[; ;BTN_SINGLE_LED.c: 138:     }
 }
-[e :U 162 ]
-"86
-[; ;BTN_SINGLE_LED.c: 86:     while(times--) {
-[e $ != -- _times -> -> 1 `i `ui -> -> 0 `i `ui 163  ]
-[e :U 164 ]
-"92
-[; ;BTN_SINGLE_LED.c: 92: }
-[e :UE 161 ]
+[e :U 179 ]
+"133
+[; ;BTN_SINGLE_LED.c: 133:     while(times--) {
+[e $ != -- _times -> -> 1 `i `ui -> -> 0 `i `ui 180  ]
+[e :U 181 ]
+"139
+[; ;BTN_SINGLE_LED.c: 139: }
+[e :UE 178 ]
 }
-"94
-[; ;BTN_SINGLE_LED.c: 94: void declarePort() {
+"141
+[; ;BTN_SINGLE_LED.c: 141: void declarePort() {
 [v _declarePort `(v ~T0 @X0 1 ef ]
 {
 [e :U _declarePort ]
 [f ]
-"95
-[; ;BTN_SINGLE_LED.c: 95:     ANSEL = ANSELH = 0;
+"142
+[; ;BTN_SINGLE_LED.c: 142:     ANSEL = ANSELH = 0;
 [e = _ANSEL = _ANSELH -> -> 0 `i `uc ]
-"96
-[; ;BTN_SINGLE_LED.c: 96:     TRISD = 0;
+"143
+[; ;BTN_SINGLE_LED.c: 143:     TRISD = 0;
 [e = _TRISD -> -> 0 `i `uc ]
-"97
-[; ;BTN_SINGLE_LED.c: 97:     PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
-"98
-[; ;BTN_SINGLE_LED.c: 98:     TRISC = 0;
+"144
+[; ;BTN_SINGLE_LED.c: 144:     PORTD = 0xff;
+[e = _PORTD -> -> 255 `i `uc ]
+"145
+[; ;BTN_SINGLE_LED.c: 145:     TRISC = 0;
 [e = _TRISC -> -> 0 `i `uc ]
-"99
-[; ;BTN_SINGLE_LED.c: 99:     PORTC = 0;
-[e = _PORTC -> -> 0 `i `uc ]
-"101
-[; ;BTN_SINGLE_LED.c: 101:     TRISB0 = 1;
+"146
+[; ;BTN_SINGLE_LED.c: 146:     PORTC = 0xff;
+[e = _PORTC -> -> 255 `i `uc ]
+"148
+[; ;BTN_SINGLE_LED.c: 148:     TRISB0 = 1;
 [e = _TRISB0 -> -> 1 `i `b ]
-"102
-[; ;BTN_SINGLE_LED.c: 102:     TRISB1 = 1;
+"149
+[; ;BTN_SINGLE_LED.c: 149:     TRISB1 = 1;
 [e = _TRISB1 -> -> 1 `i `b ]
-"103
-[; ;BTN_SINGLE_LED.c: 103:     TRISB2 = 1;
+"150
+[; ;BTN_SINGLE_LED.c: 150:     TRISB2 = 1;
 [e = _TRISB2 -> -> 1 `i `b ]
-"105
-[; ;BTN_SINGLE_LED.c: 105:     nRBPU = 0;
+"152
+[; ;BTN_SINGLE_LED.c: 152:     nRBPU = 0;
 [e = _nRBPU -> -> 0 `i `b ]
-"106
-[; ;BTN_SINGLE_LED.c: 106:     WPUB = 0x07;
+"153
+[; ;BTN_SINGLE_LED.c: 153:     WPUB = 0x07;
 [e = _WPUB -> -> 7 `i `uc ]
-"107
-[; ;BTN_SINGLE_LED.c: 107: }
-[e :UE 165 ]
+"154
+[; ;BTN_SINGLE_LED.c: 154: }
+[e :UE 182 ]
 }

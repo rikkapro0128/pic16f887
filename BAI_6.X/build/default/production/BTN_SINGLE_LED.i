@@ -2516,6 +2516,8 @@ void declarePort();
 void flashLed(unsigned int times);
 void stateRace(unsigned int times);
 void stateCountUp(unsigned int times);
+void flashPu(unsigned int n);
+unsigned int countThirdty(unsigned int n);
 
 void main(void){
     declarePort();
@@ -2527,10 +2529,55 @@ void main(void){
           flashLed(4);
        }else if(!RB1) {
 
-           stateRace(2);
+           _delay((unsigned long)((10)*(4000000/4000.0)));
+           if(RB1) {
+           flashPu(2);
+
+           }
+
+
        }else if(!RB2) {
-           stateCountUp(2);
+           _delay((unsigned long)((10)*(4000000/4000.0)));
+           if(RB2) {
+           countThirdty(2);
+
+           }
+
        }
+    }
+}
+
+unsigned int countThirdty(unsigned int n) {
+    unsigned int i = 0, j = 0;
+    unsigned char listNumber[10] = {0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90};
+    while(n--) {
+        while(i < 10) {
+        PORTC = listNumber[i];
+            while(j < 10) {
+                PORTD = listNumber[j];
+                _delay((unsigned long)((50)*(4000000/4000.0)));
+                if(i == 3 && j == 0 && n == 0) {
+                    PORTD = 0xff;
+                    PORTC = 0xff;
+                    return 1;
+                }
+        j++;
+            }
+        i++;
+        j=0;
+        }
+        i = j = 0;
+    }
+}
+
+void flashPu(unsigned int n) {
+    while(n--) {
+        PORTC = 0x0C;
+        PORTD = 0x41;
+        _delay((unsigned long)((300)*(4000000/4000.0)));
+        PORTD = 0xff;
+        PORTC = 0xff;
+        _delay((unsigned long)((300)*(4000000/4000.0)));
     }
 }
 
@@ -2573,9 +2620,9 @@ void flashLed(unsigned int times) {
 void declarePort() {
     ANSEL = ANSELH = 0;
     TRISD = 0;
-    PORTD = 0;
+    PORTD = 0xff;
     TRISC = 0;
-    PORTC = 0;
+    PORTC = 0xff;
 
     TRISB0 = 1;
     TRISB1 = 1;

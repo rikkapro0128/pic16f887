@@ -34,20 +34,36 @@
 #define timeTest 50 // khai bao thoi gian delay cua sang don
 
 void declarePort();
+//void resetTime(unsigned int &hours, unsigned int &minutes, unsigned int &seconds);
 
 void main(void){
     declarePort();
     unsigned char listNumber[10] = {0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90};
-    unsigned int i = 0, j = 0;
-    while(j < 10) {
-        PORTD = listNumber[j];
-        i = 0;
-        while(i < 10) {
-            PORTC = listNumber[i];
-            __delay_ms(timeTest);
-            i++;
+    unsigned char testLed = 0;
+    unsigned int numberLed7Segment = 4, hours = 0, minutes = 0, seconds = 0, hold = 0x08, dozen, unit;
+    unsigned int i;
+    while(1) {
+        //hold = 0x08;
+        if(seconds == 60) {
+            seconds = 0;
         }
-        j++;
+        //for(i = 0; i < numberLed7Segment - 2; i++) {
+            if(seconds >= 10) {
+                dozen = seconds / 10;
+                unit = seconds % 10;
+            }else {
+                dozen = seconds;
+                unit = 0;
+            }
+            PORTD = 0x08;
+            PORTC = listNumber[unit];
+            __delay_ms(5);
+            PORTD = PORTD >> 1;
+            PORTC = listNumber[dozen];
+            __delay_ms(5);
+        //}
+        __delay_ms(timeTest);
+        seconds += 1;
     }
 }
 
@@ -56,5 +72,16 @@ void declarePort() { // khai bao port
     TRISD = 0;
     TRISC = 0;
     PORTC = 0;
-    PORTD = 0;
+    PORTD = 0xff;
 }
+
+//void resetTime(unsigned int &hours, unsigned int &minutes, unsigned int &seconds) {
+//    if(minutes == 60) {
+//        minutes == 0;
+//    }else if(seconds == 60) {
+//        seconds == 0;
+//    }
+//    else if(hours == 24) {
+//        hours = 0;
+//    }
+//}

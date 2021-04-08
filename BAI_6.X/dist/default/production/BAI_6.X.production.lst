@@ -1,948 +1,1120 @@
 
 
 Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
-                                                                                               Sat Mar 13 00:49:45 2021
+                                                                                               Wed Mar 24 05:11:31 2021
 
 Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1 
      1                           	processor	16F887
      2                           	pagewidth 120
      3                           	opt	flic
-     4                           	psect	cinit,global,class=CODE,merge=1,delta=2
-     5                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
-     6                           	psect	maintext,global,class=CODE,split=1,delta=2
-     7                           	psect	text1,local,class=CODE,merge=1,delta=2
-     8                           	psect	text2,local,class=CODE,merge=1,delta=2
-     9                           	psect	text3,local,class=CODE,merge=1,delta=2
-    10                           	psect	text4,local,class=CODE,merge=1,delta=2
-    11                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
-    12                           	dabs	1,0x7E,2
-    13  0000                     
-    14                           ; Version 2.20
-    15                           ; Generated 12/02/2020 GMT
-    16                           ; 
-    17                           ; Copyright © 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
-    18                           ; All rights reserved.
-    19                           ; 
-    20                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+     4                           	psect	idataBANK0,global,class=CODE,delta=2,noexec
+     5                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     6                           	psect	dataBANK0,global,class=BANK0,space=1,delta=1,noexec
+     7                           	psect	inittext,global,class=CODE,delta=2
+     8                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     9                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+    10                           	psect	maintext,global,class=CODE,split=1,delta=2
+    11                           	psect	text1,local,class=CODE,merge=1,delta=2
+    12                           	psect	text2,local,class=CODE,merge=1,delta=2
+    13                           	psect	text3,local,class=CODE,merge=1,delta=2
+    14                           	psect	text4,local,class=CODE,merge=1,delta=2
+    15                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    16                           	dabs	1,0x7E,2
+    17  0000                     
+    18                           ; Version 2.20
+    19                           ; Generated 12/02/2020 GMT
+    20                           ; 
+    21                           ; Copyright © 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    22                           ; All rights reserved.
+    23                           ; 
+    24                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
       +                          ip").
-    21                           ; 
-    22                           ; Redistribution and use in source and binary forms, with or without modification, are
-    23                           ; permitted provided that the following conditions are met:
-    24                           ; 
-    25                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+    25                           ; 
+    26                           ; Redistribution and use in source and binary forms, with or without modification, are
+    27                           ; permitted provided that the following conditions are met:
+    28                           ; 
+    29                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
       +                          t of
-    26                           ;        conditions and the following disclaimer.
-    27                           ; 
-    28                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
-      +                          list
-    29                           ;        of conditions and the following disclaimer in the documentation and/or other
-    30                           ;        materials provided with the distribution.
+    30                           ;        conditions and the following disclaimer.
     31                           ; 
-    32                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+    32                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    33                           ;        of conditions and the following disclaimer in the documentation and/or other
+    34                           ;        materials provided with the distribution.
+    35                           ; 
+    36                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
       +                          is
-    33                           ;        software without specific prior written permission.
-    34                           ; 
-    35                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-    36                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+    37                           ;        software without specific prior written permission.
+    38                           ; 
+    39                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    40                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
       +                          OR
-    37                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+    41                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
       +                          T,
-    38                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
-    39                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
-    40                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+    42                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    43                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    44                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
       +                          RICT
-    41                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+    45                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
       +                          SE OF
-    42                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    43                           ; 
-    44                           ; 
-    45                           ; Code-generator required, PIC16F887 Definitions
-    46                           ; 
-    47                           ; SFR Addresses
-    48  0000                     	;# 
-    49  0001                     	;# 
-    50  0002                     	;# 
-    51  0003                     	;# 
-    52  0004                     	;# 
-    53  0005                     	;# 
-    54  0006                     	;# 
-    55  0007                     	;# 
-    56  0008                     	;# 
-    57  0009                     	;# 
-    58  000A                     	;# 
-    59  000B                     	;# 
-    60  000C                     	;# 
-    61  000D                     	;# 
-    62  000E                     	;# 
-    63  000E                     	;# 
-    64  000F                     	;# 
-    65  0010                     	;# 
-    66  0011                     	;# 
-    67  0012                     	;# 
-    68  0013                     	;# 
-    69  0014                     	;# 
-    70  0015                     	;# 
-    71  0015                     	;# 
-    72  0016                     	;# 
-    73  0017                     	;# 
-    74  0018                     	;# 
-    75  0019                     	;# 
-    76  001A                     	;# 
-    77  001B                     	;# 
-    78  001B                     	;# 
-    79  001C                     	;# 
-    80  001D                     	;# 
-    81  001E                     	;# 
-    82  001F                     	;# 
-    83  0081                     	;# 
-    84  0085                     	;# 
-    85  0086                     	;# 
-    86  0087                     	;# 
-    87  0088                     	;# 
-    88  0089                     	;# 
-    89  008C                     	;# 
-    90  008D                     	;# 
-    91  008E                     	;# 
-    92  008F                     	;# 
-    93  0090                     	;# 
-    94  0091                     	;# 
-    95  0092                     	;# 
-    96  0093                     	;# 
-    97  0093                     	;# 
-    98  0093                     	;# 
-    99  0094                     	;# 
-   100  0095                     	;# 
-   101  0096                     	;# 
-   102  0097                     	;# 
-   103  0098                     	;# 
-   104  0099                     	;# 
-   105  009A                     	;# 
-   106  009B                     	;# 
-   107  009C                     	;# 
-   108  009D                     	;# 
-   109  009E                     	;# 
-   110  009F                     	;# 
-   111  0105                     	;# 
-   112  0107                     	;# 
-   113  0108                     	;# 
-   114  0109                     	;# 
-   115  010C                     	;# 
-   116  010C                     	;# 
-   117  010D                     	;# 
-   118  010E                     	;# 
-   119  010F                     	;# 
-   120  0185                     	;# 
-   121  0187                     	;# 
-   122  0188                     	;# 
-   123  0189                     	;# 
-   124  018C                     	;# 
-   125  018D                     	;# 
-   126  0000                     	;# 
-   127  0001                     	;# 
-   128  0002                     	;# 
-   129  0003                     	;# 
-   130  0004                     	;# 
-   131  0005                     	;# 
-   132  0006                     	;# 
-   133  0007                     	;# 
-   134  0008                     	;# 
-   135  0009                     	;# 
-   136  000A                     	;# 
-   137  000B                     	;# 
-   138  000C                     	;# 
-   139  000D                     	;# 
-   140  000E                     	;# 
-   141  000E                     	;# 
-   142  000F                     	;# 
-   143  0010                     	;# 
-   144  0011                     	;# 
-   145  0012                     	;# 
-   146  0013                     	;# 
-   147  0014                     	;# 
-   148  0015                     	;# 
-   149  0015                     	;# 
-   150  0016                     	;# 
-   151  0017                     	;# 
-   152  0018                     	;# 
-   153  0019                     	;# 
-   154  001A                     	;# 
-   155  001B                     	;# 
-   156  001B                     	;# 
-   157  001C                     	;# 
-   158  001D                     	;# 
-   159  001E                     	;# 
-   160  001F                     	;# 
-   161  0081                     	;# 
-   162  0085                     	;# 
-   163  0086                     	;# 
-   164  0087                     	;# 
-   165  0088                     	;# 
-   166  0089                     	;# 
-   167  008C                     	;# 
-   168  008D                     	;# 
-   169  008E                     	;# 
-   170  008F                     	;# 
-   171  0090                     	;# 
-   172  0091                     	;# 
-   173  0092                     	;# 
-   174  0093                     	;# 
-   175  0093                     	;# 
-   176  0093                     	;# 
-   177  0094                     	;# 
-   178  0095                     	;# 
-   179  0096                     	;# 
-   180  0097                     	;# 
-   181  0098                     	;# 
-   182  0099                     	;# 
-   183  009A                     	;# 
-   184  009B                     	;# 
-   185  009C                     	;# 
-   186  009D                     	;# 
-   187  009E                     	;# 
-   188  009F                     	;# 
-   189  0105                     	;# 
-   190  0107                     	;# 
-   191  0108                     	;# 
-   192  0109                     	;# 
-   193  010C                     	;# 
-   194  010C                     	;# 
-   195  010D                     	;# 
-   196  010E                     	;# 
-   197  010F                     	;# 
-   198  0185                     	;# 
-   199  0187                     	;# 
-   200  0188                     	;# 
-   201  0189                     	;# 
-   202  018C                     	;# 
-   203  018D                     	;# 
-   204  0007                     _PORTC	set	7
-   205  0008                     _PORTD	set	8
-   206  0032                     _RB2	set	50
-   207  0031                     _RB1	set	49
-   208  0030                     _RB0	set	48
-   209  0095                     _WPUB	set	149
-   210  0087                     _TRISC	set	135
-   211  0088                     _TRISD	set	136
-   212  040F                     _nRBPU	set	1039
-   213  0432                     _TRISB2	set	1074
-   214  0431                     _TRISB1	set	1073
-   215  0430                     _TRISB0	set	1072
-   216  0189                     _ANSELH	set	393
-   217  0188                     _ANSEL	set	392
-   218                           
-   219                           	psect	cinit
-   220  07FC                     start_initialization:	
-   221                           ; #config settings
-   222                           
-   223  07FC                     __initialization:
-   224  07FC                     end_of_initialization:	
-   225                           ;End of C runtime variable initialization code
-   226                           
-   227  07FC                     __end_of__initialization:
-   228  07FC  0183               	clrf	3
-   229  07FD  120A  118A  2F3B   	ljmp	_main	;jump to C main() function
-   230                           
-   231                           	psect	cstackCOMMON
-   232  0070                     __pcstackCOMMON:
-   233  0070                     ?_declarePort:
-   234  0070                     ??_declarePort:	
-   235                           ; 1 bytes @ 0x0
-   236                           
-   237  0070                     ?_flashLed:	
-   238                           ; 1 bytes @ 0x0
-   239                           
-   240  0070                     ?_stateRace:	
-   241                           ; 1 bytes @ 0x0
-   242                           
-   243  0070                     ?_stateCountUp:	
-   244                           ; 1 bytes @ 0x0
-   245                           
-   246  0070                     ?_main:	
-   247                           ; 1 bytes @ 0x0
-   248                           
-   249  0070                     stateCountUp@times:	
-   250                           ; 1 bytes @ 0x0
-   251                           
-   252  0070                     stateRace@times:	
-   253                           ; 2 bytes @ 0x0
-   254                           
-   255  0070                     flashLed@times:	
-   256                           ; 2 bytes @ 0x0
+    46                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    47                           ; 
+    48                           ; 
+    49                           ; Code-generator required, PIC16F887 Definitions
+    50                           ; 
+    51                           ; SFR Addresses
+    52  0000                     	;# 
+    53  0001                     	;# 
+    54  0002                     	;# 
+    55  0003                     	;# 
+    56  0004                     	;# 
+    57  0005                     	;# 
+    58  0006                     	;# 
+    59  0007                     	;# 
+    60  0008                     	;# 
+    61  0009                     	;# 
+    62  000A                     	;# 
+    63  000B                     	;# 
+    64  000C                     	;# 
+    65  000D                     	;# 
+    66  000E                     	;# 
+    67  000E                     	;# 
+    68  000F                     	;# 
+    69  0010                     	;# 
+    70  0011                     	;# 
+    71  0012                     	;# 
+    72  0013                     	;# 
+    73  0014                     	;# 
+    74  0015                     	;# 
+    75  0015                     	;# 
+    76  0016                     	;# 
+    77  0017                     	;# 
+    78  0018                     	;# 
+    79  0019                     	;# 
+    80  001A                     	;# 
+    81  001B                     	;# 
+    82  001B                     	;# 
+    83  001C                     	;# 
+    84  001D                     	;# 
+    85  001E                     	;# 
+    86  001F                     	;# 
+    87  0081                     	;# 
+    88  0085                     	;# 
+    89  0086                     	;# 
+    90  0087                     	;# 
+    91  0088                     	;# 
+    92  0089                     	;# 
+    93  008C                     	;# 
+    94  008D                     	;# 
+    95  008E                     	;# 
+    96  008F                     	;# 
+    97  0090                     	;# 
+    98  0091                     	;# 
+    99  0092                     	;# 
+   100  0093                     	;# 
+   101  0093                     	;# 
+   102  0093                     	;# 
+   103  0094                     	;# 
+   104  0095                     	;# 
+   105  0096                     	;# 
+   106  0097                     	;# 
+   107  0098                     	;# 
+   108  0099                     	;# 
+   109  009A                     	;# 
+   110  009B                     	;# 
+   111  009C                     	;# 
+   112  009D                     	;# 
+   113  009E                     	;# 
+   114  009F                     	;# 
+   115  0105                     	;# 
+   116  0107                     	;# 
+   117  0108                     	;# 
+   118  0109                     	;# 
+   119  010C                     	;# 
+   120  010C                     	;# 
+   121  010D                     	;# 
+   122  010E                     	;# 
+   123  010F                     	;# 
+   124  0185                     	;# 
+   125  0187                     	;# 
+   126  0188                     	;# 
+   127  0189                     	;# 
+   128  018C                     	;# 
+   129  018D                     	;# 
+   130  0000                     	;# 
+   131  0001                     	;# 
+   132  0002                     	;# 
+   133  0003                     	;# 
+   134  0004                     	;# 
+   135  0005                     	;# 
+   136  0006                     	;# 
+   137  0007                     	;# 
+   138  0008                     	;# 
+   139  0009                     	;# 
+   140  000A                     	;# 
+   141  000B                     	;# 
+   142  000C                     	;# 
+   143  000D                     	;# 
+   144  000E                     	;# 
+   145  000E                     	;# 
+   146  000F                     	;# 
+   147  0010                     	;# 
+   148  0011                     	;# 
+   149  0012                     	;# 
+   150  0013                     	;# 
+   151  0014                     	;# 
+   152  0015                     	;# 
+   153  0015                     	;# 
+   154  0016                     	;# 
+   155  0017                     	;# 
+   156  0018                     	;# 
+   157  0019                     	;# 
+   158  001A                     	;# 
+   159  001B                     	;# 
+   160  001B                     	;# 
+   161  001C                     	;# 
+   162  001D                     	;# 
+   163  001E                     	;# 
+   164  001F                     	;# 
+   165  0081                     	;# 
+   166  0085                     	;# 
+   167  0086                     	;# 
+   168  0087                     	;# 
+   169  0088                     	;# 
+   170  0089                     	;# 
+   171  008C                     	;# 
+   172  008D                     	;# 
+   173  008E                     	;# 
+   174  008F                     	;# 
+   175  0090                     	;# 
+   176  0091                     	;# 
+   177  0092                     	;# 
+   178  0093                     	;# 
+   179  0093                     	;# 
+   180  0093                     	;# 
+   181  0094                     	;# 
+   182  0095                     	;# 
+   183  0096                     	;# 
+   184  0097                     	;# 
+   185  0098                     	;# 
+   186  0099                     	;# 
+   187  009A                     	;# 
+   188  009B                     	;# 
+   189  009C                     	;# 
+   190  009D                     	;# 
+   191  009E                     	;# 
+   192  009F                     	;# 
+   193  0105                     	;# 
+   194  0107                     	;# 
+   195  0108                     	;# 
+   196  0109                     	;# 
+   197  010C                     	;# 
+   198  010C                     	;# 
+   199  010D                     	;# 
+   200  010E                     	;# 
+   201  010F                     	;# 
+   202  0185                     	;# 
+   203  0187                     	;# 
+   204  0188                     	;# 
+   205  0189                     	;# 
+   206  018C                     	;# 
+   207  018D                     	;# 
+   208                           
+   209                           	psect	idataBANK0
+   210  0681                     __pidataBANK0:
+   211                           
+   212                           ;initializer for countThirdty@F1280
+   213  0681  34C0               	retlw	192
+   214  0682  34F9               	retlw	249
+   215  0683  34A4               	retlw	164
+   216  0684  34B0               	retlw	176
+   217  0685  3499               	retlw	153
+   218  0686  3492               	retlw	146
+   219  0687  3482               	retlw	130
+   220  0688  34F8               	retlw	248
+   221  0689  3480               	retlw	128
+   222  068A  3490               	retlw	144
+   223  0008                     _PORTD	set	8
+   224  0007                     _PORTC	set	7
+   225  0032                     _RB2	set	50
+   226  0031                     _RB1	set	49
+   227  0030                     _RB0	set	48
+   228  0095                     _WPUB	set	149
+   229  0087                     _TRISC	set	135
+   230  0088                     _TRISD	set	136
+   231  040F                     _nRBPU	set	1039
+   232  0432                     _TRISB2	set	1074
+   233  0431                     _TRISB1	set	1073
+   234  0430                     _TRISB0	set	1072
+   235  0189                     _ANSELH	set	393
+   236  0188                     _ANSEL	set	392
+   237                           
+   238                           	psect	cinit
+   239  07EE                     start_initialization:	
+   240                           ; #config settings
+   241                           
+   242  07EE                     __initialization:
+   243                           
+   244                           ; Initialize objects allocated to BANK0
+   245  07EE  1383               	bcf	3,7	;select IRP bank0
+   246  07EF  3038               	movlw	low (__pdataBANK0+10)
+   247  07F0  00FD               	movwf	btemp+-1
+   248  07F1  3006               	movlw	high __pidataBANK0
+   249  07F2  00FE               	movwf	btemp
+   250  07F3  3081               	movlw	low __pidataBANK0
+   251  07F4  00FF               	movwf	btemp+1
+   252  07F5  302E               	movlw	low __pdataBANK0
+   253  07F6  0084               	movwf	4
+   254  07F7  120A  118A  268F  120A  118A  	fcall	init_ram0
+   255  07FC                     end_of_initialization:	
+   256                           ;End of C runtime variable initialization code
    257                           
-   258                           
-   259                           ; 2 bytes @ 0x0
-   260  0070                     	ds	2
-   261  0072                     ??_flashLed:
-   262  0072                     ??_stateRace:	
-   263                           ; 1 bytes @ 0x2
-   264                           
-   265  0072                     ??_stateCountUp:	
-   266                           ; 1 bytes @ 0x2
-   267                           
-   268                           
-   269                           ; 1 bytes @ 0x2
-   270  0072                     	ds	3
-   271  0075                     stateCountUp@index:
-   272  0075                     stateRace@index:	
-   273                           ; 2 bytes @ 0x5
-   274                           
-   275                           
-   276                           ; 2 bytes @ 0x5
-   277  0075                     	ds	2
-   278  0077                     stateCountUp@hold:
-   279  0077                     stateRace@hold:	
-   280                           ; 1 bytes @ 0x7
+   258  07FC                     __end_of__initialization:
+   259  07FC  0183               	clrf	3
+   260  07FD  120A  118A  2F1C   	ljmp	_main	;jump to C main() function
+   261                           
+   262                           	psect	dataBANK0
+   263  002E                     __pdataBANK0:
+   264  002E                     countThirdty@F1280:
+   265  002E                     	ds	10
+   266                           
+   267                           	psect	inittext
+   268  068B                     init_fetch0:	
+   269                           ;	Called with low address in FSR and high address in W
+   270                           
+   271  068B  087E               	movf	btemp,w
+   272  068C  008A               	movwf	10
+   273  068D  087F               	movf	btemp+1,w
+   274  068E  0082               	movwf	2
+   275  068F                     init_ram0:	
+   276                           ;Called with:
+   277                           ;	high address of idata address in btemp 
+   278                           ;	low address of idata address in btemp+1 
+   279                           ;	low address of data in FSR
+   280                           ;	high address + 1 of data in btemp-1
    281                           
-   282                           
-   283                           ; 1 bytes @ 0x7
-   284  0077                     	ds	1
-   285  0078                     ??_main:
-   286                           
-   287                           	psect	maintext
-   288  073B                     __pmaintext:	
-   289                           ; 1 bytes @ 0x8
-   290 ;;
-   291 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-   292 ;;
-   293 ;; *************** function _main *****************
-   294 ;; Defined at:
-   295 ;;		line 41 in file "BTN_SINGLE_LED.c"
-   296 ;; Parameters:    Size  Location     Type
-   297 ;;		None
-   298 ;; Auto vars:     Size  Location     Type
-   299 ;;		None
-   300 ;; Return value:  Size  Location     Type
-   301 ;;                  1    wreg      void 
-   302 ;; Registers used:
-   303 ;;		wreg, status,2, status,0, pclath, cstack
-   304 ;; Tracked objects:
-   305 ;;		On entry : B00/0
-   306 ;;		On exit  : 0/0
-   307 ;;		Unchanged: 0/0
-   308 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   309 ;;      Params:         0       0       0       0       0
-   310 ;;      Locals:         0       0       0       0       0
-   311 ;;      Temps:          0       0       0       0       0
-   312 ;;      Totals:         0       0       0       0       0
-   313 ;;Total ram usage:        0 bytes
-   314 ;; Hardware stack levels required when called: 1
-   315 ;; This function calls:
-   316 ;;		_declarePort
-   317 ;;		_flashLed
-   318 ;;		_stateCountUp
-   319 ;;		_stateRace
-   320 ;; This function is called by:
-   321 ;;		Startup code after reset
-   322 ;; This function uses a non-reentrant model
-   323 ;;
-   324                           
-   325                           
-   326                           ;psect for function _main
-   327  073B                     _main:
-   328  073B                     l776:	
-   329                           ;incstack = 0
-   330                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   282  068F  120A  118A  268B  120A  118A  	fcall	init_fetch0
+   283  0694  0080               	movwf	0
+   284  0695  0A84               	incf	4,f
+   285  0696  0804               	movf	4,w
+   286  0697  067D               	xorwf	btemp+-1,w
+   287  0698  1903               	btfsc	3,2
+   288  0699  3400               	retlw	0
+   289  069A  0AFF               	incf	btemp+1,f
+   290  069B  1903               	btfsc	3,2
+   291  069C  0AFE               	incf	btemp,f
+   292  069D  2E8F               	goto	init_ram0
+   293                           
+   294                           	psect	cstackCOMMON
+   295  0070                     __pcstackCOMMON:
+   296  0070                     ?_declarePort:
+   297  0070                     ??_declarePort:	
+   298                           ; 1 bytes @ 0x0
+   299                           
+   300  0070                     ?_flashLed:	
+   301                           ; 1 bytes @ 0x0
+   302                           
+   303  0070                     ?_flashPu:	
+   304                           ; 1 bytes @ 0x0
+   305                           
+   306  0070                     ?_main:	
+   307                           ; 1 bytes @ 0x0
+   308                           
+   309  0070                     ?_countThirdty:	
+   310                           ; 1 bytes @ 0x0
+   311                           
+   312  0070                     countThirdty@n:	
+   313                           ; 2 bytes @ 0x0
+   314                           
+   315  0070                     flashPu@n:	
+   316                           ; 2 bytes @ 0x0
+   317                           
+   318  0070                     flashLed@times:	
+   319                           ; 2 bytes @ 0x0
+   320                           
+   321                           
+   322                           ; 2 bytes @ 0x0
+   323  0070                     	ds	2
+   324  0072                     ??_flashLed:
+   325  0072                     ??_flashPu:	
+   326                           ; 1 bytes @ 0x2
+   327                           
+   328  0072                     ??_countThirdty:	
+   329                           ; 1 bytes @ 0x2
+   330                           
    331                           
-   332                           
-   333                           ;BTN_SINGLE_LED.c: 42:     declarePort();
-   334  073B  120A  118A  26F3  120A  118A  	fcall	_declarePort
-   335  0740                     l778:
-   336                           
-   337                           ;BTN_SINGLE_LED.c: 44:     {;BTN_SINGLE_LED.c: 45:        if(!RB0)
-   338  0740  1283               	bcf	3,5	;RP0=0, select bank0
-   339  0741  1303               	bcf	3,6	;RP1=0, select bank0
-   340  0742  1806               	btfsc	6,0	;volatile
-   341  0743  2F45               	goto	u141
-   342  0744  2F46               	goto	u140
-   343  0745                     u141:
-   344  0745  2F50               	goto	l44
-   345  0746                     u140:
-   346  0746                     l780:
-   347                           
-   348                           ;BTN_SINGLE_LED.c: 46:        {;BTN_SINGLE_LED.c: 48:           flashLed(4);
-   349  0746  3004               	movlw	4
-   350  0747  00F0               	movwf	flashLed@times
-   351  0748  3000               	movlw	0
-   352  0749  00F1               	movwf	flashLed@times+1
-   353  074A  120A  118A  270C  120A  118A  	fcall	_flashLed
-   354                           
-   355                           ;BTN_SINGLE_LED.c: 49:        }else if(!RB1) {
-   356  074F  2F40               	goto	l778
-   357  0750                     l44:
-   358  0750  1886               	btfsc	6,1	;volatile
-   359  0751  2F53               	goto	u151
-   360  0752  2F54               	goto	u150
-   361  0753                     u151:
-   362  0753  2F5E               	goto	l46
-   363  0754                     u150:
-   364  0754                     l782:
-   365                           
-   366                           ;BTN_SINGLE_LED.c: 51:            stateRace(2);
-   367  0754  3002               	movlw	2
-   368  0755  00F0               	movwf	stateRace@times
-   369  0756  3000               	movlw	0
-   370  0757  00F1               	movwf	stateRace@times+1
-   371  0758  120A  118A  2770  120A  118A  	fcall	_stateRace
-   372                           
-   373                           ;BTN_SINGLE_LED.c: 52:        }else if(!RB2) {
-   374  075D  2F40               	goto	l778
-   375  075E                     l46:
-   376  075E  1906               	btfsc	6,2	;volatile
-   377  075F  2F61               	goto	u161
-   378  0760  2F62               	goto	u160
-   379  0761                     u161:
-   380  0761  2F6C               	goto	l45
-   381  0762                     u160:
-   382  0762                     l784:
-   383                           
-   384                           ;BTN_SINGLE_LED.c: 53:            stateCountUp(2);
-   385  0762  3002               	movlw	2
-   386  0763  00F0               	movwf	stateCountUp@times
-   387  0764  3000               	movlw	0
-   388  0765  00F1               	movwf	stateCountUp@times+1
-   389  0766  120A  118A  27B1  120A  118A  	fcall	_stateCountUp
-   390  076B  2F40               	goto	l778
-   391  076C                     l45:
-   392  076C  2F40               	goto	l778
-   393  076D  120A  118A  2800   	ljmp	start
-   394  0770                     __end_of_main:
-   395                           
-   396                           	psect	text1
-   397  0770                     __ptext1:	
-   398 ;; *************** function _stateRace *****************
-   399 ;; Defined at:
-   400 ;;		line 72 in file "BTN_SINGLE_LED.c"
-   401 ;; Parameters:    Size  Location     Type
-   402 ;;  times           2    0[COMMON] unsigned int 
-   403 ;; Auto vars:     Size  Location     Type
-   404 ;;  index           2    5[COMMON] unsigned int 
-   405 ;;  hold            1    7[COMMON] unsigned char 
-   406 ;; Return value:  Size  Location     Type
-   407 ;;                  1    wreg      void 
-   408 ;; Registers used:
-   409 ;;		wreg, status,2, status,0
-   410 ;; Tracked objects:
-   411 ;;		On entry : 0/0
-   412 ;;		On exit  : 0/0
-   413 ;;		Unchanged: 0/0
-   414 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   415 ;;      Params:         2       0       0       0       0
-   416 ;;      Locals:         3       0       0       0       0
-   417 ;;      Temps:          3       0       0       0       0
-   418 ;;      Totals:         8       0       0       0       0
-   419 ;;Total ram usage:        8 bytes
-   420 ;; Hardware stack levels used: 1
-   421 ;; This function calls:
-   422 ;;		Nothing
-   423 ;; This function is called by:
-   424 ;;		_main
-   425 ;; This function uses a non-reentrant model
-   426 ;;
-   427                           
-   428                           
-   429                           ;psect for function _stateRace
-   430  0770                     _stateRace:
-   431  0770                     l744:	
-   432                           ;incstack = 0
-   433                           ; Regs used in _stateRace: [wreg+status,2+status,0]
-   434                           
-   435                           
-   436                           ;BTN_SINGLE_LED.c: 73:     while(times--) {
-   437  0770  2FA2               	goto	l756
-   438  0771                     l746:
-   439                           
-   440                           ;BTN_SINGLE_LED.c: 74:         unsigned int index = 8;
-   441  0771  3008               	movlw	8
-   442  0772  00F5               	movwf	stateRace@index
-   443  0773  3000               	movlw	0
-   444  0774  00F6               	movwf	stateRace@index+1
-   445                           
-   446                           ;BTN_SINGLE_LED.c: 75:         unsigned char hold = 0x80;
-   447  0775  3080               	movlw	128
-   448  0776  00F2               	movwf	??_stateRace
-   449  0777  0872               	movf	??_stateRace,w
-   450  0778  00F7               	movwf	stateRace@hold
-   451                           
-   452                           ;BTN_SINGLE_LED.c: 76:         while(index--) {
-   453  0779  2F91               	goto	l752
-   454  077A                     l748:
+   332                           ; 1 bytes @ 0x2
+   333  0072                     	ds	4
+   334  0076                     ??_main:
+   335                           
+   336                           ; 1 bytes @ 0x6
+   337  0076                     	ds	2
+   338                           
+   339                           	psect	cstackBANK0
+   340  0020                     __pcstackBANK0:
+   341  0020                     countThirdty@listNumber:
+   342                           
+   343                           ; 10 bytes @ 0x0
+   344  0020                     	ds	10
+   345  002A                     countThirdty@i:
+   346                           
+   347                           ; 2 bytes @ 0xA
+   348  002A                     	ds	2
+   349  002C                     countThirdty@j:
+   350                           
+   351                           ; 2 bytes @ 0xC
+   352  002C                     	ds	2
+   353                           
+   354                           	psect	maintext
+   355  071C                     __pmaintext:	
+   356 ;;
+   357 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+   358 ;;
+   359 ;; *************** function _main *****************
+   360 ;; Defined at:
+   361 ;;		line 43 in file "BTN_SINGLE_LED.c"
+   362 ;; Parameters:    Size  Location     Type
+   363 ;;		None
+   364 ;; Auto vars:     Size  Location     Type
+   365 ;;		None
+   366 ;; Return value:  Size  Location     Type
+   367 ;;                  1    wreg      void 
+   368 ;; Registers used:
+   369 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   370 ;; Tracked objects:
+   371 ;;		On entry : B00/0
+   372 ;;		On exit  : 0/0
+   373 ;;		Unchanged: 0/0
+   374 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   375 ;;      Params:         0       0       0       0       0
+   376 ;;      Locals:         0       0       0       0       0
+   377 ;;      Temps:          2       0       0       0       0
+   378 ;;      Totals:         2       0       0       0       0
+   379 ;;Total ram usage:        2 bytes
+   380 ;; Hardware stack levels required when called: 1
+   381 ;; This function calls:
+   382 ;;		_countThirdty
+   383 ;;		_declarePort
+   384 ;;		_flashLed
+   385 ;;		_flashPu
+   386 ;; This function is called by:
+   387 ;;		Startup code after reset
+   388 ;; This function uses a non-reentrant model
+   389 ;;
+   390                           
+   391                           
+   392                           ;psect for function _main
+   393  071C                     _main:
+   394  071C                     l853:	
+   395                           ;incstack = 0
+   396                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   397                           
+   398                           
+   399                           ;BTN_SINGLE_LED.c: 44:     declarePort();
+   400  071C  120A  118A  269E  120A  118A  	fcall	_declarePort
+   401  0721                     l855:
+   402                           
+   403                           ;BTN_SINGLE_LED.c: 46:     {;BTN_SINGLE_LED.c: 47:        if(!RB0)
+   404  0721  1283               	bcf	3,5	;RP0=0, select bank0
+   405  0722  1303               	bcf	3,6	;RP1=0, select bank0
+   406  0723  1806               	btfsc	6,0	;volatile
+   407  0724  2F26               	goto	u281
+   408  0725  2F27               	goto	u280
+   409  0726                     u281:
+   410  0726  2F31               	goto	l44
+   411  0727                     u280:
+   412  0727                     l857:
+   413                           
+   414                           ;BTN_SINGLE_LED.c: 48:        {;BTN_SINGLE_LED.c: 50:           flashLed(4);
+   415  0727  3004               	movlw	4
+   416  0728  00F0               	movwf	flashLed@times
+   417  0729  3000               	movlw	0
+   418  072A  00F1               	movwf	flashLed@times+1
+   419  072B  120A  118A  26B9  120A  118A  	fcall	_flashLed
+   420                           
+   421                           ;BTN_SINGLE_LED.c: 51:        }else if(!RB1) {
+   422  0730  2F21               	goto	l855
+   423  0731                     l44:
+   424  0731  1886               	btfsc	6,1	;volatile
+   425  0732  2F34               	goto	u291
+   426  0733  2F35               	goto	u290
+   427  0734                     u291:
+   428  0734  2F4E               	goto	l46
+   429  0735                     u290:
+   430  0735                     l859:
+   431                           
+   432                           ;BTN_SINGLE_LED.c: 53:            _delay((unsigned long)((10)*(4000000/4000.0)));
+   433  0735  300D               	movlw	13
+   434  0736  00F7               	movwf	??_main+1
+   435  0737  30FB               	movlw	251
+   436  0738  00F6               	movwf	??_main
+   437  0739                     u337:
+   438  0739  0BF6               	decfsz	??_main,f
+   439  073A  2F39               	goto	u337
+   440  073B  0BF7               	decfsz	??_main+1,f
+   441  073C  2F39               	goto	u337
+   442  073D  2F3E               	nop2
+   443  073E                     l861:
+   444                           
+   445                           ;BTN_SINGLE_LED.c: 54:            if(RB1) {
+   446  073E  1283               	bcf	3,5	;RP0=0, select bank0
+   447  073F  1303               	bcf	3,6	;RP1=0, select bank0
+   448  0740  1C86               	btfss	6,1	;volatile
+   449  0741  2F43               	goto	u301
+   450  0742  2F44               	goto	u300
+   451  0743                     u301:
+   452  0743  2F21               	goto	l855
+   453  0744                     u300:
+   454  0744                     l863:
    455                           
-   456                           ;BTN_SINGLE_LED.c: 77:             PORTD = hold;
-   457  077A  0877               	movf	stateRace@hold,w
-   458  077B  1283               	bcf	3,5	;RP0=0, select bank0
-   459  077C  1303               	bcf	3,6	;RP1=0, select bank0
-   460  077D  0088               	movwf	8	;volatile
-   461                           
-   462                           ;BTN_SINGLE_LED.c: 78:             _delay((unsigned long)((300)*(4000000/4000.0)));
-   463  077E  3002               	movlw	2
-   464  077F  00F4               	movwf	??_stateRace+2
-   465  0780  3086               	movlw	134
-   466  0781  00F3               	movwf	??_stateRace+1
-   467  0782  3099               	movlw	153
-   468  0783  00F2               	movwf	??_stateRace
-   469  0784                     u177:
-   470  0784  0BF2               	decfsz	??_stateRace,f
-   471  0785  2F84               	goto	u177
-   472  0786  0BF3               	decfsz	??_stateRace+1,f
-   473  0787  2F84               	goto	u177
-   474  0788  0BF4               	decfsz	??_stateRace+2,f
-   475  0789  2F84               	goto	u177
-   476  078A                     l750:
-   477                           
-   478                           ;BTN_SINGLE_LED.c: 79:             hold = hold >> 1;
-   479  078A  0877               	movf	stateRace@hold,w
-   480  078B  00F2               	movwf	??_stateRace
-   481  078C  1003               	clrc
-   482  078D  0C72               	rrf	??_stateRace,w
-   483  078E  00F3               	movwf	??_stateRace+1
-   484  078F  0873               	movf	??_stateRace+1,w
-   485  0790  00F7               	movwf	stateRace@hold
-   486  0791                     l752:
-   487                           
-   488                           ;BTN_SINGLE_LED.c: 76:         while(index--) {
-   489  0791  3001               	movlw	1
-   490  0792  02F5               	subwf	stateRace@index,f
-   491  0793  3000               	movlw	0
-   492  0794  1C03               	skipc
-   493  0795  03F6               	decf	stateRace@index+1,f
-   494  0796  02F6               	subwf	stateRace@index+1,f
-   495  0797  0A75               	incf	stateRace@index,w
-   496  0798  1D03               	skipz
-   497  0799  2F9E               	goto	u101
-   498  079A  0A76               	incf	stateRace@index+1,w
-   499  079B  1D03               	btfss	3,2
-   500  079C  2F9E               	goto	u101
-   501  079D  2F9F               	goto	u100
-   502  079E                     u101:
-   503  079E  2F7A               	goto	l748
-   504  079F                     u100:
-   505  079F                     l754:
-   506                           
-   507                           ;BTN_SINGLE_LED.c: 81:         PORTD = 0;
-   508  079F  1283               	bcf	3,5	;RP0=0, select bank0
-   509  07A0  1303               	bcf	3,6	;RP1=0, select bank0
-   510  07A1  0188               	clrf	8	;volatile
-   511  07A2                     l756:
-   512                           
-   513                           ;BTN_SINGLE_LED.c: 73:     while(times--) {
-   514  07A2  3001               	movlw	1
-   515  07A3  02F0               	subwf	stateRace@times,f
-   516  07A4  3000               	movlw	0
-   517  07A5  1C03               	skipc
-   518  07A6  03F1               	decf	stateRace@times+1,f
-   519  07A7  02F1               	subwf	stateRace@times+1,f
-   520  07A8  0A70               	incf	stateRace@times,w
-   521  07A9  1D03               	skipz
-   522  07AA  2FAF               	goto	u111
-   523  07AB  0A71               	incf	stateRace@times+1,w
-   524  07AC  1D03               	btfss	3,2
-   525  07AD  2FAF               	goto	u111
-   526  07AE  2FB0               	goto	u110
-   527  07AF                     u111:
-   528  07AF  2F71               	goto	l746
-   529  07B0                     u110:
-   530  07B0                     l69:
-   531  07B0  0008               	return
-   532  07B1                     __end_of_stateRace:
-   533                           
-   534                           	psect	text2
-   535  07B1                     __ptext2:	
-   536 ;; *************** function _stateCountUp *****************
-   537 ;; Defined at:
-   538 ;;		line 58 in file "BTN_SINGLE_LED.c"
-   539 ;; Parameters:    Size  Location     Type
-   540 ;;  times           2    0[COMMON] unsigned int 
-   541 ;; Auto vars:     Size  Location     Type
-   542 ;;  index           2    5[COMMON] unsigned int 
-   543 ;;  hold            1    7[COMMON] unsigned char 
-   544 ;; Return value:  Size  Location     Type
-   545 ;;                  1    wreg      void 
-   546 ;; Registers used:
-   547 ;;		wreg, status,2, status,0
-   548 ;; Tracked objects:
-   549 ;;		On entry : 0/0
-   550 ;;		On exit  : 0/0
-   551 ;;		Unchanged: 0/0
-   552 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   553 ;;      Params:         2       0       0       0       0
-   554 ;;      Locals:         3       0       0       0       0
-   555 ;;      Temps:          3       0       0       0       0
-   556 ;;      Totals:         8       0       0       0       0
-   557 ;;Total ram usage:        8 bytes
-   558 ;; Hardware stack levels used: 1
-   559 ;; This function calls:
-   560 ;;		Nothing
-   561 ;; This function is called by:
-   562 ;;		_main
-   563 ;; This function uses a non-reentrant model
-   564 ;;
-   565                           
-   566                           
-   567                           ;psect for function _stateCountUp
-   568  07B1                     _stateCountUp:
-   569  07B1                     l758:	
-   570                           ;incstack = 0
-   571                           ; Regs used in _stateCountUp: [wreg+status,2+status,0]
-   572                           
-   573                           
-   574                           ;BTN_SINGLE_LED.c: 59:     while(times--) {
-   575  07B1  2FED               	goto	l774
-   576  07B2                     l760:
-   577                           
-   578                           ;BTN_SINGLE_LED.c: 60:         unsigned int index = 8;
-   579  07B2  3008               	movlw	8
-   580  07B3  00F5               	movwf	stateCountUp@index
-   581  07B4  3000               	movlw	0
-   582  07B5  00F6               	movwf	stateCountUp@index+1
-   583  07B6                     l762:
-   584                           
-   585                           ;BTN_SINGLE_LED.c: 61:         unsigned char hold = 0x00;
-   586  07B6  01F7               	clrf	stateCountUp@hold
-   587                           
-   588                           ;BTN_SINGLE_LED.c: 62:         while(index--) {
-   589  07B7  2FD0               	goto	l56
-   590  07B8                     l764:
-   591                           
-   592                           ;BTN_SINGLE_LED.c: 63:             hold = (hold >> 1) | 0x80;
-   593  07B8  0877               	movf	stateCountUp@hold,w
-   594  07B9  00F2               	movwf	??_stateCountUp
-   595  07BA  1003               	clrc
-   596  07BB  0C72               	rrf	??_stateCountUp,w
-   597  07BC  3880               	iorlw	128
-   598  07BD  00F3               	movwf	??_stateCountUp+1
-   599  07BE  0873               	movf	??_stateCountUp+1,w
-   600  07BF  00F7               	movwf	stateCountUp@hold
-   601  07C0                     l766:
-   602                           
-   603                           ;BTN_SINGLE_LED.c: 64:             PORTD = hold;
-   604  07C0  0877               	movf	stateCountUp@hold,w
-   605  07C1  1283               	bcf	3,5	;RP0=0, select bank0
-   606  07C2  1303               	bcf	3,6	;RP1=0, select bank0
-   607  07C3  0088               	movwf	8	;volatile
-   608  07C4                     l768:
-   609                           
-   610                           ;BTN_SINGLE_LED.c: 65:             _delay((unsigned long)((300)*(4000000/4000.0)));
-   611  07C4  3002               	movlw	2
-   612  07C5  00F4               	movwf	??_stateCountUp+2
-   613  07C6  3086               	movlw	134
-   614  07C7  00F3               	movwf	??_stateCountUp+1
-   615  07C8  3099               	movlw	153
-   616  07C9  00F2               	movwf	??_stateCountUp
-   617  07CA                     u187:
-   618  07CA  0BF2               	decfsz	??_stateCountUp,f
-   619  07CB  2FCA               	goto	u187
-   620  07CC  0BF3               	decfsz	??_stateCountUp+1,f
-   621  07CD  2FCA               	goto	u187
-   622  07CE  0BF4               	decfsz	??_stateCountUp+2,f
-   623  07CF  2FCA               	goto	u187
-   624  07D0                     l56:	
-   625                           ;BTN_SINGLE_LED.c: 66:         }
-   626                           
-   627                           
-   628                           ;BTN_SINGLE_LED.c: 62:         while(index--) {
-   629  07D0  3001               	movlw	1
-   630  07D1  02F5               	subwf	stateCountUp@index,f
-   631  07D2  3000               	movlw	0
-   632  07D3  1C03               	skipc
-   633  07D4  03F6               	decf	stateCountUp@index+1,f
-   634  07D5  02F6               	subwf	stateCountUp@index+1,f
-   635  07D6  0A75               	incf	stateCountUp@index,w
-   636  07D7  1D03               	skipz
-   637  07D8  2FDD               	goto	u121
-   638  07D9  0A76               	incf	stateCountUp@index+1,w
-   639  07DA  1D03               	btfss	3,2
-   640  07DB  2FDD               	goto	u121
-   641  07DC  2FDE               	goto	u120
-   642  07DD                     u121:
-   643  07DD  2FB8               	goto	l764
-   644  07DE                     u120:
-   645  07DE                     l770:
-   646                           
-   647                           ;BTN_SINGLE_LED.c: 67:         PORTD = 0;
-   648  07DE  1283               	bcf	3,5	;RP0=0, select bank0
-   649  07DF  1303               	bcf	3,6	;RP1=0, select bank0
-   650  07E0  0188               	clrf	8	;volatile
-   651  07E1                     l772:
-   652                           
-   653                           ;BTN_SINGLE_LED.c: 68:         _delay((unsigned long)((300)*(4000000/4000.0)));
-   654  07E1  3002               	movlw	2
-   655  07E2  00F4               	movwf	??_stateCountUp+2
-   656  07E3  3086               	movlw	134
-   657  07E4  00F3               	movwf	??_stateCountUp+1
-   658  07E5  3099               	movlw	153
-   659  07E6  00F2               	movwf	??_stateCountUp
-   660  07E7                     u197:
-   661  07E7  0BF2               	decfsz	??_stateCountUp,f
-   662  07E8  2FE7               	goto	u197
-   663  07E9  0BF3               	decfsz	??_stateCountUp+1,f
-   664  07EA  2FE7               	goto	u197
-   665  07EB  0BF4               	decfsz	??_stateCountUp+2,f
-   666  07EC  2FE7               	goto	u197
-   667  07ED                     l774:
-   668                           
-   669                           ;BTN_SINGLE_LED.c: 59:     while(times--) {
-   670  07ED  3001               	movlw	1
-   671  07EE  02F0               	subwf	stateCountUp@times,f
-   672  07EF  3000               	movlw	0
-   673  07F0  1C03               	skipc
-   674  07F1  03F1               	decf	stateCountUp@times+1,f
-   675  07F2  02F1               	subwf	stateCountUp@times+1,f
-   676  07F3  0A70               	incf	stateCountUp@times,w
-   677  07F4  1D03               	skipz
-   678  07F5  2FFA               	goto	u131
-   679  07F6  0A71               	incf	stateCountUp@times+1,w
-   680  07F7  1D03               	btfss	3,2
-   681  07F8  2FFA               	goto	u131
-   682  07F9  2FFB               	goto	u130
-   683  07FA                     u131:
-   684  07FA  2FB2               	goto	l760
-   685  07FB                     u130:
-   686  07FB                     l60:
-   687  07FB  0008               	return
-   688  07FC                     __end_of_stateCountUp:
-   689                           
-   690                           	psect	text3
-   691  070C                     __ptext3:	
-   692 ;; *************** function _flashLed *****************
-   693 ;; Defined at:
-   694 ;;		line 85 in file "BTN_SINGLE_LED.c"
-   695 ;; Parameters:    Size  Location     Type
-   696 ;;  times           2    0[COMMON] unsigned int 
-   697 ;; Auto vars:     Size  Location     Type
-   698 ;;		None
-   699 ;; Return value:  Size  Location     Type
-   700 ;;                  1    wreg      void 
-   701 ;; Registers used:
-   702 ;;		wreg, status,2, status,0
-   703 ;; Tracked objects:
-   704 ;;		On entry : 0/0
-   705 ;;		On exit  : 0/0
-   706 ;;		Unchanged: 0/0
-   707 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   708 ;;      Params:         2       0       0       0       0
-   709 ;;      Locals:         0       0       0       0       0
-   710 ;;      Temps:          3       0       0       0       0
-   711 ;;      Totals:         5       0       0       0       0
-   712 ;;Total ram usage:        5 bytes
-   713 ;; Hardware stack levels used: 1
-   714 ;; This function calls:
-   715 ;;		Nothing
-   716 ;; This function is called by:
-   717 ;;		_main
-   718 ;; This function uses a non-reentrant model
-   719 ;;
-   720                           
-   721                           
-   722                           ;psect for function _flashLed
-   723  070C                     _flashLed:
-   724  070C                     l734:	
-   725                           ;incstack = 0
-   726                           ; Regs used in _flashLed: [wreg+status,2+status,0]
-   727                           
-   728                           
-   729                           ;BTN_SINGLE_LED.c: 86:     while(times--) {
-   730  070C  2F2C               	goto	l742
-   731  070D                     l736:
-   732                           
-   733                           ;BTN_SINGLE_LED.c: 87:         PORTD = 0xff;
-   734  070D  30FF               	movlw	255
-   735  070E  1283               	bcf	3,5	;RP0=0, select bank0
-   736  070F  1303               	bcf	3,6	;RP1=0, select bank0
-   737  0710  0088               	movwf	8	;volatile
-   738                           
-   739                           ;BTN_SINGLE_LED.c: 88:         _delay((unsigned long)((300)*(4000000/4000.0)));
-   740  0711  3002               	movlw	2
-   741  0712  00F4               	movwf	??_flashLed+2
-   742  0713  3086               	movlw	134
-   743  0714  00F3               	movwf	??_flashLed+1
-   744  0715  3099               	movlw	153
-   745  0716  00F2               	movwf	??_flashLed
-   746  0717                     u207:
-   747  0717  0BF2               	decfsz	??_flashLed,f
-   748  0718  2F17               	goto	u207
-   749  0719  0BF3               	decfsz	??_flashLed+1,f
-   750  071A  2F17               	goto	u207
-   751  071B  0BF4               	decfsz	??_flashLed+2,f
-   752  071C  2F17               	goto	u207
-   753  071D                     l738:
-   754                           
-   755                           ;BTN_SINGLE_LED.c: 89:         PORTD = 0x00;
-   756  071D  1283               	bcf	3,5	;RP0=0, select bank0
-   757  071E  1303               	bcf	3,6	;RP1=0, select bank0
-   758  071F  0188               	clrf	8	;volatile
-   759  0720                     l740:
-   760                           
-   761                           ;BTN_SINGLE_LED.c: 90:         _delay((unsigned long)((300)*(4000000/4000.0)));
-   762  0720  3002               	movlw	2
-   763  0721  00F4               	movwf	??_flashLed+2
-   764  0722  3086               	movlw	134
-   765  0723  00F3               	movwf	??_flashLed+1
-   766  0724  3099               	movlw	153
-   767  0725  00F2               	movwf	??_flashLed
-   768  0726                     u217:
-   769  0726  0BF2               	decfsz	??_flashLed,f
-   770  0727  2F26               	goto	u217
-   771  0728  0BF3               	decfsz	??_flashLed+1,f
-   772  0729  2F26               	goto	u217
-   773  072A  0BF4               	decfsz	??_flashLed+2,f
-   774  072B  2F26               	goto	u217
-   775  072C                     l742:
-   776                           
-   777                           ;BTN_SINGLE_LED.c: 86:     while(times--) {
-   778  072C  3001               	movlw	1
-   779  072D  02F0               	subwf	flashLed@times,f
-   780  072E  3000               	movlw	0
-   781  072F  1C03               	skipc
-   782  0730  03F1               	decf	flashLed@times+1,f
-   783  0731  02F1               	subwf	flashLed@times+1,f
-   784  0732  0A70               	incf	flashLed@times,w
-   785  0733  1D03               	skipz
-   786  0734  2F39               	goto	u91
-   787  0735  0A71               	incf	flashLed@times+1,w
-   788  0736  1D03               	btfss	3,2
-   789  0737  2F39               	goto	u91
-   790  0738  2F3A               	goto	u90
-   791  0739                     u91:
-   792  0739  2F0D               	goto	l736
-   793  073A                     u90:
-   794  073A                     l75:
-   795  073A  0008               	return
-   796  073B                     __end_of_flashLed:
-   797                           
-   798                           	psect	text4
-   799  06F3                     __ptext4:	
-   800 ;; *************** function _declarePort *****************
-   801 ;; Defined at:
-   802 ;;		line 94 in file "BTN_SINGLE_LED.c"
-   803 ;; Parameters:    Size  Location     Type
-   804 ;;		None
-   805 ;; Auto vars:     Size  Location     Type
-   806 ;;		None
-   807 ;; Return value:  Size  Location     Type
-   808 ;;                  1    wreg      void 
-   809 ;; Registers used:
-   810 ;;		wreg, status,2
-   811 ;; Tracked objects:
-   812 ;;		On entry : 0/0
-   813 ;;		On exit  : 0/0
-   814 ;;		Unchanged: 0/0
-   815 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   816 ;;      Params:         0       0       0       0       0
-   817 ;;      Locals:         0       0       0       0       0
-   818 ;;      Temps:          0       0       0       0       0
-   819 ;;      Totals:         0       0       0       0       0
-   820 ;;Total ram usage:        0 bytes
-   821 ;; Hardware stack levels used: 1
-   822 ;; This function calls:
-   823 ;;		Nothing
-   824 ;; This function is called by:
-   825 ;;		_main
-   826 ;; This function uses a non-reentrant model
-   827 ;;
-   828                           
-   829                           
-   830                           ;psect for function _declarePort
-   831  06F3                     _declarePort:
-   832  06F3                     l670:	
-   833                           ;incstack = 0
-   834                           ; Regs used in _declarePort: [wreg+status,2]
-   835                           
-   836                           
-   837                           ;BTN_SINGLE_LED.c: 95:     ANSEL = ANSELH = 0;
-   838  06F3  1683               	bsf	3,5	;RP0=1, select bank3
-   839  06F4  1703               	bsf	3,6	;RP1=1, select bank3
-   840  06F5  0189               	clrf	9	;volatile
-   841  06F6  0188               	clrf	8	;volatile
-   842                           
-   843                           ;BTN_SINGLE_LED.c: 96:     TRISD = 0;
-   844  06F7  1683               	bsf	3,5	;RP0=1, select bank1
-   845  06F8  1303               	bcf	3,6	;RP1=0, select bank1
-   846  06F9  0188               	clrf	8	;volatile
-   847                           
-   848                           ;BTN_SINGLE_LED.c: 97:     PORTD = 0;
-   849  06FA  1283               	bcf	3,5	;RP0=0, select bank0
-   850  06FB  1303               	bcf	3,6	;RP1=0, select bank0
-   851  06FC  0188               	clrf	8	;volatile
-   852                           
-   853                           ;BTN_SINGLE_LED.c: 98:     TRISC = 0;
-   854  06FD  1683               	bsf	3,5	;RP0=1, select bank1
-   855  06FE  1303               	bcf	3,6	;RP1=0, select bank1
-   856  06FF  0187               	clrf	7	;volatile
+   456                           ;BTN_SINGLE_LED.c: 55:            flashPu(2);
+   457  0744  3002               	movlw	2
+   458  0745  00F0               	movwf	flashPu@n
+   459  0746  3000               	movlw	0
+   460  0747  00F1               	movwf	flashPu@n+1
+   461  0748  120A  118A  26E8  120A  118A  	fcall	_flashPu
+   462  074D  2F21               	goto	l855
+   463  074E                     l46:
+   464  074E  1906               	btfsc	6,2	;volatile
+   465  074F  2F51               	goto	u311
+   466  0750  2F52               	goto	u310
+   467  0751                     u311:
+   468  0751  2F6B               	goto	l45
+   469  0752                     u310:
+   470  0752                     l865:
+   471                           
+   472                           ;BTN_SINGLE_LED.c: 61:            _delay((unsigned long)((10)*(4000000/4000.0)));
+   473  0752  300D               	movlw	13
+   474  0753  00F7               	movwf	??_main+1
+   475  0754  30FB               	movlw	251
+   476  0755  00F6               	movwf	??_main
+   477  0756                     u347:
+   478  0756  0BF6               	decfsz	??_main,f
+   479  0757  2F56               	goto	u347
+   480  0758  0BF7               	decfsz	??_main+1,f
+   481  0759  2F56               	goto	u347
+   482  075A  2F5B               	nop2
+   483  075B                     l867:
+   484                           
+   485                           ;BTN_SINGLE_LED.c: 62:            if(RB2) {
+   486  075B  1283               	bcf	3,5	;RP0=0, select bank0
+   487  075C  1303               	bcf	3,6	;RP1=0, select bank0
+   488  075D  1D06               	btfss	6,2	;volatile
+   489  075E  2F60               	goto	u321
+   490  075F  2F61               	goto	u320
+   491  0760                     u321:
+   492  0760  2F6B               	goto	l45
+   493  0761                     u320:
+   494  0761                     l869:
+   495                           
+   496                           ;BTN_SINGLE_LED.c: 63:            countThirdty(2);
+   497  0761  3002               	movlw	2
+   498  0762  00F0               	movwf	countThirdty@n
+   499  0763  3000               	movlw	0
+   500  0764  00F1               	movwf	countThirdty@n+1
+   501  0765  120A  118A  276F  120A  118A  	fcall	_countThirdty
+   502  076A  2F21               	goto	l855
+   503  076B                     l45:
+   504  076B  2F21               	goto	l855
+   505  076C  120A  118A  2800   	ljmp	start
+   506  076F                     __end_of_main:
+   507                           
+   508                           	psect	text1
+   509  06E8                     __ptext1:	
+   510 ;; *************** function _flashPu *****************
+   511 ;; Defined at:
+   512 ;;		line 94 in file "BTN_SINGLE_LED.c"
+   513 ;; Parameters:    Size  Location     Type
+   514 ;;  n               2    0[COMMON] unsigned int 
+   515 ;; Auto vars:     Size  Location     Type
+   516 ;;		None
+   517 ;; Return value:  Size  Location     Type
+   518 ;;                  1    wreg      void 
+   519 ;; Registers used:
+   520 ;;		wreg, status,2, status,0
+   521 ;; Tracked objects:
+   522 ;;		On entry : 0/0
+   523 ;;		On exit  : 0/0
+   524 ;;		Unchanged: 0/0
+   525 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   526 ;;      Params:         2       0       0       0       0
+   527 ;;      Locals:         0       0       0       0       0
+   528 ;;      Temps:          3       0       0       0       0
+   529 ;;      Totals:         5       0       0       0       0
+   530 ;;Total ram usage:        5 bytes
+   531 ;; Hardware stack levels used: 1
+   532 ;; This function calls:
+   533 ;;		Nothing
+   534 ;; This function is called by:
+   535 ;;		_main
+   536 ;; This function uses a non-reentrant model
+   537 ;;
+   538                           
+   539                           
+   540                           ;psect for function _flashPu
+   541  06E8                     _flashPu:
+   542  06E8                     l815:	
+   543                           ;incstack = 0
+   544                           ; Regs used in _flashPu: [wreg+status,2+status,0]
+   545                           
+   546                           
+   547                           ;BTN_SINGLE_LED.c: 95:     while(n--) {
+   548  06E8  2F0D               	goto	l819
+   549  06E9                     l817:
+   550                           
+   551                           ;BTN_SINGLE_LED.c: 96:         PORTC = 0x0C;
+   552  06E9  300C               	movlw	12
+   553  06EA  1283               	bcf	3,5	;RP0=0, select bank0
+   554  06EB  1303               	bcf	3,6	;RP1=0, select bank0
+   555  06EC  0087               	movwf	7	;volatile
+   556                           
+   557                           ;BTN_SINGLE_LED.c: 97:         PORTD = 0x41;
+   558  06ED  3041               	movlw	65
+   559  06EE  0088               	movwf	8	;volatile
+   560                           
+   561                           ;BTN_SINGLE_LED.c: 98:         _delay((unsigned long)((300)*(4000000/4000.0)));
+   562  06EF  3002               	movlw	2
+   563  06F0  00F4               	movwf	??_flashPu+2
+   564  06F1  3086               	movlw	134
+   565  06F2  00F3               	movwf	??_flashPu+1
+   566  06F3  3099               	movlw	153
+   567  06F4  00F2               	movwf	??_flashPu
+   568  06F5                     u357:
+   569  06F5  0BF2               	decfsz	??_flashPu,f
+   570  06F6  2EF5               	goto	u357
+   571  06F7  0BF3               	decfsz	??_flashPu+1,f
+   572  06F8  2EF5               	goto	u357
+   573  06F9  0BF4               	decfsz	??_flashPu+2,f
+   574  06FA  2EF5               	goto	u357
+   575                           
+   576                           ;BTN_SINGLE_LED.c: 99:         PORTD = 0xff;
+   577  06FB  30FF               	movlw	255
+   578  06FC  1283               	bcf	3,5	;RP0=0, select bank0
+   579  06FD  1303               	bcf	3,6	;RP1=0, select bank0
+   580  06FE  0088               	movwf	8	;volatile
+   581                           
+   582                           ;BTN_SINGLE_LED.c: 100:         PORTC = 0xff;
+   583  06FF  30FF               	movlw	255
+   584  0700  0087               	movwf	7	;volatile
+   585                           
+   586                           ;BTN_SINGLE_LED.c: 101:         _delay((unsigned long)((300)*(4000000/4000.0)));
+   587  0701  3002               	movlw	2
+   588  0702  00F4               	movwf	??_flashPu+2
+   589  0703  3086               	movlw	134
+   590  0704  00F3               	movwf	??_flashPu+1
+   591  0705  3099               	movlw	153
+   592  0706  00F2               	movwf	??_flashPu
+   593  0707                     u367:
+   594  0707  0BF2               	decfsz	??_flashPu,f
+   595  0708  2F07               	goto	u367
+   596  0709  0BF3               	decfsz	??_flashPu+1,f
+   597  070A  2F07               	goto	u367
+   598  070B  0BF4               	decfsz	??_flashPu+2,f
+   599  070C  2F07               	goto	u367
+   600  070D                     l819:
+   601                           
+   602                           ;BTN_SINGLE_LED.c: 95:     while(n--) {
+   603  070D  3001               	movlw	1
+   604  070E  02F0               	subwf	flashPu@n,f
+   605  070F  3000               	movlw	0
+   606  0710  1C03               	skipc
+   607  0711  03F1               	decf	flashPu@n+1,f
+   608  0712  02F1               	subwf	flashPu@n+1,f
+   609  0713  0A70               	incf	flashPu@n,w
+   610  0714  1D03               	skipz
+   611  0715  2F1A               	goto	u201
+   612  0716  0A71               	incf	flashPu@n+1,w
+   613  0717  1D03               	btfss	3,2
+   614  0718  2F1A               	goto	u201
+   615  0719  2F1B               	goto	u200
+   616  071A                     u201:
+   617  071A  2EE9               	goto	l817
+   618  071B                     u200:
+   619  071B                     l74:
+   620  071B  0008               	return
+   621  071C                     __end_of_flashPu:
+   622                           
+   623                           	psect	text2
+   624  06B9                     __ptext2:	
+   625 ;; *************** function _flashLed *****************
+   626 ;; Defined at:
+   627 ;;		line 132 in file "BTN_SINGLE_LED.c"
+   628 ;; Parameters:    Size  Location     Type
+   629 ;;  times           2    0[COMMON] unsigned int 
+   630 ;; Auto vars:     Size  Location     Type
+   631 ;;		None
+   632 ;; Return value:  Size  Location     Type
+   633 ;;                  1    wreg      void 
+   634 ;; Registers used:
+   635 ;;		wreg, status,2, status,0
+   636 ;; Tracked objects:
+   637 ;;		On entry : 0/0
+   638 ;;		On exit  : 0/0
+   639 ;;		Unchanged: 0/0
+   640 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   641 ;;      Params:         2       0       0       0       0
+   642 ;;      Locals:         0       0       0       0       0
+   643 ;;      Temps:          3       0       0       0       0
+   644 ;;      Totals:         5       0       0       0       0
+   645 ;;Total ram usage:        5 bytes
+   646 ;; Hardware stack levels used: 1
+   647 ;; This function calls:
+   648 ;;		Nothing
+   649 ;; This function is called by:
+   650 ;;		_main
+   651 ;; This function uses a non-reentrant model
+   652 ;;
+   653                           
+   654                           
+   655                           ;psect for function _flashLed
+   656  06B9                     _flashLed:
+   657  06B9                     l805:	
+   658                           ;incstack = 0
+   659                           ; Regs used in _flashLed: [wreg+status,2+status,0]
+   660                           
+   661                           
+   662                           ;BTN_SINGLE_LED.c: 133:     while(times--) {
+   663  06B9  2ED9               	goto	l813
+   664  06BA                     l807:
+   665                           
+   666                           ;BTN_SINGLE_LED.c: 134:         PORTD = 0xff;
+   667  06BA  30FF               	movlw	255
+   668  06BB  1283               	bcf	3,5	;RP0=0, select bank0
+   669  06BC  1303               	bcf	3,6	;RP1=0, select bank0
+   670  06BD  0088               	movwf	8	;volatile
+   671                           
+   672                           ;BTN_SINGLE_LED.c: 135:         _delay((unsigned long)((300)*(4000000/4000.0)));
+   673  06BE  3002               	movlw	2
+   674  06BF  00F4               	movwf	??_flashLed+2
+   675  06C0  3086               	movlw	134
+   676  06C1  00F3               	movwf	??_flashLed+1
+   677  06C2  3099               	movlw	153
+   678  06C3  00F2               	movwf	??_flashLed
+   679  06C4                     u377:
+   680  06C4  0BF2               	decfsz	??_flashLed,f
+   681  06C5  2EC4               	goto	u377
+   682  06C6  0BF3               	decfsz	??_flashLed+1,f
+   683  06C7  2EC4               	goto	u377
+   684  06C8  0BF4               	decfsz	??_flashLed+2,f
+   685  06C9  2EC4               	goto	u377
+   686  06CA                     l809:
+   687                           
+   688                           ;BTN_SINGLE_LED.c: 136:         PORTD = 0x00;
+   689  06CA  1283               	bcf	3,5	;RP0=0, select bank0
+   690  06CB  1303               	bcf	3,6	;RP1=0, select bank0
+   691  06CC  0188               	clrf	8	;volatile
+   692  06CD                     l811:
+   693                           
+   694                           ;BTN_SINGLE_LED.c: 137:         _delay((unsigned long)((300)*(4000000/4000.0)));
+   695  06CD  3002               	movlw	2
+   696  06CE  00F4               	movwf	??_flashLed+2
+   697  06CF  3086               	movlw	134
+   698  06D0  00F3               	movwf	??_flashLed+1
+   699  06D1  3099               	movlw	153
+   700  06D2  00F2               	movwf	??_flashLed
+   701  06D3                     u387:
+   702  06D3  0BF2               	decfsz	??_flashLed,f
+   703  06D4  2ED3               	goto	u387
+   704  06D5  0BF3               	decfsz	??_flashLed+1,f
+   705  06D6  2ED3               	goto	u387
+   706  06D7  0BF4               	decfsz	??_flashLed+2,f
+   707  06D8  2ED3               	goto	u387
+   708  06D9                     l813:
+   709                           
+   710                           ;BTN_SINGLE_LED.c: 133:     while(times--) {
+   711  06D9  3001               	movlw	1
+   712  06DA  02F0               	subwf	flashLed@times,f
+   713  06DB  3000               	movlw	0
+   714  06DC  1C03               	skipc
+   715  06DD  03F1               	decf	flashLed@times+1,f
+   716  06DE  02F1               	subwf	flashLed@times+1,f
+   717  06DF  0A70               	incf	flashLed@times,w
+   718  06E0  1D03               	skipz
+   719  06E1  2EE6               	goto	u191
+   720  06E2  0A71               	incf	flashLed@times+1,w
+   721  06E3  1D03               	btfss	3,2
+   722  06E4  2EE6               	goto	u191
+   723  06E5  2EE7               	goto	u190
+   724  06E6                     u191:
+   725  06E6  2EBA               	goto	l807
+   726  06E7                     u190:
+   727  06E7                     l98:
+   728  06E7  0008               	return
+   729  06E8                     __end_of_flashLed:
+   730                           
+   731                           	psect	text3
+   732  069E                     __ptext3:	
+   733 ;; *************** function _declarePort *****************
+   734 ;; Defined at:
+   735 ;;		line 141 in file "BTN_SINGLE_LED.c"
+   736 ;; Parameters:    Size  Location     Type
+   737 ;;		None
+   738 ;; Auto vars:     Size  Location     Type
+   739 ;;		None
+   740 ;; Return value:  Size  Location     Type
+   741 ;;                  1    wreg      void 
+   742 ;; Registers used:
+   743 ;;		wreg, status,2
+   744 ;; Tracked objects:
+   745 ;;		On entry : 0/0
+   746 ;;		On exit  : 0/0
+   747 ;;		Unchanged: 0/0
+   748 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   749 ;;      Params:         0       0       0       0       0
+   750 ;;      Locals:         0       0       0       0       0
+   751 ;;      Temps:          0       0       0       0       0
+   752 ;;      Totals:         0       0       0       0       0
+   753 ;;Total ram usage:        0 bytes
+   754 ;; Hardware stack levels used: 1
+   755 ;; This function calls:
+   756 ;;		Nothing
+   757 ;; This function is called by:
+   758 ;;		_main
+   759 ;; This function uses a non-reentrant model
+   760 ;;
+   761                           
+   762                           
+   763                           ;psect for function _declarePort
+   764  069E                     _declarePort:
+   765  069E                     l693:	
+   766                           ;incstack = 0
+   767                           ; Regs used in _declarePort: [wreg+status,2]
+   768                           
+   769                           
+   770                           ;BTN_SINGLE_LED.c: 142:     ANSEL = ANSELH = 0;
+   771  069E  1683               	bsf	3,5	;RP0=1, select bank3
+   772  069F  1703               	bsf	3,6	;RP1=1, select bank3
+   773  06A0  0189               	clrf	9	;volatile
+   774  06A1  0188               	clrf	8	;volatile
+   775                           
+   776                           ;BTN_SINGLE_LED.c: 143:     TRISD = 0;
+   777  06A2  1683               	bsf	3,5	;RP0=1, select bank1
+   778  06A3  1303               	bcf	3,6	;RP1=0, select bank1
+   779  06A4  0188               	clrf	8	;volatile
+   780  06A5                     l695:
+   781                           
+   782                           ;BTN_SINGLE_LED.c: 144:     PORTD = 0xff;
+   783  06A5  30FF               	movlw	255
+   784  06A6  1283               	bcf	3,5	;RP0=0, select bank0
+   785  06A7  1303               	bcf	3,6	;RP1=0, select bank0
+   786  06A8  0088               	movwf	8	;volatile
+   787  06A9                     l697:
+   788                           
+   789                           ;BTN_SINGLE_LED.c: 145:     TRISC = 0;
+   790  06A9  1683               	bsf	3,5	;RP0=1, select bank1
+   791  06AA  1303               	bcf	3,6	;RP1=0, select bank1
+   792  06AB  0187               	clrf	7	;volatile
+   793                           
+   794                           ;BTN_SINGLE_LED.c: 146:     PORTC = 0xff;
+   795  06AC  30FF               	movlw	255
+   796  06AD  1283               	bcf	3,5	;RP0=0, select bank0
+   797  06AE  1303               	bcf	3,6	;RP1=0, select bank0
+   798  06AF  0087               	movwf	7	;volatile
+   799  06B0                     l699:
+   800                           
+   801                           ;BTN_SINGLE_LED.c: 148:     TRISB0 = 1;
+   802  06B0  1683               	bsf	3,5	;RP0=1, select bank1
+   803  06B1  1303               	bcf	3,6	;RP1=0, select bank1
+   804  06B2  1406               	bsf	6,0	;volatile
+   805  06B3                     l701:
+   806                           
+   807                           ;BTN_SINGLE_LED.c: 149:     TRISB1 = 1;
+   808  06B3  1486               	bsf	6,1	;volatile
+   809  06B4                     l703:
+   810                           
+   811                           ;BTN_SINGLE_LED.c: 150:     TRISB2 = 1;
+   812  06B4  1506               	bsf	6,2	;volatile
+   813  06B5                     l705:
+   814                           
+   815                           ;BTN_SINGLE_LED.c: 152:     nRBPU = 0;
+   816  06B5  1381               	bcf	1,7	;volatile
+   817                           
+   818                           ;BTN_SINGLE_LED.c: 153:     WPUB = 0x07;
+   819  06B6  3007               	movlw	7
+   820  06B7  0095               	movwf	21	;volatile
+   821  06B8                     l101:
+   822  06B8  0008               	return
+   823  06B9                     __end_of_declarePort:
+   824                           
+   825                           	psect	text4
+   826  076F                     __ptext4:	
+   827 ;; *************** function _countThirdty *****************
+   828 ;; Defined at:
+   829 ;;		line 71 in file "BTN_SINGLE_LED.c"
+   830 ;; Parameters:    Size  Location     Type
+   831 ;;  n               2    0[COMMON] unsigned int 
+   832 ;; Auto vars:     Size  Location     Type
+   833 ;;  listNumber     10    0[BANK0 ] unsigned char [10]
+   834 ;;  j               2   12[BANK0 ] unsigned int 
+   835 ;;  i               2   10[BANK0 ] unsigned int 
+   836 ;; Return value:  Size  Location     Type
+   837 ;;                  2    0[COMMON] unsigned int 
+   838 ;; Registers used:
+   839 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+   840 ;; Tracked objects:
+   841 ;;		On entry : 0/0
+   842 ;;		On exit  : 0/0
+   843 ;;		Unchanged: 0/0
+   844 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   845 ;;      Params:         2       0       0       0       0
+   846 ;;      Locals:         0      14       0       0       0
+   847 ;;      Temps:          4       0       0       0       0
+   848 ;;      Totals:         6      14       0       0       0
+   849 ;;Total ram usage:       20 bytes
+   850 ;; Hardware stack levels used: 1
+   851 ;; This function calls:
+   852 ;;		Nothing
+   853 ;; This function is called by:
+   854 ;;		_main
+   855 ;; This function uses a non-reentrant model
+   856 ;;
    857                           
-   858                           ;BTN_SINGLE_LED.c: 99:     PORTC = 0;
-   859  0700  1283               	bcf	3,5	;RP0=0, select bank0
-   860  0701  1303               	bcf	3,6	;RP1=0, select bank0
-   861  0702  0187               	clrf	7	;volatile
-   862  0703                     l672:
-   863                           
-   864                           ;BTN_SINGLE_LED.c: 101:     TRISB0 = 1;
-   865  0703  1683               	bsf	3,5	;RP0=1, select bank1
-   866  0704  1303               	bcf	3,6	;RP1=0, select bank1
-   867  0705  1406               	bsf	6,0	;volatile
-   868  0706                     l674:
-   869                           
-   870                           ;BTN_SINGLE_LED.c: 102:     TRISB1 = 1;
-   871  0706  1486               	bsf	6,1	;volatile
-   872  0707                     l676:
-   873                           
-   874                           ;BTN_SINGLE_LED.c: 103:     TRISB2 = 1;
-   875  0707  1506               	bsf	6,2	;volatile
-   876  0708                     l678:
-   877                           
-   878                           ;BTN_SINGLE_LED.c: 105:     nRBPU = 0;
-   879  0708  1381               	bcf	1,7	;volatile
-   880  0709                     l680:
-   881                           
-   882                           ;BTN_SINGLE_LED.c: 106:     WPUB = 0x07;
-   883  0709  3007               	movlw	7
-   884  070A  0095               	movwf	21	;volatile
-   885  070B                     l78:
-   886  070B  0008               	return
-   887  070C                     __end_of_declarePort:
-   888  007E                     btemp	set	126	;btemp
-   889  007E                     wtemp0	set	126
-   890                           
-   891                           	psect	config
-   892                           
-   893                           ;Config register CONFIG1 @ 0x2007
-   894                           ;	Oscillator Selection bits
-   895                           ;	FOSC = HS, HS oscillator: High-speed crystal/resonator on RA6/OSC2/CLKOUT and RA7/OSC1
+   858                           
+   859                           ;psect for function _countThirdty
+   860  076F                     _countThirdty:
+   861  076F                     l821:	
+   862                           ;incstack = 0
+   863                           ; Regs used in _countThirdty: [wreg-fsr0h+status,2+status,0]
+   864                           
+   865                           
+   866                           ;BTN_SINGLE_LED.c: 72:     unsigned int i = 0, j = 0;
+   867  076F  1283               	bcf	3,5	;RP0=0, select bank0
+   868  0770  1303               	bcf	3,6	;RP1=0, select bank0
+   869  0771  01AA               	clrf	countThirdty@i
+   870  0772  01AB               	clrf	countThirdty@i+1
+   871  0773  01AC               	clrf	countThirdty@j
+   872  0774  01AD               	clrf	countThirdty@j+1
+   873  0775                     l823:
+   874                           
+   875                           ;BTN_SINGLE_LED.c: 73:     unsigned char listNumber[10] = {0xC0,0xF9,0xA4,0xB0,0x99,0x92
+      +                          ,0x82,0xF8,0x80,0x90};
+   876  0775  3020               	movlw	countThirdty@listNumber& (0+255)
+   877  0776  0084               	movwf	4
+   878  0777  302E               	movlw	low countThirdty@F1280
+   879  0778  00F2               	movwf	??_countThirdty
+   880  0779  0804               	movf	4,w
+   881  077A  00F3               	movwf	??_countThirdty+1
+   882  077B  300A               	movlw	10
+   883  077C  00F4               	movwf	??_countThirdty+2
+   884  077D                     u210:
+   885  077D  0872               	movf	??_countThirdty,w
+   886  077E  0084               	movwf	4
+   887  077F  1383               	bcf	3,7	;select IRP bank0
+   888  0780  0800               	movf	0,w
+   889  0781  00F5               	movwf	??_countThirdty+3
+   890  0782  0AF2               	incf	??_countThirdty,f
+   891  0783  0873               	movf	??_countThirdty+1,w
+   892  0784  0084               	movwf	4
+   893  0785  0875               	movf	??_countThirdty+3,w
+   894  0786  0080               	movwf	0
+   895  0787  0AF3               	incf	??_countThirdty+1,f
+   896  0788  0BF4               	decfsz	??_countThirdty+2,f
+   897  0789  2F7D               	goto	u210
+   898                           
+   899                           ;BTN_SINGLE_LED.c: 74:     while(n--) {
+   900  078A  2FDF               	goto	l851
+   901  078B                     l825:
+   902                           
+   903                           ;BTN_SINGLE_LED.c: 76:         PORTC = listNumber[i];
+   904  078B  082A               	movf	countThirdty@i,w
+   905  078C  3E20               	addlw	(low (countThirdty@listNumber| 0))& (0+255)
+   906  078D  0084               	movwf	4
+   907  078E  1383               	bcf	3,7	;select IRP bank0
+   908  078F  0800               	movf	0,w
+   909  0790  0087               	movwf	7	;volatile
+   910                           
+   911                           ;BTN_SINGLE_LED.c: 77:             while(j < 10) {
+   912  0791  2FC1               	goto	l62
+   913  0792                     l827:
+   914                           
+   915                           ;BTN_SINGLE_LED.c: 78:                 PORTD = listNumber[j];
+   916  0792  082C               	movf	countThirdty@j,w
+   917  0793  3E20               	addlw	(low (countThirdty@listNumber| 0))& (0+255)
+   918  0794  0084               	movwf	4
+   919  0795  1383               	bcf	3,7	;select IRP bank0
+   920  0796  0800               	movf	0,w
+   921  0797  0088               	movwf	8	;volatile
+   922  0798                     l829:
+   923                           
+   924                           ;BTN_SINGLE_LED.c: 79:                 _delay((unsigned long)((50)*(4000000/4000.0)));
+   925  0798  3041               	movlw	65
+   926  0799  00F3               	movwf	??_countThirdty+1
+   927  079A  30EE               	movlw	238
+   928  079B  00F2               	movwf	??_countThirdty
+   929  079C                     u397:
+   930  079C  0BF2               	decfsz	??_countThirdty,f
+   931  079D  2F9C               	goto	u397
+   932  079E  0BF3               	decfsz	??_countThirdty+1,f
+   933  079F  2F9C               	goto	u397
+   934  07A0  0000               	nop
+   935  07A1                     l831:
+   936                           
+   937                           ;BTN_SINGLE_LED.c: 80:                 if(i == 3 && j == 0 && n == 0) {
+   938  07A1  3003               	movlw	3
+   939  07A2  1283               	bcf	3,5	;RP0=0, select bank0
+   940  07A3  1303               	bcf	3,6	;RP1=0, select bank0
+   941  07A4  062A               	xorwf	countThirdty@i,w
+   942  07A5  042B               	iorwf	countThirdty@i+1,w
+   943  07A6  1D03               	btfss	3,2
+   944  07A7  2FA9               	goto	u221
+   945  07A8  2FAA               	goto	u220
+   946  07A9                     u221:
+   947  07A9  2FBB               	goto	l841
+   948  07AA                     u220:
+   949  07AA                     l833:
+   950  07AA  082C               	movf	countThirdty@j,w
+   951  07AB  042D               	iorwf	countThirdty@j+1,w
+   952  07AC  1D03               	btfss	3,2
+   953  07AD  2FAF               	goto	u231
+   954  07AE  2FB0               	goto	u230
+   955  07AF                     u231:
+   956  07AF  2FBB               	goto	l841
+   957  07B0                     u230:
+   958  07B0                     l835:
+   959  07B0  0870               	movf	countThirdty@n,w
+   960  07B1  0471               	iorwf	countThirdty@n+1,w
+   961  07B2  1D03               	btfss	3,2
+   962  07B3  2FB5               	goto	u241
+   963  07B4  2FB6               	goto	u240
+   964  07B5                     u241:
+   965  07B5  2FBB               	goto	l841
+   966  07B6                     u240:
+   967  07B6                     l837:
+   968                           
+   969                           ;BTN_SINGLE_LED.c: 81:                     PORTD = 0xff;
+   970  07B6  30FF               	movlw	255
+   971  07B7  0088               	movwf	8	;volatile
+   972                           
+   973                           ;BTN_SINGLE_LED.c: 82:                     PORTC = 0xff;
+   974  07B8  30FF               	movlw	255
+   975  07B9  0087               	movwf	7	;volatile
+   976  07BA  2FED               	goto	l65
+   977  07BB                     l841:
+   978                           
+   979                           ;BTN_SINGLE_LED.c: 85:         j++;
+   980  07BB  3001               	movlw	1
+   981  07BC  07AC               	addwf	countThirdty@j,f
+   982  07BD  1803               	skipnc
+   983  07BE  0AAD               	incf	countThirdty@j+1,f
+   984  07BF  3000               	movlw	0
+   985  07C0  07AD               	addwf	countThirdty@j+1,f
+   986  07C1                     l62:	
+   987                           ;BTN_SINGLE_LED.c: 86:             }
+   988                           
+   989                           
+   990                           ;BTN_SINGLE_LED.c: 77:             while(j < 10) {
+   991  07C1  3000               	movlw	0
+   992  07C2  022D               	subwf	countThirdty@j+1,w
+   993  07C3  300A               	movlw	10
+   994  07C4  1903               	skipnz
+   995  07C5  022C               	subwf	countThirdty@j,w
+   996  07C6  1C03               	skipc
+   997  07C7  2FC9               	goto	u251
+   998  07C8  2FCA               	goto	u250
+   999  07C9                     u251:
+  1000  07C9  2F92               	goto	l827
+  1001  07CA                     u250:
+  1002  07CA                     l843:
+  1003                           
+  1004                           ;BTN_SINGLE_LED.c: 87:         i++;
+  1005  07CA  3001               	movlw	1
+  1006  07CB  07AA               	addwf	countThirdty@i,f
+  1007  07CC  1803               	skipnc
+  1008  07CD  0AAB               	incf	countThirdty@i+1,f
+  1009  07CE  3000               	movlw	0
+  1010  07CF  07AB               	addwf	countThirdty@i+1,f
+  1011  07D0                     l845:
+  1012                           
+  1013                           ;BTN_SINGLE_LED.c: 88:         j=0;
+  1014  07D0  01AC               	clrf	countThirdty@j
+  1015  07D1  01AD               	clrf	countThirdty@j+1
+  1016  07D2                     l847:
+  1017                           
+  1018                           ;BTN_SINGLE_LED.c: 75:         while(i < 10) {
+  1019  07D2  3000               	movlw	0
+  1020  07D3  022B               	subwf	countThirdty@i+1,w
+  1021  07D4  300A               	movlw	10
+  1022  07D5  1903               	skipnz
+  1023  07D6  022A               	subwf	countThirdty@i,w
+  1024  07D7  1C03               	skipc
+  1025  07D8  2FDA               	goto	u261
+  1026  07D9  2FDB               	goto	u260
+  1027  07DA                     u261:
+  1028  07DA  2F8B               	goto	l825
+  1029  07DB                     u260:
+  1030  07DB                     l849:
+  1031                           
+  1032                           ;BTN_SINGLE_LED.c: 90:         i = j = 0;
+  1033  07DB  01AC               	clrf	countThirdty@j
+  1034  07DC  01AD               	clrf	countThirdty@j+1
+  1035  07DD  01AA               	clrf	countThirdty@i
+  1036  07DE  01AB               	clrf	countThirdty@i+1
+  1037  07DF                     l851:
+  1038                           
+  1039                           ;BTN_SINGLE_LED.c: 74:     while(n--) {
+  1040  07DF  3001               	movlw	1
+  1041  07E0  02F0               	subwf	countThirdty@n,f
+  1042  07E1  3000               	movlw	0
+  1043  07E2  1C03               	skipc
+  1044  07E3  03F1               	decf	countThirdty@n+1,f
+  1045  07E4  02F1               	subwf	countThirdty@n+1,f
+  1046  07E5  0A70               	incf	countThirdty@n,w
+  1047  07E6  1D03               	skipz
+  1048  07E7  2FEC               	goto	u271
+  1049  07E8  0A71               	incf	countThirdty@n+1,w
+  1050  07E9  1D03               	btfss	3,2
+  1051  07EA  2FEC               	goto	u271
+  1052  07EB  2FED               	goto	u270
+  1053  07EC                     u271:
+  1054  07EC  2FD2               	goto	l847
+  1055  07ED                     u270:
+  1056  07ED                     l65:
+  1057  07ED  0008               	return
+  1058  07EE                     __end_of_countThirdty:
+  1059  007E                     btemp	set	126	;btemp
+  1060  007E                     wtemp0	set	126
+  1061                           
+  1062                           	psect	config
+  1063                           
+  1064                           ;Config register CONFIG1 @ 0x2007
+  1065                           ;	Oscillator Selection bits
+  1066                           ;	FOSC = HS, HS oscillator: High-speed crystal/resonator on RA6/OSC2/CLKOUT and RA7/OSC1
       +                          /CLKIN
-   896                           ;	Watchdog Timer Enable bit
-   897                           ;	WDTE = OFF, WDT disabled and can be enabled by SWDTEN bit of the WDTCON register
-   898                           ;	Power-up Timer Enable bit
-   899                           ;	PWRTE = OFF, PWRT disabled
-   900                           ;	RE3/MCLR pin function select bit
-   901                           ;	MCLRE = ON, RE3/MCLR pin function is MCLR
-   902                           ;	Code Protection bit
-   903                           ;	CP = OFF, Program memory code protection is disabled
-   904                           ;	Data Code Protection bit
-   905                           ;	CPD = OFF, Data memory code protection is disabled
-   906                           ;	Brown Out Reset Selection bits
-   907                           ;	BOREN = OFF, BOR disabled
-   908                           ;	Internal External Switchover bit
-   909                           ;	IESO = OFF, Internal/External Switchover mode is disabled
-   910                           ;	Fail-Safe Clock Monitor Enabled bit
-   911                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
-   912                           ;	Low Voltage Programming Enable bit
-   913                           ;	LVP = OFF, RB3 pin has digital I/O, HV on MCLR must be used for programming
-   914                           ;	In-Circuit Debugger Mode bit
-   915                           ;	DEBUG = 0x1, unprogrammed default
-   916  2007                     	org	8199
-   917  2007  20F2               	dw	8434
-   918                           
-   919                           ;Config register CONFIG2 @ 0x2008
-   920                           ;	Brown-out Reset Selection bit
-   921                           ;	BOR4V = BOR40V, Brown-out Reset set to 4.0V
-   922                           ;	Flash Program Memory Self Write Enable bits
-   923                           ;	WRT = OFF, Write protection off
-   924  2008                     	org	8200
-   925  2008  3FFF               	dw	16383
+  1067                           ;	Watchdog Timer Enable bit
+  1068                           ;	WDTE = OFF, WDT disabled and can be enabled by SWDTEN bit of the WDTCON register
+  1069                           ;	Power-up Timer Enable bit
+  1070                           ;	PWRTE = OFF, PWRT disabled
+  1071                           ;	RE3/MCLR pin function select bit
+  1072                           ;	MCLRE = ON, RE3/MCLR pin function is MCLR
+  1073                           ;	Code Protection bit
+  1074                           ;	CP = OFF, Program memory code protection is disabled
+  1075                           ;	Data Code Protection bit
+  1076                           ;	CPD = OFF, Data memory code protection is disabled
+  1077                           ;	Brown Out Reset Selection bits
+  1078                           ;	BOREN = OFF, BOR disabled
+  1079                           ;	Internal External Switchover bit
+  1080                           ;	IESO = OFF, Internal/External Switchover mode is disabled
+  1081                           ;	Fail-Safe Clock Monitor Enabled bit
+  1082                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
+  1083                           ;	Low Voltage Programming Enable bit
+  1084                           ;	LVP = OFF, RB3 pin has digital I/O, HV on MCLR must be used for programming
+  1085                           ;	In-Circuit Debugger Mode bit
+  1086                           ;	DEBUG = 0x1, unprogrammed default
+  1087  2007                     	org	8199
+  1088  2007  20F2               	dw	8434
+  1089                           
+  1090                           ;Config register CONFIG2 @ 0x2008
+  1091                           ;	Brown-out Reset Selection bit
+  1092                           ;	BOR4V = BOR40V, Brown-out Reset set to 4.0V
+  1093                           ;	Flash Program Memory Self Write Enable bits
+  1094                           ;	WRT = OFF, Write protection off
+  1095  2008                     	org	8200
+  1096  2008  3FFF               	dw	16383
 
 Data Sizes:
     Strings     0
     Constant    0
-    Data        0
+    Data        10
     BSS         0
     Persistent  0
     Stack       0
@@ -950,7 +1122,7 @@ Data Sizes:
 Auto Spaces:
     Space          Size  Autos    Used
     COMMON           14      8       8
-    BANK0            80      0       0
+    BANK0            80     14      24
     BANK1            80      0       0
     BANK3            96      0       0
     BANK2            96      0       0
@@ -961,12 +1133,11 @@ Pointer List with Targets:
 
 Critical Paths under _main in COMMON
 
-    _main->_stateCountUp
-    _main->_stateRace
+    _main->_countThirdty
 
 Critical Paths under _main in BANK0
 
-    None.
+    _main->_countThirdty
 
 Critical Paths under _main in BANK1
 
@@ -985,22 +1156,24 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 0     0      0     432
+ (0) _main                                                 2     2      0     502
+                                              6 COMMON     2     2      0
+                       _countThirdty
                         _declarePort
                            _flashLed
-                       _stateCountUp
-                          _stateRace
+                            _flashPu
  ---------------------------------------------------------------------------------
- (1) _stateRace                                            8     6      2     167
-                                              0 COMMON     8     6      2
- ---------------------------------------------------------------------------------
- (1) _stateCountUp                                         8     6      2     167
-                                              0 COMMON     8     6      2
+ (1) _flashPu                                              5     3      2      98
+                                              0 COMMON     5     3      2
  ---------------------------------------------------------------------------------
  (1) _flashLed                                             5     3      2      98
                                               0 COMMON     5     3      2
  ---------------------------------------------------------------------------------
  (1) _declarePort                                          0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _countThirdty                                        20    18      2     306
+                                              0 COMMON     6     4      2
+                                              0 BANK0     14    14      0
  ---------------------------------------------------------------------------------
  Estimated maximum stack depth 1
  ---------------------------------------------------------------------------------
@@ -1008,80 +1181,90 @@ Call Graph Tables:
  Call Graph Graphs:
 
  _main (ROOT)
+   _countThirdty
    _declarePort
    _flashLed
-   _stateCountUp
-   _stateRace
+   _flashPu
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
-BITCOMMON            E      0       0       0        0.0%
-EEDATA             100      0       0       0        0.0%
-NULL                 0      0       0       0        0.0%
-CODE                 0      0       0       0        0.0%
-COMMON               E      8       8       1       57.1%
-BITSFR0              0      0       0       1        0.0%
-SFR0                 0      0       0       1        0.0%
-BITSFR1              0      0       0       2        0.0%
-SFR1                 0      0       0       2        0.0%
-STACK                0      0       0       2        0.0%
-ABS                  0      0       0       3        0.0%
-BITBANK0            50      0       0       4        0.0%
-BITSFR3              0      0       0       4        0.0%
-SFR3                 0      0       0       4        0.0%
-BANK0               50      0       0       5        0.0%
-BITSFR2              0      0       0       5        0.0%
-SFR2                 0      0       0       5        0.0%
-BITBANK1            50      0       0       6        0.0%
-BANK1               50      0       0       7        0.0%
-BITBANK3            60      0       0       8        0.0%
 BANK3               60      0       0       9        0.0%
-BITBANK2            60      0       0      10        0.0%
+BITBANK3            60      0       0       8        0.0%
+SFR3                 0      0       0       4        0.0%
+BITSFR3              0      0       0       4        0.0%
 BANK2               60      0       0      11        0.0%
-DATA                 0      0       0      12        0.0%
+BITBANK2            60      0       0      10        0.0%
+SFR2                 0      0       0       5        0.0%
+BITSFR2              0      0       0       5        0.0%
+BANK1               50      0       0       7        0.0%
+BITBANK1            50      0       0       6        0.0%
+SFR1                 0      0       0       2        0.0%
+BITSFR1              0      0       0       2        0.0%
+BANK0               50      E      18       5       30.0%
+BITBANK0            50      0       0       4        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR0              0      0       0       1        0.0%
+COMMON               E      8       8       1       57.1%
+BITCOMMON            E      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+DATA                 0      0      20      12        0.0%
+ABS                  0      0      20       3        0.0%
+NULL                 0      0       0       0        0.0%
+STACK                0      0       0       2        0.0%
+EEDATA             100      0       0       0        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.32 build 20210201212658 
-Symbol Table                                                                                   Sat Mar 13 00:49:45 2021
+Symbol Table                                                                                   Wed Mar 24 05:11:31 2021
 
-           _stateCountUp 07B1                       l60 07FB                       l44 0750  
-                     l45 076C                       l46 075E                       l56 07D0  
-                     l75 073A                       l69 07B0                       l78 070B  
-                     u90 073A                       u91 0739                      l740 0720  
-                    l670 06F3                      l742 072C                      l734 070C  
-                    l750 078A                      l680 0709                      l672 0703  
-                    l736 070D                      l760 07B2                      l752 0791  
-                    l744 0770                      l674 0706                      l738 071D  
-                    l770 07DE                      l762 07B6                      l754 079F  
-                    l746 0771                      l676 0707                      l772 07E1  
-                    l764 07B8                      l748 077A                      l756 07A2  
-                    l780 0746                      l678 0708                      l766 07C0  
-                    l774 07ED                      l758 07B1                      l782 0754  
-                    l768 07C4                      l784 0762                      l776 073B  
-                    l778 0740                      _RB0 0030                      _RB1 0031  
-                    _RB2 0032                      u100 079F                      u101 079E  
-                    u110 07B0                      u111 07AF                      u120 07DE  
-                    u121 07DD                      u130 07FB                      u131 07FA  
-                    u140 0746                      u141 0745                      u150 0754  
-                    u207 0717                      u151 0753                      u160 0762  
-                    u217 0726                      u161 0761                      u177 0784  
-                    u187 07CA                      u197 07E7                     _WPUB 0095  
-                   _main 073B                     btemp 007E                     start 0000  
-                  ?_main 0070                    _ANSEL 0188                    _PORTC 0007  
-                  _PORTD 0008                    _TRISC 0087                    _TRISD 0088  
-                  _nRBPU 040F     __size_of_declarePort 0019                    status 0003  
-                  wtemp0 007E          __initialization 07FC             __end_of_main 0770  
-                 ??_main 0078                   _ANSELH 0189                   _TRISB0 0430  
-                 _TRISB1 0431                   _TRISB2 0432         __end_of_flashLed 073B  
-__end_of__initialization 07FC           __pcstackCOMMON 0070         stateCountUp@hold 0077  
-          stateRace@hold 0077               __pmaintext 073B       __size_of_stateRace 0041  
-              ?_flashLed 0070                  __ptext1 0770                  __ptext2 07B1  
-                __ptext3 070C                  __ptext4 06F3            ??_declarePort 0070  
-             ??_flashLed 0072     end_of_initialization 07FC        __end_of_stateRace 07B1  
-    __end_of_declarePort 070C            ?_stateCountUp 0070      start_initialization 07FC  
-      stateCountUp@index 0075        stateCountUp@times 0070           stateRace@index 0075  
-         stateRace@times 0070           ??_stateCountUp 0072              _declarePort 06F3  
-              ___latbits 0002        __size_of_flashLed 002F                _stateRace 0770  
-   __end_of_stateCountUp 07FC               ?_stateRace 0070                 _flashLed 070C  
-          __size_of_main 0035             ?_declarePort 0070              ??_stateRace 0072  
-  __size_of_stateCountUp 004B            flashLed@times 0070  
+                      pc 0002                       l44 0731                       l45 076B  
+                     l62 07C1                       l46 074E                       l65 07ED  
+                     l74 071B                       l98 06E7                       fsr 0004  
+                    l101 06B8                      l701 06B3                      l703 06B4  
+                    l705 06B5                      l811 06CD                      l821 076F  
+                    l813 06D9                      l805 06B9                      l831 07A1  
+                    l823 0775                      l807 06BA                      l815 06E8  
+                    l833 07AA                      l841 07BB                      l825 078B  
+                    l809 06CA                      l817 06E9                      l843 07CA  
+                    l835 07B0                      l827 0792                      l851 07DF  
+                    l819 070D                      l845 07D0                      l837 07B6  
+                    l829 0798                      l693 069E                      l861 073E  
+                    l853 071C                      l847 07D2                      l695 06A5  
+                    l863 0744                      l855 0721                      l849 07DB  
+                    l697 06A9                      l865 0752                      l857 0727  
+                    l699 06B0                      l867 075B                      l859 0735  
+                    l869 0761                      _RB0 0030                      _RB1 0031  
+                    _RB2 0032                      u200 071B                      u201 071A  
+                    u210 077D                      u220 07AA                      u300 0744  
+                    u221 07A9                      u301 0743                      u230 07B0  
+                    u310 0752                      u231 07AF                      u311 0751  
+                    u240 07B6                      u320 0761                      u241 07B5  
+                    u321 0760                      u250 07CA                      u251 07C9  
+                    u260 07DB                      u261 07DA                      u270 07ED  
+                    u190 06E7                      u271 07EC                      u191 06E6  
+                    u280 0727                      u337 0739                      u281 0726  
+                    u290 0735                      u347 0756                      u291 0734  
+                    u357 06F5                      u367 0707                      u377 06C4  
+                    u387 06D3                      u397 079C                      fsr0 0004  
+                    indf 0000                     _WPUB 0095                     _main 071C  
+                   btemp 007E                     start 0000                    ?_main 0070  
+                  _ANSEL 0188                    _PORTC 0007                    _PORTD 0008  
+                  _TRISC 0087                    _TRISD 0088            ?_countThirdty 0070  
+        __end_of_flashPu 071C                    _nRBPU 040F     __size_of_declarePort 001B  
+                  pclath 000A                    status 0003                    wtemp0 007E  
+        __initialization 07EE             __end_of_main 076F                   ??_main 0076  
+         ??_countThirdty 0072                   _ANSELH 0189                   _TRISB0 0430  
+                 _TRISB1 0431                   _TRISB2 0432         __end_of_flashLed 06E8  
+              ??_flashPu 0072   countThirdty@listNumber 0020  __end_of__initialization 07FC  
+         __pcstackCOMMON 0070             __pidataBANK0 0681     __end_of_countThirdty 07EE  
+             __pmaintext 071C                ?_flashLed 0070                  __ptext1 06E8  
+                __ptext2 06B9                  __ptext3 069E                  __ptext4 076F  
+                _flashPu 06E8            ??_declarePort 0070               ??_flashLed 0072  
+   end_of_initialization 07FC        countThirdty@F1280 002E      __end_of_declarePort 06B9  
+  __size_of_countThirdty 007F            countThirdty@i 002A            countThirdty@j 002C  
+          countThirdty@n 0070      start_initialization 07EE             _countThirdty 076F  
+             init_fetch0 068B              __pdataBANK0 002E              _declarePort 069E  
+              ___latbits 0002            __pcstackBANK0 0020        __size_of_flashLed 002F  
+               ?_flashPu 0070         __size_of_flashPu 0034                 _flashLed 06B9  
+          __size_of_main 0053                 flashPu@n 0070             ?_declarePort 0070  
+               init_ram0 068F            flashLed@times 0070  
